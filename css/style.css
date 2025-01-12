@@ -1,11 +1,11 @@
 
 /* Global Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     color: #333;
-    background-color: #f8f9fa;
+    background: linear-gradient(to bottom, #ffffff, #f3f3f3);
 }
 
 /* Header and Navigation */
@@ -17,7 +17,7 @@ header {
 }
 
 .logo-container img {
-    max-width: 150px;
+    max-width: 250px;
 }
 
 .sticky-nav {
@@ -46,13 +46,14 @@ header {
 }
 
 .highlight-button {
-    background-color: #f8b5c0;
+    background-color: rgba(194, 24, 91, 0.6); /* Magenta with transparency */
     padding: 8px 15px;
-    border-radius: 5px;
+    border-radius: 50px;
+    transition: 0.3s ease;
 }
 
 .highlight-button:hover {
-    background-color: #e98a99;
+    background-color: rgba(194, 24, 91, 1);
     color: #fff;
 }
 
@@ -65,18 +66,22 @@ header {
 .call-to-action {
     background-color: #e5f1ff;
     padding: 30px;
+    border-radius: 15px;
 }
 
 .cta-button {
     background-color: #2a9df4;
     color: #fff;
-    padding: 10px 20px;
+    padding: 15px 30px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: 0.3s ease;
 }
 
 .cta-button:hover {
     background-color: #1b7ccf;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Footer */
@@ -85,6 +90,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px 0;
+    border-radius: 0;
 }
 
 /* Images */
@@ -92,4 +98,52 @@ footer {
     max-width: 80%;
     height: auto;
     margin-top: 20px;
+}
+
+/* Test Button */
+.test-button {
+    background-color: rgba(194, 24, 91, 0.6);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.test-button:hover {
+    background-color: rgba(194, 24, 91, 1);
+    transform: scale(1.05);
+}
+
+/* Feedback Section */
+.feedback-section {
+    background-color: #f9f9f9;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-carousel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.feedback {
+    background-color: #fff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+.feedback span {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #555;
 }
