@@ -1,0 +1,31 @@
+
+/* Feedback Section */
+.feedback-section {
+    background-color: #f9f9f9;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-carousel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.feedback {
+    background-color: #fff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+.feedback span {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #555;
+}
