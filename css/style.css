@@ -24,27 +24,29 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    height: 150px; /* Increased height for larger logo */
+    height: 180px; /* Increased height for larger logo */
     transition: all 0.3s ease;
     position: sticky;
     top: 0;
     background-color: var(--hvit);
     z-index: 1000;
+    border-bottom: 2px solid var(--lys-graa);
+    padding-bottom: 10px; /* Ensure spacing between logo and menu */
 }
 
 .logo-container img {
-    max-width: 350px; /* Significantly increased width */
+    max-width: 400px; /* Increased width for larger logo */
     height: auto;
     transition: transform 0.3s ease, max-width 0.3s ease;
 }
 
 .logo-container.shrink {
-    height: 100px; /* Adjusted height when scrolling */
+    height: 120px; /* Adjusted height when scrolling */
 }
 
 .logo-container.shrink img {
     transform: scale(0.85);
-    max-width: 300px; /* Adjusted for shrink effect */
+    max-width: 350px; /* Adjusted for shrink effect */
 }
 
 /* Navigation styling */
