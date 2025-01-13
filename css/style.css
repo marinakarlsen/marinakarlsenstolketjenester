@@ -1,11 +1,20 @@
 
+/* General styling */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
 /* Logo container */
 .logo-container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    height: 80px; /* Fixed smaller height */
+    height: 80px;
     transition: all 0.3s ease;
     position: sticky;
     top: 0;
@@ -14,41 +23,68 @@
 }
 
 .logo-container img {
-    max-width: 200px; /* Reduced width */
+    max-width: 200px;
     height: auto;
-    transition: transform 0.3s ease, max-width 0.3s ease; /* Smooth scaling effect */
+    transition: transform 0.3s ease, max-width 0.3s ease;
 }
 
 .logo-container.shrink {
-    height: 50px; /* Smaller height when scrolling */
+    height: 50px;
 }
 
 .logo-container.shrink img {
     transform: scale(0.85);
-    max-width: 150px; /* Adjusted for shrink effect */
+    max-width: 150px;
 }
 
-/* Horizontal lines around logo */
-.logo-container:before,
-.logo-container:after {
-    content: '';
-    display: block;
-    height: 1px;
-    width: 100%;
-    background-color: #ddd;
-    position: absolute;
-    top: 50%;
-    z-index: -1;
+/* Navigation styling */
+.sticky-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
 }
 
-.logo-container:before {
-    left: 0;
+.sticky-nav ul li {
+    margin: 0 15px;
 }
 
-.logo-container:after {
-    right: 0;
+.sticky-nav ul li a {
+    text-decoration: none;
+    color: #0066cc;
+    font-weight: bold;
 }
 
-body {
-    background-color: lightblue;
+.sticky-nav ul li a:hover {
+    color: #004a99;
+}
+
+/* Section styling */
+.section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.call-to-action {
+    background-color: #e0f7fa;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* Services container */
+.services-container {
+    display: flex;
+    justify-content: space-around;
+    text-align: left;
+}
+
+.service {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
