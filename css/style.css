@@ -24,18 +24,18 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    height: 200px; /* Further increased height for larger logo */
+    height: 200px; /* Height of the logo */
     transition: all 0.3s ease;
     position: sticky;
     top: 0;
     background-color: var(--hvit);
-    z-index: 10; /* Ensures the logo doesn't overlap other elements */
+    z-index: 10;
     padding-bottom: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Visual separation */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .logo-container img {
-    max-width: 450px; /* Further increased width for larger logo */
+    max-width: 450px; /* Increased width */
     height: auto;
     transition: transform 0.3s ease, max-width 0.3s ease;
 }
@@ -49,15 +49,43 @@ body {
     max-width: 400px; /* Adjusted for shrink effect */
 }
 
+/* Horizontal lines moved lower */
+.sticky-nav:before,
+.sticky-nav:after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 90%; /* Shorter than full width */
+    background-color: var(--lys-graa);
+    position: absolute;
+    z-index: 5;
+}
+
+.sticky-nav:before {
+    top: -5px; /* Moves the top line just above the menu */
+}
+
+.sticky-nav:after {
+    bottom: -5px; /* Moves the bottom line just below the menu */
+}
+
 /* Navigation styling */
+.sticky-nav {
+    position: relative; /* For positioning the lines */
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    background-color: var(--hvit);
+    border-bottom: 1px solid var(--lys-graa);
+}
+
 .sticky-nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     justify-content: center;
-    background-color: var(--hvit);
-    border-bottom: 1px solid var(--lys-graa);
 }
 
 .sticky-nav ul li {
@@ -75,19 +103,14 @@ body {
     color: var(--rosa);
 }
 
-/* Section styling */
-.section {
-    padding: 40px 20px;
-    text-align: center;
-}
-
+/* Section spacing below the logo */
 .call-to-action {
+    margin-top: 30px; /* Adds more space below the menu */
     background-color: var(--lyseblaa);
-    border-radius: 15px; /* Ensuring smooth and fully rounded corners for buttons */
+    border-radius: 15px;
     padding: 20px;
     border: 2px solid var(--rosa);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-top: 20px; /* Extra spacing under the logo */
 }
 
 /* Services container */
