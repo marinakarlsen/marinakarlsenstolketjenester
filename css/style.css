@@ -1,43 +1,12 @@
 
-/* Global Styles */
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    background: linear-gradient(to bottom, #ffffff, #f3f3f3);
-}
-
-/* Header and Navigation */
 /* Logo container */
 .logo-container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    height: 120px; /* Initial height */
-    transition: all 0.3s ease; /* Smooth size transition */
-}
-
-/* Logo image */
-.logo-container img {
-    max-width: 80%; /* Adjust to take up more horizontal space */
-    height: auto;
-    transition: transform 0.3s ease; /* Smooth scaling effect */
-}
-
-/* Reduced logo on scroll */
-.logo-container.shrink {
-    height: 60px; /* Smaller height when scrolling */
-}
-
-.logo-container.shrink img {
-    transform: scale(0.8); /* Scale down the logo */
-}
-
-
-.sticky-nav {
-    background-color: #333;
+    height: 80px; /* Fixed smaller height */
+    transition: all 0.3s ease;
     position: sticky;
     top: 0;
     background-color: white;
@@ -45,27 +14,28 @@ body {
 }
 
 .logo-container img {
-    max-width: 300px;
+    max-width: 200px; /* Reduced width */
     height: auto;
-    transition: transform 0.3s ease, max-width 0.3s ease;
+    transition: transform 0.3s ease, max-width 0.3s ease; /* Smooth scaling effect */
 }
 
 .logo-container.shrink {
-    height: 60px;
+    height: 50px; /* Smaller height when scrolling */
 }
 
 .logo-container.shrink img {
-    transform: scale(0.8);
-    max-width: 200px;
+    transform: scale(0.85);
+    max-width: 150px; /* Adjusted for shrink effect */
 }
 
+/* Horizontal lines around logo */
 .logo-container:before,
 .logo-container:after {
     content: '';
     display: block;
-    height: 2px;
+    height: 1px;
     width: 100%;
-    background-color: #000;
+    background-color: #ddd;
     position: absolute;
     top: 50%;
     z-index: -1;
@@ -78,5 +48,3 @@ body {
 .logo-container:after {
     right: 0;
 }
-
-/* Other styles omitted for brevity */
