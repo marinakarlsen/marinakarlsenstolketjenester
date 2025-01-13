@@ -24,7 +24,7 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    height: 80px;
+    height: 120px; /* Increased height for larger logo */
     transition: all 0.3s ease;
     position: sticky;
     top: 0;
@@ -34,18 +34,18 @@ body {
 }
 
 .logo-container img {
-    max-width: 200px;
+    max-width: 300px; /* Increased width */
     height: auto;
     transition: transform 0.3s ease, max-width 0.3s ease;
 }
 
 .logo-container.shrink {
-    height: 50px;
+    height: 80px; /* Adjusted height when scrolling */
 }
 
 .logo-container.shrink img {
     transform: scale(0.85);
-    max-width: 150px;
+    max-width: 250px; /* Adjusted for shrink effect */
 }
 
 /* Navigation styling */
