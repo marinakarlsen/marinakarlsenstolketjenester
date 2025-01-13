@@ -29,8 +29,9 @@ body {
     position: sticky;
     top: 0;
     background-color: var(--hvit);
-    z-index: 1000;
-    padding-bottom: 10px; /* Ensure spacing between logo and menu */
+    z-index: 10; /* Ensures the logo doesn't overlap other elements */
+    padding-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Visual separation */
 }
 
 .logo-container img {
@@ -86,6 +87,7 @@ body {
     padding: 20px;
     border: 2px solid var(--rosa);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Extra spacing under the logo */
 }
 
 /* Services container */
@@ -123,7 +125,7 @@ button, .highlight-button {
     background-color: var(--rosa);
     color: var(--hvit);
     border: none;
-    border-radius: 20px; /* Ensuring fully rounded corners */
+    border-radius: 20px; /* Fully rounded corners */
     padding: 10px 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
