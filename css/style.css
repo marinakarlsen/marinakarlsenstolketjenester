@@ -9,16 +9,32 @@ body {
 }
 
 /* Header and Navigation */
-header {
-    background-color: #fff;
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
-    text-align: center;
+/* Logo container */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    height: 120px; /* Initial height */
+    transition: all 0.3s ease; /* Smooth size transition */
 }
 
+/* Logo image */
 .logo-container img {
-    max-width: 250px;
+    max-width: 80%; /* Adjust to take up more horizontal space */
+    height: auto;
+    transition: transform 0.3s ease; /* Smooth scaling effect */
 }
+
+/* Reduced logo on scroll */
+.logo-container.shrink {
+    height: 60px; /* Smaller height when scrolling */
+}
+
+.logo-container.shrink img {
+    transform: scale(0.8); /* Scale down the logo */
+}
+
 
 .sticky-nav {
     background-color: #333;
