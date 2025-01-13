@@ -1,0 +1,18 @@
+// Velg logo-containeren
+const logoContainer = document.querySelector('.logo-container');
+
+// Legg til en scroll-event
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        logoContainer.classList.add('shrink'); // Reduser logoen ved scrolling
+    } else {
+        logoContainer.classList.remove('shrink'); // Tilbakestill logoen når du blar opp
+    }
+});
+
+// Gjør logoen klikkbar
+const logoLink = document.querySelector('.logo-container a');
+logoLink.addEventListener('click', (e) => {
+    e.preventDefault(); // Forhindrer standard lenkeoppførsel
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Bla til toppen
+});
