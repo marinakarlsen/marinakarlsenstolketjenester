@@ -30,7 +30,7 @@ body {
     top: 0;
     background-color: var(--hvit);
     z-index: 1000;
-    border-bottom: 2px solid var(--lys-graa);
+    border-bottom: none; /* Removed bottom border to avoid overlapping lines */
     padding-bottom: 10px; /* Ensure spacing between logo and menu */
 }
 
@@ -124,7 +124,7 @@ button, .highlight-button {
     background-color: var(--rosa);
     color: var(--hvit);
     border: none;
-    border-radius: 5px;
+    border-radius: 20px; /* Ensuring fully rounded corners */
     padding: 10px 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
