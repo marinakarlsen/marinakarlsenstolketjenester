@@ -30,12 +30,12 @@ body {
     top: 0;
     background-color: var(--hvit);
     z-index: 10;
-    padding-bottom: 10px;
+    padding-bottom: 20px; /* Extra padding under the logo */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .logo-container img {
-    max-width: 450px; /* Increased width */
+    max-width: 450px; /* Larger logo size */
     height: auto;
     transition: transform 0.3s ease, max-width 0.3s ease;
 }
@@ -49,7 +49,7 @@ body {
     max-width: 400px; /* Adjusted for shrink effect */
 }
 
-/* Horizontal lines moved lower */
+/* Horizontal lines below navigation */
 .sticky-nav:before,
 .sticky-nav:after {
     content: '';
@@ -62,85 +62,22 @@ body {
 }
 
 .sticky-nav:before {
-    top: -5px; /* Moves the top line just above the menu */
+    top: 50px; /* Moves the top line further down from the logo */
 }
 
 .sticky-nav:after {
-    bottom: -5px; /* Moves the bottom line just below the menu */
+    bottom: -5px; /* Keeps the bottom line under the menu */
 }
 
 /* Navigation styling */
 .sticky-nav {
-    position: relative; /* For positioning the lines */
+    position: relative;
     list-style: none;
     display: flex;
     justify-content: center;
     padding: 10px 0;
     background-color: var(--hvit);
     border-bottom: 1px solid var(--lys-graa);
-}
-
-.sticky-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-}
-
-.sticky-nav ul li {
-    margin: 0 15px;
-}
-
-.sticky-nav ul li a {
-    text-decoration: none;
-    color: var(--lilla);
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.sticky-nav ul li a:hover {
-    color: var(--rosa);
-}
-
-/* Section spacing below the logo */
-.call-to-action {
-    margin-top: 30px; /* Adds more space below the menu */
-    background-color: var(--lyseblaa);
-    border-radius: 15px;
-    padding: 20px;
-    border: 2px solid var(--rosa);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Services container */
-.services-container {
-    display: flex;
-    justify-content: space-around;
-    text-align: left;
-}
-
-.service {
-    max-width: 300px;
-    padding: 10px;
-    background-color: var(--hvit);
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Footer styling */
-footer {
-    background-color: var(--lys-graa);
-    text-align: center;
-    padding: 10px 0;
-    font-size: 0.9rem;
-    color: var(--sort);
 }
 
 /* Buttons and links */
@@ -152,6 +89,7 @@ button, .highlight-button {
     padding: 10px 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 10px; /* Extra spacing for buttons */
 }
 
 button:hover, .highlight-button:hover {
