@@ -20,65 +20,93 @@
                 <li><a href="#bestill" class="highlight-button">Bestill tolketjeneste</a></li>
                 <li><a href="#tjenester">Tjenester</a></li>
                 <li><a href="#om-meg">Om meg</a></li>
-                <li><a href="betingelser.html">Betingelser</a></li>
+                <li><a href="#tilbakemeldinger">Tilbakemeldinger</a></li>
                 <li><a href="#kontakt">Kontakt</a></li>
             </ul>
         </nav>
     </header>
     <main>
+        <!-- Bestillingsseksjonen -->
         <section id="bestill" class="section call-to-action">
             <h2>Bestill tolketjeneste</h2>
             <form class="contact-form">
-                <label for="dato">Dato og varighet:</label>
-                <input type="text" id="dato" name="dato" placeholder="Velg dato og varighet">
-                <label for="adresse">Adresse (hvis oppmøte):</label>
-                <input type="text" id="adresse" name="adresse" placeholder="Skriv inn adresse">
-                <label for="oppdragstype">Oppdragstype:</label>
-                <select id="oppdragstype" name="oppdragstype">
-                    <option value="telefontolking">Telefontolking</option>
-                    <option value="skjermtolking">Skjermtolking</option>
-                    <option value="personlig">Personlig oppmøte</option>
-                </select>
-                <label for="tema">Overordnet tema/felt:</label>
-                <input type="text" id="tema" name="tema" placeholder="Oppdragets tema">
-                <label for="kundeinfo">Kundeinformasjon:</label>
-                <input type="text" id="kundeinfo" name="kundeinfo" placeholder="Navn på instans">
-                <label for="notater">Notater:</label>
-                <textarea id="notater" name="notater" placeholder="Eventuelle notater eller utfyllende info"></textarea>
+                <div class="form-group">
+                    <label for="dato"><i class="fa fa-calendar"></i> Dato og varighet:</label>
+                    <input type="text" id="dato" name="dato" placeholder="Velg dato og varighet">
+                </div>
+                <div class="form-group">
+                    <label for="adresse"><i class="fa fa-map-marker-alt"></i> Adresse (hvis oppmøte):</label>
+                    <input type="text" id="adresse" name="adresse" placeholder="Skriv inn adresse">
+                </div>
+                <div class="form-group">
+                    <label for="oppdragstype"><i class="fa fa-list"></i> Oppdragstype:</label>
+                    <select id="oppdragstype" name="oppdragstype">
+                        <option value="telefontolking">Telefontolking</option>
+                        <option value="skjermtolking">Skjermtolking</option>
+                        <option value="personlig">Personlig oppmøte</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="tema"><i class="fa fa-clipboard"></i> Overordnet tema/felt:</label>
+                    <input type="text" id="tema" name="tema" placeholder="Oppdragets tema">
+                </div>
+                <div class="form-group">
+                    <label for="kundeinfo"><i class="fa fa-user"></i> Kundeinformasjon:</label>
+                    <input type="text" id="kundeinfo" name="kundeinfo" placeholder="Navn på instans">
+                </div>
+                <div class="form-group">
+                    <label for="notater"><i class="fa fa-pencil-alt"></i> Notater:</label>
+                    <textarea id="notater" name="notater" placeholder="Eventuelle notater eller utfyllende info"></textarea>
+                </div>
                 <button type="submit" class="highlight-button">Send forespørsel</button>
             </form>
         </section>
+
+        <!-- Tjenester -->
         <section id="tjenester" class="section">
             <h2>Tjenester</h2>
             <div class="services-container">
                 <div class="service">
                     <h3>Telefontolking</h3>
-                    <p>Effektiv løsning for situasjoner hvor personlig oppmøte ikke er nødvendig. 
-                    Rask og pålitelig over telefon.</p>
+                    <p>Effektiv løsning for situasjoner hvor personlig oppmøte ikke er nødvendig.</p>
                 </div>
                 <div class="service">
                     <h3>Skjermtolking</h3>
-                    <p>Praktisk og fleksibelt for møter og konferanser via videoplattformer. Perfekt for fjernarbeid.</p>
+                    <p>Praktisk og fleksibelt for møter og konferanser via videoplattformer.</p>
                 </div>
                 <div class="service">
                     <h3>Personlig oppmøte</h3>
-                    <p>For situasjoner som krever tilstedeværelse og nærhet for maksimal effektivitet. 
-                    Ideell for sensitive møter.</p>
+                    <p>For situasjoner som krever tilstedeværelse og nærhet for maksimal effektivitet.</p>
                 </div>
             </div>
         </section>
-        <section id="om-meg" class="section">
-            <h2>Om meg</h2>
-            <p>Jeg er Marina Karlsen, statsautorisert tolk i offentlig sektor med ekspertise innen ukrainsk-norsk tolking. 
-            Jeg har bred erfaring med å støtte offentlige tjenester, bedrifter og organisasjoner i å bygge bro mellom språk og kultur. 
-            Min tilnærming er profesjonell, presis og etisk, med fokus på å skape tillit i alle tolkeoppdrag.</p>
-            <img src="img/job1.jpg" alt="Marina Karlsen på jobb" class="carousel-image">
+
+        <!-- Tilbakemeldinger -->
+        <section id="tilbakemeldinger" class="section feedback-section">
+            <h2>Tilbakemeldinger</h2>
+            <div class="feedback-carousel">
+                <div class="feedback">
+                    <p>"Fantastisk jobb! Profesjonell og presis."</p>
+                    <span>– Kunde, Oslo</span>
+                </div>
+                <div class="feedback">
+                    <p>"Rask respons og veldig pålitelig."</p>
+                    <span>★★★★★</span>
+                </div>
+                <div class="feedback">
+                    <p>"Gode ferdigheter og utmerket kommunikasjon."</p>
+                    <span>– Kunde, Bergen</span>
+                </div>
+            </div>
         </section>
-        <section id="kontakt" class="section">
+
+        <!-- Kontaktseksjonen -->
+        <section id="kontakt" class="section contact-section">
             <h2>Kontakt</h2>
+            <p>Ta gjerne kontakt via e-post eller telefon:</p>
             <ul>
-                <li>E-post: <a href="mailto:marinakarlsen5@gmail.com">marinakarlsen5@gmail.com</a></li>
-                <li>Telefon: <a href="tel:+4746930229">+47 469 30 229</a></li>
+                <li><i class="fa fa-envelope"></i> E-post: <a href="mailto:marinakarlsen5@gmail.com">marinakarlsen5@gmail.com</a></li>
+                <li><i class="fa fa-phone"></i> Telefon: <a href="tel:+4746930229">+47 469 30 229</a></li>
             </ul>
         </section>
     </main>
