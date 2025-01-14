@@ -1,4 +1,3 @@
-
 const logoContainer = document.querySelector('.logo-container');
 
 window.addEventListener('scroll', () => {
