@@ -38,3 +38,13 @@ if (feedbackCarousel) {
         feedbackCarousel.scrollLeft += e.deltaY;
     });
 }
+
+// Horisontal scrolling for tilbakemeldingsseksjonen
+const feedbackCarousel = document.querySelector('.feedback-carousel');
+
+if (feedbackCarousel) {
+    feedbackCarousel.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        feedbackCarousel.scrollLeft += e.deltaY;
+    });
+}
