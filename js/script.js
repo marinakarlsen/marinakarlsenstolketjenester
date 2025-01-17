@@ -39,12 +39,31 @@ if (feedbackCarousel) {
     });
 }
 
-// Horisontal scrolling for tilbakemeldingsseksjonen
-const feedbackCarousel = document.querySelector('.feedback-carousel');
+// EmailJS integrasjon for skjemaet
+document.querySelector('.contact-form').addEventListener('submit', function (e) {
+    e.preventDefault(); // Hindre standard skjemaoppførsel
 
-if (feedbackCarousel) {
-    feedbackCarousel.addEventListener('wheel', (e) => {
-        e.preventDefault();
-        feedbackCarousel.scrollLeft += e.deltaY;
-    });
-}
+    // Hent skjemaelementer
+    const form = e.target;
+    const formData = {
+        dato: form.dato.value,
+        adresse: form.adresse.value,
+        oppdragstype: form.oppdragstype.value,
+        tema: form.tema.value,
+        kundeinfo: form.kundeinfo.value,
+        epost: form.epost.value,
+        telefon: form.telefon.value,
+        notater: form.notater.value,
+    };
+
+    // Send data til EmailJS
+    emailjs.send('service_p7gp21t', 'template_weqmq4a', formData, 'bFcwSKHQToHSyB7aX')
+        .then(() => {
+            alert('Bestillingen din har blitt sendt! Takk.');
+            form.reset(); // Tøm skjemaet
+        })
+        .catch((error) => {
+            console.error('Feil ved sending av e-post:', error);
+            alert('Det oppstod en feil. Vennligst prøv igjen.');
+        });
+});

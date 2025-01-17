@@ -30,36 +30,36 @@
         <section id="bestill" class="section call-to-action">
             <h2>Bestill tolketjeneste</h2>
             <form class="contact-form">
-                <div class="form-group">
-                    <label for="dato"><i class="fa fa-calendar"></i> Dato og varighet:</label>
-                    <input type="text" id="dato" name="dato" placeholder="Velg dato og varighet">
-                </div>
-                <div class="form-group">
-                    <label for="adresse"><i class="fa fa-map-marker-alt"></i> Adresse (hvis oppmøte):</label>
-                    <input type="text" id="adresse" name="adresse" placeholder="Skriv inn adresse">
-                </div>
-                <div class="form-group">
-                    <label for="oppdragstype"><i class="fa fa-list"></i> Oppdragstype:</label>
-                    <select id="oppdragstype" name="oppdragstype">
-                        <option value="telefontolking">Telefontolking</option>
-                        <option value="skjermtolking">Skjermtolking</option>
-                        <option value="personlig">Personlig oppmøte</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="tema"><i class="fa fa-clipboard"></i> Overordnet tema/felt:</label>
-                    <input type="text" id="tema" name="tema" placeholder="Oppdragets tema">
-                </div>
-                <div class="form-group">
-                    <label for="kundeinfo"><i class="fa fa-user"></i> Kundeinformasjon:</label>
-                    <input type="text" id="kundeinfo" name="kundeinfo" placeholder="Navn på instans">
-                </div>
-                <div class="form-group">
-                    <label for="notater"><i class="fa fa-pencil-alt"></i> Notater:</label>
-                    <textarea id="notater" name="notater" placeholder="Eventuelle notater eller utfyllende info"></textarea>
-                </div>
+                <label for="dato">Dato og varighet:</label>
+                <input type="text" id="dato" name="dato" placeholder="Velg dato og varighet" required>
+            
+                <label for="adresse">Adresse (hvis oppmøte):</label>
+                <input type="text" id="adresse" name="adresse" placeholder="Skriv inn adresse">
+            
+                <label for="oppdragstype">Oppdragstype:</label>
+                <select id="oppdragstype" name="oppdragstype" required>
+                    <option value="telefontolking">Telefontolking</option>
+                    <option value="skjermtolking">Skjermtolking</option>
+                    <option value="personlig">Personlig oppmøte</option>
+                </select>
+            
+                <label for="tema">Overordnet tema/felt:</label>
+                <input type="text" id="tema" name="tema" placeholder="Oppdragets tema">
+            
+                <label for="kundeinfo">Kundeinformasjon:</label>
+                <input type="text" id="kundeinfo" name="kundeinfo" placeholder="Navn på instans" required>
+            
+                <label for="epost">E-post:</label>
+                <input type="email" id="epost" name="epost" placeholder="Din e-postadresse" required>
+            
+                <label for="telefon">Telefonnummer:</label>
+                <input type="tel" id="telefon" name="telefon" placeholder="Ditt telefonnummer" required>
+            
+                <label for="notater">Notater:</label>
+                <textarea id="notater" name="notater" placeholder="Eventuelle notater eller utfyllende info"></textarea>
+            
                 <button type="submit" class="highlight-button">Send forespørsel</button>
-            </form>
+            </form>            
         </section>
 
         <!-- Tjenester -->
