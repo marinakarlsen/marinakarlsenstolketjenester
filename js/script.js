@@ -1,3 +1,5 @@
+emailjs.init('bFcwSKHQToHSyB7aX'); // Public API Key
+
 // Dynamisk logo-effekt ved scrolling
 const logoContainer = document.querySelector('.logo-container');
 
