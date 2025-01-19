@@ -3,33 +3,27 @@ name: Oppdater versjonsnummer
 on:
   push:
     branches:
-      - main  # Endres hvis hovedgrenen din heter noe annet
+      - main
+
+permissions:
+  contents: write
 
 jobs:
   update-version:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Sjekk ut koden
-      uses: actions/checkout@v3
+      - name: Sjekk ut koden
+        uses: actions/checkout@v3
 
-    - name: Øk versjonsnummer
-      id: bump_version
-      run: |
-        # Les inn gjeldende versjon
-        current_version=$(jq -r '.version' version.json)
+      - name: Øk versjonsnummer
+        run: |
+          echo "Øker versjonsnummer..."
+          # Her oppdaterer du versjonsfilen
 
-        # Øk patch-delen av versjonsnummeret
-        new_version=$(echo $current_version | awk -F. '{printf "%d.%d.%d", $1, $2, $3+1}')
-
-        # Oppdater versjonsfilen
-        echo "{ \"version\": \"$new_version\" }" > version.json
-        echo "Versjon oppdatert til: $new_version"
-
-    - name: Commit og push endringer
-      run: |
-        git config user.name "GitHub Actions Bot"
-        git config user.email "actions@github.com"
-        git add version.json
-        git commit -m "Oppdatert versjon automatisk til $new_version"
-        git push
+      - name: Commit og push endringer
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Oppdatert versjon automatisk til"
+          git push
