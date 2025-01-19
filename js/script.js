@@ -59,13 +59,17 @@ if (feedbackCarousel) {
 
 // EmailJS integrasjon for skjemaet
 document.querySelector('.contact-form').addEventListener('submit', function (e) {
-    e.preventDefault(); // Hindre standard skjemaoppførsel
+    e.preventDefault(); // Hindrer standard skjemaoppførsel
 
+    // Hent språket som er valgt (fra localStorage eller default til "no")
+    const selectedLanguage = localStorage.getItem("language") || "no";
+
+    // Samle inn data fra skjemaet
     const form = e.target;
     const formData = {
         dato: form.dato.value,
-        tidStart: form['tid-start'].value, // Starttidspunkt
-        tidSlutt: form['tid-slutt'].value, // Slutttidspunkt
+        starttid: form.starttid.value,
+        sluttid: form.sluttid.value,
         adresse: form.adresse.value,
         oppdragstype: form.oppdragstype.value,
         tema: form.tema.value,
@@ -73,11 +77,11 @@ document.querySelector('.contact-form').addEventListener('submit', function (e) 
         epost: form.epost.value,
         telefon: form.telefon.value,
         notater: form.notater.value,
+        language: selectedLanguage === "no" ? "Norsk" : "Українська" // Legger til valgt språk
     };
 
+    // Send data til EmailJS via fetch
     console.log('Formdata som sendes:', formData);
-
-    // Fetch-forespørsel til EmailJS
     fetch('https://api.emailjs.com/api/v1.0/email/send', {
         method: 'POST',
         headers: {
@@ -87,12 +91,12 @@ document.querySelector('.contact-form').addEventListener('submit', function (e) 
             service_id: 'service_p7gp21t',   // Din Service ID
             template_id: 'template_weqmq4a', // Din Template ID
             user_id: 'bFcwSKHQToHSyB7aX',   // Din Public API Key
-            template_params: formData
+            template_params: formData       // Sender formData med dato, starttid og sluttid
         })
     })
     .then(response => {
         if (response.ok) {
-            alert('Bestillingen din har blitt sendt! Takk.');
+            alert('Bestillingen din har blitt sendt!');
             form.reset(); // Tøm skjemaet
         } else {
             return response.text().then(error => {
@@ -124,3 +128,68 @@ fetch('version.json') // Hent version.json
     .catch(error => {
         console.error('Feil ved lasting av versjonsinformasjon:', error);
     });
+
+
+// Språkdata for nettsiden
+const translations = {
+    no: {
+        header: "Bestill tolketjeneste",
+        datoLabel: "Dato:",
+        starttidLabel: "Starttid:",
+        sluttidLabel: "Sluttid:",
+        adresseLabel: "Adresse (hvis oppmøte):",
+        oppdragstypeLabel: "Oppdragstype:",
+        temaLabel: "Overordnet tema/felt:",
+        kundeinfoLabel: "Kundeinformasjon:",
+        epostLabel: "E-post:",
+        telefonLabel: "Telefon:",
+        notaterLabel: "Notater:",
+        sendButton: "Send forespørsel",
+    },
+    uk: {
+        header: "Замовити перекладацькі послуги",
+        datoLabel: "Дата:",
+        starttidLabel: "Час початку:",
+        sluttidLabel: "Час завершення:",
+        adresseLabel: "Адреса (якщо очно):",
+        oppdragstypeLabel: "Тип перекладу:",
+        temaLabel: "Тема:",
+        kundeinfoLabel: "Інформація про клієнта:",
+        epostLabel: "Електронна пошта:",
+        telefonLabel: "Телефон:",
+        notaterLabel: "Нотатки:",
+        sendButton: "Надіслати запит",
+    },
+};
+
+// Oppdater teksten på nettsiden
+function updateLanguage(lang) {
+    document.querySelector("#bestill-header").textContent = translations[lang].header;
+    document.querySelector("label[for='dato']").textContent = translations[lang].datoLabel;
+    document.querySelector("label[for='starttid']").textContent = translations[lang].starttidLabel;
+    document.querySelector("label[for='sluttid']").textContent = translations[lang].sluttidLabel;
+    document.querySelector("label[for='adresse']").textContent = translations[lang].adresseLabel;
+    document.querySelector("label[for='oppdragstype']").textContent = translations[lang].oppdragstypeLabel;
+    document.querySelector("label[for='tema']").textContent = translations[lang].temaLabel;
+    document.querySelector("label[for='kundeinfo']").textContent = translations[lang].kundeinfoLabel;
+    document.querySelector("label[for='epost']").textContent = translations[lang].epostLabel;
+    document.querySelector("label[for='telefon']").textContent = translations[lang].telefonLabel;
+    document.querySelector("label[for='notater']").textContent = translations[lang].notaterLabel;
+    document.querySelector(".highlight-button").textContent = translations[lang].sendButton;
+}
+
+// Aktiver språkvelgeren
+document.querySelectorAll(".lang-button").forEach(button => {
+    button.addEventListener("click", () => {
+        // Endre aktiv knapp
+        document.querySelectorAll(".lang-button").forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        // Oppdater språket basert på valgt knapp
+        const selectedLang = button.dataset.lang;
+        updateLanguage(selectedLang);
+    });
+});
+
+// Standard språk: Norsk
+updateLanguage("no");

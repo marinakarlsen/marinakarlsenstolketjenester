@@ -18,6 +18,11 @@
 </head>
 <body>
     <header>
+        <div class="language-switcher">
+            <button class="lang-button active" data-lang="no">NOR</button>
+            <button class="lang-button" data-lang="uk">УКР</button>
+        </div>        
+                
         <div class="logo-container">
             <a href="#">
                 <img id="dynamic-logo" src="img/logo.png" alt="Marina Karlsen Tolketjenester logo">
@@ -38,46 +43,45 @@
         <!-- Dette er en testkommentar for å trigge workflowen igjen -->
         <!-- Bestillingsseksjonen -->
         <section id="bestill" class="section call-to-action">
-            <h2>Bestill tolketjeneste</h2>
+            <h2 id="bestill-header">Bestill tolketjeneste</h2>
             <form class="contact-form">
                 <label for="dato">Dato:</label>
                 <input type="date" id="dato" name="dato">
-            
-                <label for="tid-start">Starttid:</label>
-                <input type="time" id="tid-start" name="tid-start">
-            
-                <label for="tid-slutt">Sluttid:</label>
-                <input type="time" id="tid-slutt" name="tid-slutt">
-            
+        
+                <label for="starttid">Starttid:</label>
+                <input type="time" id="starttid" name="starttid">
+        
+                <label for="sluttid">Sluttid:</label>
+                <input type="time" id="sluttid" name="sluttid">
+        
                 <label for="adresse">Adresse (hvis oppmøte):</label>
-                <input type="text" id="adresse" name="adresse" placeholder="Skriv inn adresse">
-            
+                <input type="text" id="adresse" name="adresse">
+        
                 <label for="oppdragstype">Oppdragstype:</label>
                 <select id="oppdragstype" name="oppdragstype">
                     <option value="telefontolking">Telefontolking</option>
                     <option value="skjermtolking">Skjermtolking</option>
                     <option value="personlig">Personlig oppmøte</option>
                 </select>
-            
-                <label for="tema">Overordnet tema/felt:</label>
-                <input type="text" id="tema" name="tema" placeholder="Oppdragets tema">
-            
-                <label for="kundeinfo">Kundeinformasjon:</label>
-                <input type="text" id="kundeinfo" name="kundeinfo" placeholder="Navn på instans">
-            
-                <label for="epost">E-post:</label>
-                <input type="email" id="epost" name="epost" placeholder="Din e-postadresse">
-            
-                <label for="telefon">Telefon:</label>
-                <input type="tel" id="telefon" name="telefon" placeholder="Telefonnummer">
-            
-                <label for="notater">Notater:</label>
-                <textarea id="notater" name="notater" placeholder="Eventuelle notater eller utfyllende info"></textarea>
-            
-                <button type="submit" class="highlight-button">Send forespørsel</button>
-            </form>            
-        </section>
         
+                <label for="tema">Overordnet tema/felt:</label>
+                <input type="text" id="tema" name="tema">
+        
+                <label for="kundeinfo">Kundeinformasjon:</label>
+                <input type="text" id="kundeinfo" name="kundeinfo">
+        
+                <label for="epost">E-post:</label>
+                <input type="email" id="epost" name="epost">
+        
+                <label for="telefon">Telefon:</label>
+                <input type="tel" id="telefon" name="telefon">
+        
+                <label for="notater">Notater:</label>
+                <textarea id="notater" name="notater"></textarea>
+        
+                <button type="submit" class="highlight-button">Send forespørsel</button>
+            </form>
+        </section>        
 
         <!-- Tjenester -->
         <section id="tjenester" class="section">
