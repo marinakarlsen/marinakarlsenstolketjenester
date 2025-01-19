@@ -74,13 +74,14 @@ document.querySelector('.contact-form').addEventListener('submit', function (e) 
 
     // Send data til EmailJS
     emailjs.send('service_p7gp21t', 'template_weqmq4a', formData)
-        .then(() => {
+        .then((response) => {
+            console.log('E-post sendt! Status:', response.status, response.text);
             alert('E-posten ble sendt! Takk for forespørselen.');
-            form.reset(); // Tøm skjemaet etter suksess
+            form.reset(); // Tøm skjemaet
         })
         .catch((error) => {
             console.error('Feil ved sending av e-post:', error);
-            alert('Noe gikk galt. Prøv igjen senere.');
+            alert(`Noe gikk galt: ${error.text || 'Ukjent feil'}.`);
         });
 });
 
