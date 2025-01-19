@@ -1,9 +1,8 @@
 // Sjekk om EmailJS er lastet og initialisert
-if (typeof emailjs !== 'undefined') {
-    emailjs.init('bFcwSKHQToHSyB7aX'); // Din public API nøkkel
-    console.log('EmailJS er initialisert');
-} else {
+if (typeof emailjs === 'undefined') {
     console.error('EmailJS er ikke lastet inn!');
+    alert('En feil oppstod. EmailJS er ikke initialisert.');
+    return;
 }
 
 // Dynamisk logo-effekt ved scrolling
