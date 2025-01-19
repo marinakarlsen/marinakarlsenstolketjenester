@@ -61,10 +61,11 @@ if (feedbackCarousel) {
 document.querySelector('.contact-form').addEventListener('submit', function (e) {
     e.preventDefault(); // Hindre standard skjemaoppførsel
 
-    // Samle inn data fra skjemaet
     const form = e.target;
     const formData = {
         dato: form.dato.value,
+        tidStart: form['tid-start'].value, // Starttidspunkt
+        tidSlutt: form['tid-slutt'].value, // Slutttidspunkt
         adresse: form.adresse.value,
         oppdragstype: form.oppdragstype.value,
         tema: form.tema.value,
@@ -76,7 +77,7 @@ document.querySelector('.contact-form').addEventListener('submit', function (e) 
 
     console.log('Formdata som sendes:', formData);
 
-    // Send data med fetch
+    // Fetch-forespørsel til EmailJS
     fetch('https://api.emailjs.com/api/v1.0/email/send', {
         method: 'POST',
         headers: {
@@ -91,7 +92,7 @@ document.querySelector('.contact-form').addEventListener('submit', function (e) 
     })
     .then(response => {
         if (response.ok) {
-            alert('Bestillingen din har blitt sendt!');
+            alert('Bestillingen din har blitt sendt! Takk.');
             form.reset(); // Tøm skjemaet
         } else {
             return response.text().then(error => {
