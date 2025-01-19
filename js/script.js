@@ -68,6 +68,4 @@ document.querySelector('.contact-form').addEventListener('submit', function (e) 
         console.error('Feil ved sending av e-post:', error);
         alert(`Det oppstod en feil: ${error.text || 'Ukjent feil'}. Vennligst prøv igjen.`);
     });
-});
-
- 
+}); 
