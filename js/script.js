@@ -75,8 +75,13 @@ document.querySelector('.contact-form').addEventListener('submit', function (e) 
         });
 });
 
-// Sett versjonsnummeret for nettsiden
-const versionNumber = '1.0.0'; // Oppdater dette for hver ny versjon
+// Definer versjonsnummer
+const versionNumber = "1.0.1"; // Oppdater dette nummeret ved nye endringer
 
-// Oppdater versjonsloggen i HTML
-document.querySelector('.version-log p').textContent = `Versjon: ${versionNumber}`;
+// Sett versjonsnummeret automatisk i HTML
+document.addEventListener("DOMContentLoaded", () => {
+    const versionLogElement = document.querySelector("#version-log");
+    if (versionLogElement) {
+        versionLogElement.textContent = `Versjon: ${versionNumber}`;
+    }
+});

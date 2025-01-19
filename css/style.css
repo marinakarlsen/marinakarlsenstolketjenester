@@ -262,7 +262,9 @@ h2 {
     color: #888; /* Grå tekst for å gi lavere prioritet */
 }
 
-.version-log p {
-    margin: 0;
-    padding: 5px;
+#version-log {
+    font-size: 0.9em;
+    color: gray;
+    text-align: center;
+    margin-top: 10px;
 }
