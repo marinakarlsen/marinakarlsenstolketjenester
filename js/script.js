@@ -1,4 +1,6 @@
-emailjs.init('bFcwSKHQToHSyB7aX'); // Public API Key
+// Sørg for at EmailJS er initialisert
+emailjs.init('bFcwSKHQToHSyB7aX'); // Din public key
+console.log("EmailJS er initialisert");
 
 // Dynamisk logo-effekt ved scrolling
 const logoContainer = document.querySelector('.logo-container');
@@ -45,8 +47,8 @@ if (feedbackCarousel) {
 document.querySelector('.contact-form').addEventListener('submit', function (e) {
     e.preventDefault(); // Hindre standard skjemaoppførsel
 
-    // Hent skjemaelementer
-    const form = e.target;
+    // Hent skjemaelementer fra hendelsens mål (e.target)
+    const form = e.target; // Dette sikrer at 'form' er definert
     const formData = {
         dato: form.dato.value,
         adresse: form.adresse.value,
@@ -58,14 +60,22 @@ document.querySelector('.contact-form').addEventListener('submit', function (e) 
         notater: form.notater.value,
     };
 
+    console.log("Skjemaets data:", formData); // Debug: Sjekk dataene som sendes
+
     // Send data til EmailJS
     emailjs.send('service_p7gp21t', 'template_weqmq4a', formData)
-    .then(() => {
-        alert('Bestillingen din har blitt sendt! Takk.');
-        form.reset();
-    })
-    .catch((error) => {
-        console.error('Feil ved sending av e-post:', error);
-        alert(`Det oppstod en feil: ${error.text || 'Ukjent feil'}. Vennligst prøv igjen.`);
-    });
-}); 
+        .then(() => {
+            alert('Bestillingen din har blitt sendt! Takk.');
+            form.reset(); // Tøm skjemaet
+        })
+        .catch((error) => {
+            console.error('Feil ved sending av e-post:', error);
+            alert(`Det oppstod en feil: ${error.text || 'Ukjent feil'}. Vennligst prøv igjen.`);
+        });
+});
+
+// Sett versjonsnummeret for nettsiden
+const versionNumber = '1.0.0'; // Oppdater dette for hver ny versjon
+
+// Oppdater versjonsloggen i HTML
+document.querySelector('.version-log p').textContent = `Versjon: ${versionNumber}`;

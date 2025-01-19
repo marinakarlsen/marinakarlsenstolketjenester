@@ -254,3 +254,15 @@ h2 {
     color: #999;
     font-style: italic;
 }
+
+.version-log {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #888; /* Grå tekst for å gi lavere prioritet */
+}
+
+.version-log p {
+    margin: 0;
+    padding: 5px;
+}
