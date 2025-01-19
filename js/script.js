@@ -105,13 +105,21 @@ document.querySelector('.contact-form').addEventListener('submit', function (e) 
     });
 });
 
-// Definer versjonsnummer
-const versionNumber = "1.0.1"; // Oppdater dette nummeret ved nye endringer
-
-// Sett versjonsnummeret automatisk i HTML
-document.addEventListener("DOMContentLoaded", () => {
-    const versionLogElement = document.querySelector("#version-log");
-    if (versionLogElement) {
-        versionLogElement.textContent = `Versjon: ${versionNumber}`;
-    }
-});
+// Hent versjonsnummeret fra version.json og vis det i versjonsloggen
+fetch('version.json') // Hent version.json
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Kunne ikke laste versjonsinformasjon');
+        }
+        return response.json(); // Konverter JSON-innhold til et objekt
+    })
+    .then(data => {
+        // Sett versjonsnummeret i HTML-elementet med id="version-log"
+        const versionLogElement = document.querySelector("#version-log");
+        if (versionLogElement) {
+            versionLogElement.textContent = `Versjon: ${data.version}`;
+        }
+    })
+    .catch(error => {
+        console.error('Feil ved lasting av versjonsinformasjon:', error);
+    });
