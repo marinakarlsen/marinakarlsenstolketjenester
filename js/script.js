@@ -1,17 +1,20 @@
-// En funksjon som sjekker om EmailJS er initialisert
+// Sjekk om EmailJS er lastet og initialisert
 function checkEmailJS() {
     if (typeof emailjs === 'undefined') {
         console.error('EmailJS er ikke lastet inn!');
         alert('En feil oppstod. EmailJS er ikke initialisert.');
-        return; // Dette er gyldig fordi det er inne i en funksjon.
+        return false; // Indikerer feil
     }
-    emailjs.init('bFcwSKHQToHSyB7aX'); // Min Public API Key
+    emailjs.init('bFcwSKHQToHSyB7aX'); // Din Public API Key
     console.log('EmailJS er initialisert med den nyeste SDK-en');
+    return true; // Indikerer suksess
 }
 
-// Kaller funksjonen for å sjekke EmailJS
-checkEmailJS();
-
+// Kjør sjekk for EmailJS
+if (!checkEmailJS()) {
+    // Stop her hvis EmailJS ikke er lastet inn
+    throw new Error('EmailJS ble ikke initialisert. Kontroller innstillingene dine.');
+}
 
 // Dynamisk logo-effekt ved scrolling
 const logoContainer = document.querySelector('.logo-container');
@@ -71,18 +74,35 @@ document.querySelector('.contact-form').addEventListener('submit', function (e) 
         notater: form.notater.value,
     };
 
-    // Send data til EmailJS
     console.log('Formdata som sendes:', formData);
-    console.log('EmailJS-objekt:', emailjs);
-    emailjs.send('service_p7gp21t', 'template_weqmq4a', formData)
-        .then(() => {
-            alert('Bestillingen din har blitt sendt! Takk.');
-            form.reset(); // Nullstill skjemaet
+
+    // Send data med fetch
+    fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            service_id: 'service_p7gp21t',   // Din Service ID
+            template_id: 'template_weqmq4a', // Din Template ID
+            user_id: 'bFcwSKHQToHSyB7aX',   // Din Public API Key
+            template_params: formData
         })
-        .catch((error) => {
-            console.error('Feil ved sending av e-post:', error);
-            alert(`Det oppstod en feil: ${error.text || 'Ukjent feil'}. Vennligst prøv igjen.`);
-        });
+    })
+    .then(response => {
+        if (response.ok) {
+            alert('Bestillingen din har blitt sendt!');
+            form.reset(); // Tøm skjemaet
+        } else {
+            return response.text().then(error => {
+                throw new Error(`Feil ved sending av e-post: ${error}`);
+            });
+        }
+    })
+    .catch(error => {
+        console.error('Feil ved sending av e-post:', error);
+        alert(`Noe gikk galt: ${error.message}`);
+    });
 });
 
 // Definer versjonsnummer
