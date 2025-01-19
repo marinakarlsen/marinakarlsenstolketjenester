@@ -1,9 +1,17 @@
-// Sjekk om EmailJS er lastet og initialisert
-if (typeof emailjs === 'undefined') {
-    console.error('EmailJS er ikke lastet inn!');
-    alert('En feil oppstod. EmailJS er ikke initialisert.');
-    return;
+// En funksjon som sjekker om EmailJS er initialisert
+function checkEmailJS() {
+    if (typeof emailjs === 'undefined') {
+        console.error('EmailJS er ikke lastet inn!');
+        alert('En feil oppstod. EmailJS er ikke initialisert.');
+        return; // Dette er gyldig fordi det er inne i en funksjon.
+    }
+    emailjs.init('bFcwSKHQToHSyB7aX'); // Min Public API Key
+    console.log('EmailJS er initialisert med den nyeste SDK-en');
 }
+
+// Kaller funksjonen for å sjekke EmailJS
+checkEmailJS();
+
 
 // Dynamisk logo-effekt ved scrolling
 const logoContainer = document.querySelector('.logo-container');
