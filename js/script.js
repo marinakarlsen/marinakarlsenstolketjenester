@@ -48,15 +48,9 @@ if (feedbackCarousel) {
 
 // EmailJS integrasjon for skjemaet
 document.querySelector('.contact-form').addEventListener('submit', function (e) {
-    e.preventDefault(); // Hindre at skjemaet sender på vanlig måte
-    
-    if (typeof emailjs === 'undefined') {
-        console.error('EmailJS er ikke initialisert!');
-        alert('En feil oppstod. EmailJS er ikke initialisert.');
-        return;
-    }
+    e.preventDefault(); // Hindre standard skjemaoppførsel
 
-    // Hent skjemaelementer
+    // Samle inn data fra skjemaet
     const form = e.target;
     const formData = {
         dato: form.dato.value,
@@ -69,18 +63,15 @@ document.querySelector('.contact-form').addEventListener('submit', function (e) 
         notater: form.notater.value,
     };
 
-    console.log('Formdata som sendes:', formData); // Logg for testing
-
     // Send data til EmailJS
     emailjs.send('service_p7gp21t', 'template_weqmq4a', formData)
-        .then((response) => {
-            console.log('E-post sendt! Status:', response.status, response.text);
-            alert('E-posten ble sendt! Takk for forespørselen.');
-            form.reset(); // Tøm skjemaet
+        .then(() => {
+            alert('Bestillingen din har blitt sendt! Takk.');
+            form.reset(); // Nullstill skjemaet
         })
         .catch((error) => {
             console.error('Feil ved sending av e-post:', error);
-            alert(`Noe gikk galt: ${error.text || 'Ukjent feil'}.`);
+            alert(`Det oppstod en feil: ${error.text || 'Ukjent feil'}. Vennligst prøv igjen.`);
         });
 });
 
