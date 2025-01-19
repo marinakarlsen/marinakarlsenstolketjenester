@@ -47,34 +47,34 @@ if (feedbackCarousel) {
 }
 
 // EmailJS integrasjon for skjemaet
-    document.querySelector('.contact-form').addEventListener('submit', function (e) {
-        e.preventDefault();
-    
-        if (typeof emailjs === 'undefined') {
-            console.error('EmailJS er ikke initialisert!');
-            alert('En feil oppstod. EmailJS er ikke initialisert.');
-            return;
-        }
-    
-        // Sendelogikk:
-        const formData = {
-            dato: form.dato.value,
-            adresse: form.adresse.value,
-            oppdragstype: form.oppdragstype.value,
-            tema: form.tema.value,
-            kundeinfo: form.kundeinfo.value,
-            epost: form.epost.value,
-            telefon: form.telefon.value,
-            notater: form.notater.value,
-        };
-    
-        emailjs.send('din-service-id', 'din-template-id', formData)
-            .then(() => {
-                alert('E-posten ble sendt!');
-            })
-            .catch((error) => {
-                console.error('Feil ved sending av e-post:', error);
-                alert('Noe gikk galt. Prøv igjen senere.');
-            });
-    });
-    
+document.querySelector('.contact-form').addEventListener('submit', function (e) {
+    e.preventDefault(); // Hindre standard skjemaoppførsel
+
+    // Hent skjemaelementer
+    const form = e.target;
+    const formData = {
+        dato: form.dato.value,
+        adresse: form.adresse.value,
+        oppdragstype: form.oppdragstype.value,
+        tema: form.tema.value,
+        kundeinfo: form.kundeinfo.value,
+        epost: form.epost.value,
+        telefon: form.telefon.value,
+        notater: form.notater.value,
+    };
+
+    console.log('Sender data til EmailJS:', formData);
+
+    // Send data til EmailJS
+    emailjs.send('service_p7gp21t', 'template_weqmq4a', formData, 'bFcwSKHQToHSyB7aX')
+        .then((response) => {
+            console.log('EmailJS response:', response);
+            alert('Bestillingen din har blitt sendt! Takk.');
+            form.reset(); // Tøm skjemaet
+        })
+        .catch((error) => {
+            console.error('Feil ved sending av e-post:', error);
+            alert('Det oppstod en feil. Vennligst prøv igjen.');
+        });
+});
+ 
