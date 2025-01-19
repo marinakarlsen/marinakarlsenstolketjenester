@@ -5,25 +5,40 @@ on:
     branches:
       - main
 
-permissions:
-  contents: write
-
 jobs:
   update-version:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Sjekk ut koden
-        uses: actions/checkout@v3
+    # 1. Sjekk ut koden fra GitHub
+    - name: Sjekk ut koden
+      uses: actions/checkout@v3
 
-      - name: Øk versjonsnummer
-        run: |
-          echo "Øker versjonsnummer..."
-          # Her oppdaterer du versjonsfilen
+    # 2. Les og oppdater versjonsnummeret
+    - name: Øk versjonsnummer
+      run: |
+        # Les nåværende versjonsnummer
+        current_version=$(jq -r '.version' version.json)
+        echo "Nåværende versjon: $current_version"
 
-      - name: Commit og push endringer
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "actions@github.com"
-          git add .
-          git commit -m "Oppdatert versjon automatisk til"
-          git push
+        # Del opp versjonsnummeret i hoved-, minor- og patch-deler
+        major=$(echo $current_version | cut -d. -f1)
+        minor=$(echo $current_version | cut -d. -f2)
+        patch=$(echo $current_version | cut -d. -f3)
+
+        # Øk patch-versjonen
+        new_patch=$((patch + 1))
+        new_version="$major.$minor.$new_patch"
+
+        # Oppdater version.json med det nye versjonsnummeret
+        jq --arg version "$new_version" '.version = $version' version.json > tmp.json && mv tmp.json version.json
+        echo "Oppdatert til ny versjon: $new_version"
+
+    # 3. Commit og push endringene
+    - name: Commit og push endringer
+      run: |
+        git config user.name "GitHub Actions Bot"
+        git config user.email "actions@github.com"
+        git add version.json
+        git commit -m "Oppdatert versjon til $new_version automatisk"
+        git push
