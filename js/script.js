@@ -1,5 +1,9 @@
-emailjs.init('bFcwSKHQToHSyB7aX'); // Public API Key
-console.log('EmailJS er initialisert');
+if (typeof emailjs !== 'undefined') {
+    emailjs.init('bFcwSKHQToHSyB7aX');
+    console.log('EmailJS er initialisert');
+} else {
+    console.error('EmailJS er ikke lastet inn!');
+}
 
 // Dynamisk logo-effekt ved scrolling
 const logoContainer = document.querySelector('.logo-container');
