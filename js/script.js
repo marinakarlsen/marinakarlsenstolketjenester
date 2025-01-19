@@ -1,11 +1,9 @@
-// EmailJS er initialisert
-emailjs.init('bFcwSKHQToHSyB7aX'); // Public key
-console.log("EmailJS er initialisert");
-
-if (emailjs) {
-    console.log('EmailJS er lastet inn og klar!');
+// Sjekk om EmailJS er lastet og initialisert
+if (typeof emailjs !== 'undefined') {
+    emailjs.init('bFcwSKHQToHSyB7aX'); // Din public API nøkkel
+    console.log('EmailJS er initialisert');
 } else {
-    console.error('EmailJS er IKKE lastet inn!');
+    console.error('EmailJS er ikke lastet inn!');
 }
 
 // Dynamisk logo-effekt ved scrolling
@@ -51,10 +49,16 @@ if (feedbackCarousel) {
 
 // EmailJS integrasjon for skjemaet
 document.querySelector('.contact-form').addEventListener('submit', function (e) {
-    e.preventDefault(); // Hindre standard skjemaoppførsel
+    e.preventDefault(); // Hindre at skjemaet sender på vanlig måte
+    
+    if (typeof emailjs === 'undefined') {
+        console.error('EmailJS er ikke initialisert!');
+        alert('En feil oppstod. EmailJS er ikke initialisert.');
+        return;
+    }
 
-    // Hent skjemaelementer fra hendelsens mål (e.target)
-    const form = e.target; // Dette sikrer at 'form' er definert
+    // Hent skjemaelementer
+    const form = e.target;
     const formData = {
         dato: form.dato.value,
         adresse: form.adresse.value,
@@ -66,16 +70,18 @@ document.querySelector('.contact-form').addEventListener('submit', function (e) 
         notater: form.notater.value,
     };
 
-    console.log("Skjemaets data:", formData); // Debug: Sjekk dataene som sendes
+    console.log('Formdata som sendes:', formData); // Logg for testing
 
     // Send data til EmailJS
     emailjs.send('service_p7gp21t', 'template_weqmq4a', formData)
-    .then(() => {
-        alert('E-posten ble sendt!');
-    })
-    .catch((error) => {
-        console.error('Feil ved sending av e-post:', error);
-    });
+        .then(() => {
+            alert('E-posten ble sendt! Takk for forespørselen.');
+            form.reset(); // Tøm skjemaet etter suksess
+        })
+        .catch((error) => {
+            console.error('Feil ved sending av e-post:', error);
+            alert('Noe gikk galt. Prøv igjen senere.');
+        });
 });
 
 // Sett versjonsnummeret for nettsiden
