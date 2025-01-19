@@ -1,5 +1,5 @@
-// Sørg for at EmailJS er initialisert
-emailjs.init('bFcwSKHQToHSyB7aX'); // Din public key
+// EmailJS er initialisert
+emailjs.init('bFcwSKHQToHSyB7aX'); // Public key
 console.log("EmailJS er initialisert");
 
 if (emailjs) {
@@ -70,14 +70,12 @@ document.querySelector('.contact-form').addEventListener('submit', function (e) 
 
     // Send data til EmailJS
     emailjs.send('service_p7gp21t', 'template_weqmq4a', formData)
-        .then(() => {
-            alert('Bestillingen din har blitt sendt! Takk.');
-            form.reset(); // Tøm skjemaet
-        })
-        .catch((error) => {
-            console.error('Feil ved sending av e-post:', error);
-            alert(`Det oppstod en feil: ${error.text || 'Ukjent feil'}. Vennligst prøv igjen.`);
-        });
+    .then(() => {
+        alert('E-posten ble sendt!');
+    })
+    .catch((error) => {
+        console.error('Feil ved sending av e-post:', error);
+    });
 });
 
 // Sett versjonsnummeret for nettsiden
