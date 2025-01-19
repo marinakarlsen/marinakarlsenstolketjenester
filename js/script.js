@@ -1,9 +1,4 @@
-if (typeof emailjs !== 'undefined') {
-    emailjs.init('bFcwSKHQToHSyB7aX');
-    console.log('EmailJS er initialisert');
-} else {
-    console.error('EmailJS er ikke lastet inn!');
-}
+emailjs.init('bFcwSKHQToHSyB7aX'); // Public API Key
 
 // Dynamisk logo-effekt ved scrolling
 const logoContainer = document.querySelector('.logo-container');
@@ -63,18 +58,16 @@ document.querySelector('.contact-form').addEventListener('submit', function (e) 
         notater: form.notater.value,
     };
 
-    console.log('Sender data til EmailJS:', formData);
-
     // Send data til EmailJS
-    emailjs.send('service_p7gp21t', 'template_weqmq4a', formData, 'bFcwSKHQToHSyB7aX')
-        .then((response) => {
-            console.log('EmailJS response:', response);
-            alert('Bestillingen din har blitt sendt! Takk.');
-            form.reset(); // Tøm skjemaet
-        })
-        .catch((error) => {
-            console.error('Feil ved sending av e-post:', error);
-            alert('Det oppstod en feil. Vennligst prøv igjen.');
-        });
+    emailjs.send('service_p7gp21t', 'template_weqmq4a', formData)
+    .then(() => {
+        alert('Bestillingen din har blitt sendt! Takk.');
+        form.reset();
+    })
+    .catch((error) => {
+        console.error('Feil ved sending av e-post:', error);
+        alert(`Det oppstod en feil: ${error.text || 'Ukjent feil'}. Vennligst prøv igjen.`);
+    });
 });
+
  
