@@ -64,6 +64,8 @@ document.querySelector('.contact-form').addEventListener('submit', function (e) 
     };
 
     // Send data til EmailJS
+    console.log('Formdata som sendes:', formData);
+    console.log('EmailJS-objekt:', emailjs);
     emailjs.send('service_p7gp21t', 'template_weqmq4a', formData)
         .then(() => {
             alert('Bestillingen din har blitt sendt! Takk.');
