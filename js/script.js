@@ -59,13 +59,12 @@ document.querySelector('.contact-form').addEventListener('submit', function (e) 
     };
 
     // Send data til EmailJS
-    emailjs.send('service_p7gp21t', 'template_weqmq4a', formData, 'bFcwSKHQToHSyB7aX')
-        .then(() => {
-            alert('Bestillingen din har blitt sendt! Takk.');
-            form.reset(); // Tøm skjemaet
-        })
-        .catch((error) => {
-            console.error('Feil ved sending av e-post:', error);
-            alert('Det oppstod en feil. Vennligst prøv igjen.');
-        });
-});
+    emailjs.send('service_p7gp21t', 'template_weqmq4a', formData)
+    .then(() => {
+        alert('Bestillingen din har blitt sendt! Takk.');
+        form.reset();
+    })
+    .catch((error) => {
+        console.error('Feil ved sending av e-post:', error);
+        alert(`Det oppstod en feil: ${error.text || 'Ukjent feil'}. Vennligst prøv igjen.`);
+    });
