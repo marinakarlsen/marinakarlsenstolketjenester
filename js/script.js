@@ -123,5 +123,3 @@ fetch('version.json') // Hent version.json
     .catch(error => {
         console.error('Feil ved lasting av versjonsinformasjon:', error);
     });
-
-//Sjekker om den oppdaterer versjonslogg
