@@ -2,6 +2,12 @@
 emailjs.init('bFcwSKHQToHSyB7aX'); // Din public key
 console.log("EmailJS er initialisert");
 
+if (emailjs) {
+    console.log('EmailJS er lastet inn og klar!');
+} else {
+    console.error('EmailJS er IKKE lastet inn!');
+}
+
 // Dynamisk logo-effekt ved scrolling
 const logoContainer = document.querySelector('.logo-container');
 
