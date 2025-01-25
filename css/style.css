@@ -303,11 +303,11 @@ button:hover {
 
 .language-switcher {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 50px; /* Flytter språkbryteren litt lenger ned */
+    right: 20px; /* Gir litt mer plass til høyre */
     display: flex;
     gap: 10px;
-    z-index: 1000; /* Sørger for at knappene vises over alt annet */
+    z-index: 1000;
 }
 
 .lang-button {
