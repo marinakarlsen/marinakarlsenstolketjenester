@@ -1,3 +1,29 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // Finn språk-knappene i DOM
+    const langButtons = document.querySelectorAll(".lang-button");
+
+    // Legg til klikk-event for hver knapp
+    langButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            // Fjern "active"-klassen fra alle knapper
+            langButtons.forEach(btn => btn.classList.remove("active"));
+            // Legg "active"-klassen til den klikkede knappen
+            button.classList.add("active");
+
+            // Oppdater språket basert på valgt knapp
+            const selectedLang = button.dataset.lang;
+            updateLanguage(selectedLang);
+
+            // Lagre valgt språk i nettleserens localStorage
+            localStorage.setItem("language", selectedLang);
+        });
+    });
+
+    // Last språket fra localStorage (hvis tilgjengelig), ellers bruk "no" (norsk)
+    const savedLanguage = localStorage.getItem("language") || "no";
+    updateLanguage(savedLanguage);
+});
+
 // Sjekk om EmailJS er lastet og initialisert
 function checkEmailJS() {
     if (typeof emailjs === 'undefined') {
@@ -177,19 +203,3 @@ function updateLanguage(lang) {
     document.querySelector("label[for='notater']").textContent = translations[lang].notaterLabel;
     document.querySelector(".highlight-button").textContent = translations[lang].sendButton;
 }
-
-// Aktiver språkvelgeren
-document.querySelectorAll(".lang-button").forEach(button => {
-    button.addEventListener("click", () => {
-        // Endre aktiv knapp
-        document.querySelectorAll(".lang-button").forEach(btn => btn.classList.remove("active"));
-        button.classList.add("active");
-
-        // Oppdater språket basert på valgt knapp
-        const selectedLang = button.dataset.lang;
-        updateLanguage(selectedLang);
-    });
-});
-
-// Standard språk: Norsk
-updateLanguage("no");
