@@ -302,31 +302,29 @@ button:hover {
 }
 
 .language-switcher {
-    position: absolute;
-    top: 50px; /* Flytter språkbryteren litt lenger ned */
-    right: 20px; /* Gir litt mer plass til høyre */
-    display: flex;
-    gap: 10px;
-    z-index: 1000;
+    position: absolute; /* Festet i forhold til siden */
+    top: 10px; /* Avstand fra toppen */
+    right: 20px; /* Avstand fra høyre */
+    display: flex; /* For å vise knappene på rad */
+    gap: 10px; /* Mellomrom mellom knappene */
 }
 
 .lang-button {
-    background-color: #f3f3f3;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 14px;
-    color: #555;
-    transition: background-color 0.3s, color 0.3s;
+    background: none; /* Fjern bakgrunn */
+    border: none; /* Fjern kant */
+    padding: 0; /* Fjern indre polstring */
+    cursor: pointer; /* Pekeren skal se ut som en klikkbar knapp */
+    font-size: 14px; /* Juster skriftstørrelse */
+    font-weight: 300; /* Gjør skriften tynn */
+    color: #555; /* Grå farge for inaktive knapper */
+    transition: color 0.3s; /* Myk overgang for fargeendring */
 }
 
 .lang-button.active {
-    background-color: #ff77aa; /* Aksentfargen */
-    color: #fff;
+    color: #ff77aa; /* Rosa farge for aktiv knapp */
+    font-weight: 700; /* Gjør teksten fet for aktiv knapp */
 }
 
 .lang-button:hover:not(.active) {
-    background-color: #ddd;
+    color: #888; /* Grå farge for hover på inaktive knapper */
 }
