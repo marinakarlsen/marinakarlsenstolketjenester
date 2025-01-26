@@ -302,12 +302,8 @@ button:hover {
 }
 
 .language-switcher {
-    position: fixed; /* Plasserer språkvelgeren fast */
-    top: 20px; /* Marg fra toppen */
-    right: 20px; /* Marg fra høyre */
-    display: flex; /* Sørger for horisontal plassering */
-    gap: 10px; /* Mellomrom mellom knappene */
-    z-index: 1000; /* Sørger for at den alltid ligger over andre elementer */
+    top: 20px !important;
+    right: 20px !important;
 }
 
 .lang-button {
