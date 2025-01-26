@@ -302,36 +302,30 @@ button:hover {
 }
 
 .language-switcher {
-    position: fixed; /* Fester knappene øverst i høyre hjørne */
+    position: fixed; /* Sørger for at knappene holder seg på samme sted */
     top: 20px; /* Avstand fra toppen */
     right: 20px; /* Avstand fra høyre */
-    display: flex; /* Plasserer knappene horisontalt */
+    display: flex; /* Horisontal plassering av knappene */
     gap: 10px; /* Mellomrom mellom knappene */
-    z-index: 1000; /* Sørger for at knappene vises over alt */
-    background: none; /* Fjerner bakgrunnsfargen */
-    box-shadow: none; /* Fjerner eventuell skygge */
+    z-index: 1000; /* Sørger for at knappene alltid vises over alt */
 }
 
 .lang-button {
-    background: none; /* Ingen bakgrunnsfarge */
+    background: none; /* Fjerner bakgrunnsfarge */
     border: none; /* Ingen kantlinjer */
-    padding: 0; /* Ingen unødvendig polstring */
+    padding: 0; /* Fjerner ekstra plass rundt */
+    font-size: 16px; /* Standard tekststørrelse */
+    font-weight: 300; /* Tynn tekst */
+    color: #555; /* Grå tekst som standard */
     cursor: pointer; /* Klikkbart */
-    font-size: 16px; /* Pen størrelse */
-    font-weight: 300; /* Tynn skrift */
-    color: #555; /* Grå tekstfarge */
     transition: color 0.3s ease; /* Glatt overgang for tekstfarge */
 }
 
 .lang-button.active {
     color: #ff77aa; /* Rosa for aktiv knapp */
-    font-weight: 400; /* Litt tykkere skrift for den aktive knappen */
+    font-weight: 400; /* Litt tykkere tekst for aktiv knapp */
 }
 
 .lang-button:hover:not(.active) {
-    color: #ff77aa; /* Rosa tekst ved hover */
-}
-
-header {
-    box-shadow: none; /* Sørger for at hele headeren ikke har skygge */
+    color: #ff77aa; /* Endrer tekstfarge til rosa ved hover */
 }
