@@ -302,8 +302,7 @@ button:hover {
 }
 
 .language-switcher {
-    top: 20px !important;
-    right: 20px !important;
+    border: 1px solid red; /* Midlertidig for å se elementets grenser */
 }
 
 .lang-button {
