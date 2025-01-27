@@ -302,25 +302,28 @@ button:hover {
 }
 
 .language-switcher {
-    border: 1px solid red; /* Midlertidig for å se elementets grenser */
+    position: absolute; /* Eller fixed, avhengig av hva du ønsker */
+    top: 10px;
+    right: 20px;
+    display: flex;
+    gap: 15px;
+    z-index: 1000;
 }
 
-.lang-button {
-    background: none; /* Fjerner bakgrunnsfarge */
-    border: none; /* Fjerner kantlinjer */
-    padding: 0; /* Fjerner ekstra polstring */
-    font-size: 16px; /* Justerer tekststørrelsen */
-    font-weight: 300; /* Gjør skriften tynnere */
-    color: #555; /* Standard tekstfarge */
-    cursor: pointer; /* Markøren endres ved hover */
-    transition: color 0.3s ease; /* Glatt overgang når fargen endres */
+.language-switcher .lang-button {
+    background: none; /* Fjern bakgrunnsfarge */
+    border: none; /* Fjern kantlinje */
+    font-weight: 300; /* Gjør teksten tynnere */
+    font-size: 16px;
+    color: #555; /* Nøytral tekstfarge */
+    cursor: pointer;
+    transition: color 0.3s ease; /* Smooth fargeovergang */
 }
 
-.lang-button.active {
-    color: #ff77aa; /* Aksentfargen for aktiv knapp */
-    font-weight: 400; /* Litt tykkere tekst for aktiv knapp */
+.language-switcher .lang-button.active {
+    color: #ff77aa; /* Rosa farge for valgt språk */
 }
 
-.lang-button:hover:not(.active) {
-    color: #ff77aa; /* Endrer tekstfargen til rosa ved hover */
+.language-switcher .lang-button:hover {
+    color: #ff77aa; /* Rosa farge ved hover */
 }
