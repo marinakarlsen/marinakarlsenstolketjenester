@@ -302,28 +302,29 @@ button:hover {
 }
 
 .language-switcher {
-    position: absolute; /* Eller fixed, avhengig av hva du ønsker */
-    top: 10px;
-    right: 20px;
+    position: absolute !important; /* Fest til toppen */
+    top: 10px !important;          /* 10px fra toppen */
+    right: 20px !important;        /* 20px fra høyre */
     display: flex;
     gap: 15px;
     z-index: 1000;
 }
 
 .language-switcher .lang-button {
-    background: none; /* Fjern bakgrunnsfarge */
-    border: none; /* Fjern kantlinje */
-    font-weight: 300; /* Gjør teksten tynnere */
+    background: none !important;   /* Fjern bakgrunn */
+    border: none !important;       /* Fjern kantlinje */
+    font-weight: 300;              /* Tynn tekst */
     font-size: 16px;
-    color: #555; /* Nøytral tekstfarge */
+    color: #555 !important;        /* Nøytral tekstfarge */
     cursor: pointer;
-    transition: color 0.3s ease; /* Smooth fargeovergang */
+    transition: color 0.3s ease;   /* Smooth fargeovergang */
 }
 
 .language-switcher .lang-button.active {
-    color: #ff77aa; /* Rosa farge for valgt språk */
+    color: #ff77aa !important;     /* Rosa for aktiv */
 }
 
 .language-switcher .lang-button:hover {
-    color: #ff77aa; /* Rosa farge ved hover */
+    background: none !important;   /* Ingen bakgrunn ved hover */
+    color: #ff77aa !important;     /* Rosa tekst ved hover */
 }
