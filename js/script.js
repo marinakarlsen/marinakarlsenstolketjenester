@@ -231,7 +231,6 @@ const translations = {
         kontaktHeader: "Контакт",
         kontaktText: "Зв'яжіться зі мною електронною поштою або телефоном:",
     }
-    },
 };
 
 // Oppdater teksten på nettsiden
