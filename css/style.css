@@ -301,28 +301,39 @@ button:hover {
     background-color: #0056b3;
 }
 
+header {
+    position: relative; /* Sørger for at absolute-position fungerer */
+}
+
 .language-switcher {
     position: absolute;
     top: 10px;
-    right: 20px;
+    right: 20px; /* Plasser knappene litt fra høyrekanten */
     display: flex;
-    z-index: 1000; /* Sørger for at knappene ligger over andre elementer */
+    align-items: center;
+    z-index: 1000; /* Sørg for at de vises over andre elementer */
 }
 
-.language-switcher .lang-button {
-    all: unset; /* Fjerner ALLE tidligere stiler */
-    font-weight: 300; /* Tynnere tekst */
+header .language-switcher .lang-button {
+    all: unset; /* Nullstiller alle tidligere stiler */
+    font-weight: 300; /* Tynnere skrift */
     font-size: 16px;
-    color: #555; /* Grå tekst */
+    color: #555; /* Standard grå tekst */
     cursor: pointer;
-    margin: 0 10px; /* Litt mellomrom */
-    transition: color 0.3s ease; /* Glatt fargeovergang */
+    margin-left: 10px; /* Litt mellomrom mellom knappene */
+    margin-right: 10px;
+    transition: color 0.3s ease; /* Glatt overgang */
+    text-decoration: none; /* Ingen understrek */
+    
+    background: none !important;  /* Sørger for at bakgrunnsfargen fjernes */
+    border: none !important; /* Fjerner eventuelle kantlinjer */
 }
 
-.language-switcher .lang-button.active {
-    color: #ff77aa; /* Rosa tekst for aktiv knapp */
+header .language-switcher .lang-button.active {
+    color: #ff77aa !important; /* Rosa tekst for aktiv knapp */
+    font-weight: 400; /* Litt mer tydelig skrift for aktiv knapp */
 }
 
-.language-switcher .lang-button:hover {
-    color: #ff77aa; /* Rosa tekst ved hover */
+header .language-switcher .lang-button:hover {
+    color: #ff77aa !important; /* Rosa tekst ved hover */
 }
