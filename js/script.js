@@ -122,8 +122,10 @@ document.querySelector('.contact-form').addEventListener('submit', function (e) 
     })
     .then(response => {
         if (response.ok) {
-            alert('Bestillingen din har blitt sendt!');
-            form.reset(); // Tøm skjemaet
+            // Hent valgt språk fra localStorage eller standard til norsk
+            const selectedLanguage = localStorage.getItem("language") || "no";
+            alert(translations[selectedLanguage].formSuccess);
+            form.reset(); // Nullstill skjemaet
         } else {
             return response.text().then(error => {
                 throw new Error(`Feil ved sending av e-post: ${error}`);
@@ -170,6 +172,7 @@ fetch('version.json') // Hent version.json
             telefonLabel: "Telefon:",
             notaterLabel: "Notater:",
             sendButton: "Send forespørsel",
+            formSuccess: "Bestillingen din har blitt sendt!",
     
             // Navigasjonsmeny
             navBestill: "Bestill tolketjeneste",
@@ -213,6 +216,7 @@ fetch('version.json') // Hent version.json
             telefonLabel: "Телефон:",
             notaterLabel: "Нотатки:",
             sendButton: "Надіслати запит",
+            formSuccess: "Ваш запит було надіслано!",
     
             // Navigasjonsmeny
             navBestill: "Замовити послугу",
