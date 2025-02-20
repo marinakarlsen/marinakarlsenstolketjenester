@@ -221,12 +221,13 @@ const translations = {
         tjenesterHeader: "Послуги",
         tjenesterTelefon: "Телефонний переклад",
         tjenesterTelefonDesc: "Ефективне рішення для ситуацій, де особиста присутність не є необхідною.",
-        tjenesterSkjerm: "Переклад через екран",
+        tjenesterSkjerm: "Відеопереклад",
         tjenesterSkjermDesc: "Зручний варіант для зустрічей і конференцій через відеоплатформи.",
         tjenesterOppmote: "Особиста присутність",
         tjenesterOppmoteDesc: "Для ситуацій, що вимагають присутності та особистого контакту.",
 
         tilbakemeldingerHeader: "Відгуки",
+        feedbackIntro: "Дивіться, що кажуть клієнти про мої послуги:"
 
         kontaktHeader: "Контакт",
         kontaktText: "Зв'яжіться зі мною електронною поштою або телефоном:",
