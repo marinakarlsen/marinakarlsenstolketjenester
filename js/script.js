@@ -259,14 +259,13 @@ fetch('version.json') // Hent version.json
     
     // Funksjon for å oppdatere språk
     function updateLanguage(lang) {
-        document.querySelector("nav ul li:nth-child(6) a").textContent = translations[lang].navBetingelser;
+        document.querySelector("nav ul li:nth-child(5) a").textContent = translations[lang].navBetingelser;
 
+        // Hvis vi er på betingelser-siden, oppdater overskriften og teksten
         if (document.querySelector(".betingelser-container")) {
             document.querySelector(".betingelser-container h1").textContent = translations[lang].betingelserTitle;
             document.querySelector(".betingelser-container p").textContent = translations[lang].betingelserIntro;
         }
-
-
         document.querySelector("#bestill-header").textContent = translations[lang].header;
         document.querySelector("label[for='dato']").textContent = translations[lang].datoLabel;
         document.querySelector("label[for='starttid']").textContent = translations[lang].starttidLabel;
