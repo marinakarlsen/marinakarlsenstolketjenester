@@ -263,6 +263,7 @@ function updateLanguage(lang) {
     document.querySelector("label[for='notater']").textContent = translations[lang].notaterLabel;
     document.querySelector(".highlight-button").textContent = translations[lang].sendButton;
 
+
     // Navigasjonsmeny
     document.querySelector("nav ul li:nth-child(1) a").textContent = translations[lang].navBestill;
     document.querySelector("nav ul li:nth-child(2) a").textContent = translations[lang].navTjenester;
@@ -286,8 +287,12 @@ function updateLanguage(lang) {
 
     // Tilbakemeldinger-seksjonen
     document.querySelector("#tilbakemeldinger h2").textContent = translations[lang].tilbakemeldingerHeader;
+    document.querySelector("#tilbakemeldinger p").textContent = translations[lang].feedbackIntro;
 
     // Kontakt-seksjonen
     document.querySelector("#kontakt h2").textContent = translations[lang].kontaktHeader;
     document.querySelector("#kontakt p").textContent = translations[lang].kontaktText;
+    document.querySelector("#kontakt p").textContent = translations[lang].contactIntro;
+    document.querySelector("label[for='epost']").textContent = translations[lang].emailLabel;
+    document.querySelector("label[for='telefon']").textContent = translations[lang].phoneLabel;
 }
