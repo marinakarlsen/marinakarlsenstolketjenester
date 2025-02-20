@@ -114,9 +114,9 @@ document.querySelector('.contact-form').addEventListener('submit', function (e) 
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            service_id: 'service_p7gp21t',   // Din Service ID
-            template_id: 'template_weqmq4a', // Din Template ID
-            user_id: 'bFcwSKHQToHSyB7aX',   // Din Public API Key
+            service_id: 'service_p7gp21t',   // Min Service ID
+            template_id: 'template_weqmq4a', // Min Template ID
+            user_id: 'bFcwSKHQToHSyB7aX',   // Min Public API Key
             template_params: formData       // Sender formData med dato, starttid og sluttid
         })
     })
