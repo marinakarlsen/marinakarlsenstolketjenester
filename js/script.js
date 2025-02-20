@@ -227,10 +227,12 @@ const translations = {
         tjenesterOppmoteDesc: "Для ситуацій, що вимагають присутності та особистого контакту.",
 
         tilbakemeldingerHeader: "Відгуки",
-        feedbackIntro: "Дивіться, що кажуть клієнти про мої послуги:",
+        feedbackIntro: "Що клієнти кажуть про мої послуги:",  // Se hva kundene sier om mine tjenester:
 
         kontaktHeader: "Контакт",
         kontaktText: "Зв'яжіться зі мною електронною поштою або телефоном:",
+        emailLabel: "Електронна пошта:", // E-post:
+        phoneLabel: "Телефон:" // Telefon:
     }
 };
 
