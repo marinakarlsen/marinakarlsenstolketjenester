@@ -202,6 +202,10 @@ fetch('version.json') // Hent version.json
             // Kontakt-seksjonen
             kontaktHeader: "Kontakt",
             kontaktText: "Ta gjerne kontakt via e-post eller telefon:"
+
+            navBetingelser: "Betingelser",
+            betingelserTitle: "Vilkår og betingelser",
+            betingelserIntro: "Her finner du vilkår og betingelser for tolketjenestene.",
         },
         uk: {
             header: "Замовити перекладацькі послуги",
@@ -245,12 +249,24 @@ fetch('version.json') // Hent version.json
     
             // Kontakt-seksjonen
             kontaktHeader: "Контакт",
-            kontaktText: "Зв'яжіться зі мною електронною поштою або телефоном:"
+            kontaktText: "Зв'яжіться зі мною електронною поштою або телефоном:",
+
+            navBetingelser: "Умови",
+            betingelserTitle: "Умови та положення",
+            betingelserIntro: "Тут ви знайдете умови та положення для перекладацьких послуг.",
         }
     };
     
     // Funksjon for å oppdatere språk
     function updateLanguage(lang) {
+        document.querySelector("nav ul li:nth-child(6) a").textContent = translations[lang].navBetingelser;
+
+        if (document.querySelector(".betingelser-container")) {
+            document.querySelector(".betingelser-container h1").textContent = translations[lang].betingelserTitle;
+            document.querySelector(".betingelser-container p").textContent = translations[lang].betingelserIntro;
+        }
+
+
         document.querySelector("#bestill-header").textContent = translations[lang].header;
         document.querySelector("label[for='dato']").textContent = translations[lang].datoLabel;
         document.querySelector("label[for='starttid']").textContent = translations[lang].starttidLabel;
