@@ -258,7 +258,12 @@ fetch('version.json') // Hent version.json
         document.querySelector("label[for='epost']").textContent = translations[lang].epostLabel;
         document.querySelector("label[for='telefon']").textContent = translations[lang].telefonLabel;
         document.querySelector("label[for='notater']").textContent = translations[lang].notaterLabel;
-        document.querySelector(".highlight-button").textContent = translations[lang].sendButton;
+    
+        // Henter riktig knapp for "Send forespørsel"
+        const sendButton = document.querySelector(".contact-form button");
+        if (sendButton) {
+            sendButton.textContent = translations[lang].sendButton;
+        }
     
         // Navigasjonsmeny
         document.querySelector("nav ul li:nth-child(1) a").textContent = translations[lang].navBestill;
@@ -267,7 +272,7 @@ fetch('version.json') // Hent version.json
         document.querySelector("nav ul li:nth-child(4) a").textContent = translations[lang].navTilbakemeldinger;
         document.querySelector("nav ul li:nth-child(5) a").textContent = translations[lang].navKontakt;
     
-        // Oppdragstype i skjemaet
+        // Oppdaterer oppdragstype i skjemaet
         document.querySelector("#oppdragstype option[value='telefontolking']").textContent = translations[lang].oppdragstelefon;
         document.querySelector("#oppdragstype option[value='skjermtolking']").textContent = translations[lang].oppdragsskjerm;
         document.querySelector("#oppdragstype option[value='personlig']").textContent = translations[lang].oppdragsoppmøte;
@@ -288,4 +293,11 @@ fetch('version.json') // Hent version.json
         // Kontakt-seksjonen
         document.querySelector("#kontakt h2").textContent = translations[lang].kontaktHeader;
         document.querySelector("#kontakt p").textContent = translations[lang].kontaktText;
+    
+        // E-post og telefon i kontaktseksjonen
+        const kontaktInfo = document.querySelectorAll("#kontakt li");
+        if (kontaktInfo.length >= 2) {
+            kontaktInfo[0].innerHTML = `<i class="fa fa-envelope"></i> ${translations[lang].epostLabel} <a href="mailto:marinakarlsen5@gmail.com">marinakarlsen5@gmail.com</a>`;
+            kontaktInfo[1].innerHTML = `<i class="fa fa-phone"></i> ${translations[lang].telefonLabel} <a href="tel:+4746930229">+47 469 30 229</a>`;
+        }
     }    
