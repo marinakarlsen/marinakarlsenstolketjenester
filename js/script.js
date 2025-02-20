@@ -201,7 +201,7 @@ fetch('version.json') // Hent version.json
     
             // Kontakt-seksjonen
             kontaktHeader: "Kontakt",
-            kontaktText: "Ta gjerne kontakt via e-post eller telefon:"
+            kontaktText: "Ta gjerne kontakt via e-post eller telefon:",
 
             navBetingelser: "Betingelser",
             betingelserTitle: "Vilkår og betingelser",
