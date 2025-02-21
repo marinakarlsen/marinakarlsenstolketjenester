@@ -72,11 +72,16 @@ const navLinks = document.querySelectorAll('.sticky-nav a');
 
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href').substring(1);
-        const targetSection = document.getElementById(targetId);
-        if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth' });
+        const href = link.getAttribute('href');
+
+        // Hvis lenken starter med "#", scroll til seksjonen
+        if (href.startsWith("#")) {
+            e.preventDefault();
+            const targetId = href.substring(1);
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
         }
     });
 });
