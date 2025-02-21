@@ -23,7 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Laster språket fra localStorage (hvis tilgjengelig), ellers bruk "no" (norsk)
     const savedLanguage = localStorage.getItem("language") || "no";
-    updateLanguage(savedLanguage);
+    
+    // Sjekker om elementet "#bestill-header" finnes før den prøver å oppdatere språket
+    if (document.querySelector("#bestill-header")) {
+        updateLanguage(savedLanguage);
+    }
 });
 
 // Sjekk om EmailJS er lastet og initialisert
