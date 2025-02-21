@@ -1,25 +1,27 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Finn språk-knappene i DOM
+document.addEventListener("DOMContentLoaded", () => {
+    // Finner språk-knappene i DOM
     const langButtons = document.querySelectorAll(".lang-button");
 
-    // Legg til klikk-event for hver knapp
-    langButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            // Fjern "active"-klassen fra alle knapper
-            langButtons.forEach(btn => btn.classList.remove("active"));
-            // Legg "active"-klassen til den klikkede knappen
-            button.classList.add("active");
+    // Sjekker om språk-knappene finnes før den legger til event listeners
+    if (langButtons.length > 0) {
+        langButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                // Fjerner "active"-klassen fra alle knapper
+                langButtons.forEach(btn => btn.classList.remove("active"));
+                // Legger "active"-klassen til den klikkede knappen
+                button.classList.add("active");
 
-            // Oppdater språket basert på valgt knapp
-            const selectedLang = button.dataset.lang;
-            updateLanguage(selectedLang);
+                // Oppdaterer språket basert på valgt knapp
+                const selectedLang = button.dataset.lang;
+                updateLanguage(selectedLang);
 
-            // Lagre valgt språk i nettleserens localStorage
-            localStorage.setItem("language", selectedLang);
+                // Lagrer valgt språk i nettleserens localStorage
+                localStorage.setItem("language", selectedLang);
+            });
         });
-    });
+    }
 
-    // Last språket fra localStorage (hvis tilgjengelig), ellers bruk "no" (norsk)
+    // Laster språket fra localStorage (hvis tilgjengelig), ellers bruk "no" (norsk)
     const savedLanguage = localStorage.getItem("language") || "no";
     updateLanguage(savedLanguage);
 });
