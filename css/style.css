@@ -333,3 +333,36 @@ header {
 .lang-button:hover {
     color: #ff77aa !important; /* Rosa farge ved hover */
 }
+
+/* Sikrer at betingelsene har samme utseende som andre seksjoner */
+.betingelser-container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.betingelser-container h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #5e3b76; /* Lilla farge som matcher overskrifter */
+    margin-bottom: 20px;
+}
+
+.betingelser-container section {
+    margin-bottom: 30px;
+}
+
+.betingelser-container h2 {
+    font-size: 1.5rem;
+    color: #5e3b76;
+    margin-bottom: 10px;
+}
+
+.betingelser-container p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
