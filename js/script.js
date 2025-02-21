@@ -37,9 +37,10 @@ function checkEmailJS() {
 }
 
 // Kjør sjekk for EmailJS
-if (!checkEmailJS()) {
-    // Stop her hvis EmailJS ikke er lastet inn
-    throw new Error('EmailJS ble ikke initialisert. Kontroller innstillingene dine.');
+if (document.querySelector(".contact-form")) {
+    if (!checkEmailJS()) {
+        throw new Error("EmailJS ble ikke initialisert. Kontroller innstillingene dine.");
+    }
 }
 
 // Dynamisk logo-effekt ved scrolling
