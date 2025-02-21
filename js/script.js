@@ -297,7 +297,8 @@ fetch('version.json') // Hent version.json
         document.querySelector("nav ul li:nth-child(2) a").textContent = translations[lang].navTjenester;
         document.querySelector("nav ul li:nth-child(3) a").textContent = translations[lang].navOmMeg;
         document.querySelector("nav ul li:nth-child(4) a").textContent = translations[lang].navTilbakemeldinger;
-        document.querySelector("nav ul li:nth-child(5) a").textContent = translations[lang].navKontakt;
+        document.querySelector("nav ul li:nth-child(5) a").textContent = translations[lang].navBetingelser;
+        document.querySelector("nav ul li:nth-child(6) a").textContent = translations[lang].navKontakt;
     
         // Oppdaterer oppdragstype i skjemaet
         document.querySelector("#oppdragstype option[value='telefontolking']").textContent = translations[lang].oppdragstelefon;
