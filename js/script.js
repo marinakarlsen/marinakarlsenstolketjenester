@@ -263,9 +263,17 @@ fetch('version.json') // Hent version.json
 
         // Hvis vi er på betingelser-siden, oppdater overskriften og teksten
         if (document.querySelector(".betingelser-container")) {
-            document.querySelector(".betingelser-container h1").textContent = translations[lang].betingelserTitle;
-            document.querySelector(".betingelser-container p").textContent = translations[lang].betingelserIntro;
+            const betingelserTitle = document.querySelector(".betingelser-container h1");
+            const betingelserIntro = document.querySelector(".betingelser-container p");
+        
+            if (betingelserTitle) {
+                betingelserTitle.textContent = translations[lang].betingelserTitle;
+            }
+            if (betingelserIntro) {
+                betingelserIntro.textContent = translations[lang].betingelserIntro;
+            }
         }
+        
         document.querySelector("#bestill-header").textContent = translations[lang].header;
         document.querySelector("label[for='dato']").textContent = translations[lang].datoLabel;
         document.querySelector("label[for='starttid']").textContent = translations[lang].starttidLabel;
