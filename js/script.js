@@ -271,6 +271,13 @@ fetch('version.json') // Hent version.json
     
     // Funksjon for å oppdatere språk
     function updateLanguage(lang) {
+        // Sjekker om den er på betingelser.html
+        if (document.querySelector(".betingelser-container")) {
+        document.querySelector(".betingelser-container h1").textContent = translations[lang].betingelserTitle;
+        document.querySelector(".betingelser-container p").textContent = translations[lang].betingelserIntro;
+        return; // Stopp videre kjøring på denne siden
+        }
+
         document.querySelector("nav ul li:nth-child(5) a").textContent = translations[lang].navBetingelser;
 
         // Hvis vi er på betingelser-siden, oppdater overskriften og teksten
