@@ -1,4 +1,3 @@
-// Språkdata for nettsiden
 const translations = {
     no: {
         header: "Bestill tolketjeneste",
@@ -46,8 +45,12 @@ const translations = {
         kontaktText: "Ta gjerne kontakt via e-post eller telefon:",
 
         // Betingelser-siden
-        betingelserTitle: "Vilkår og betingelser",
+        betingelserHeader: "Vilkår og betingelser",
         betingelserIntro: "Her finner du vilkår og betingelser for tolketjenestene.",
+
+        // Versjon
+        versionText: "Versjon: ",
+        loadingText: "Laster...",
     },
     uk: {
         header: "Замовити перекладацькі послуги",
@@ -95,8 +98,12 @@ const translations = {
         kontaktText: "Зв'яжіться зі мною електронною поштою або телефоном:",
 
         // Betingelser-siden
-        betingelserTitle: "Умови та положення",
+        betingelserHeader: "Умови та положення",
         betingelserIntro: "Тут ви знайдете умови та положення для перекладацьких послуг.",
+
+        // Versjon
+        versionText: "Версія: ",
+        loadingText: "Завантаження...",
     }
 };
 
