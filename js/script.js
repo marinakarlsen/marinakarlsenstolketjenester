@@ -107,13 +107,15 @@ const translations = {
     }
 };
 
+const lang = localStorage.getItem("language") || "no";
+
 // Oppdater språkfunksjon
 function updateLanguage(lang) {
     if (!translations[lang]) {
         console.error("Språk ikke funnet:", lang);
         return;
     }
-
+    
     // Navigasjonsmeny
     document.querySelector("nav ul li:nth-child(1) a").textContent = translations[lang].navBestill;
     document.querySelector("nav ul li:nth-child(2) a").textContent = translations[lang].navTjenester;
@@ -180,7 +182,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    const lang = localStorage.getItem("language") || "no";
     updateLanguage(lang);
 });
 
