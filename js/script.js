@@ -1,4 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
+    if (document.querySelector(".betingelser-container")) {
+        const betingelserTitle = document.querySelector(".betingelser-container h1");
+        const betingelserIntro = document.querySelector(".betingelser-container p");
+
+        if (betingelserTitle) {
+            betingelserTitle.textContent = translations[lang].betingelserTitle;
+        }
+        if (betingelserIntro) {
+            betingelserIntro.textContent = translations[lang].betingelserIntro;
+        }
+        return; // Stopper videre kjøring hvis vi er på betingelser.html
+    }
+    
     // Finner språk-knappene i DOM
     const langButtons = document.querySelectorAll(".lang-button");
 
