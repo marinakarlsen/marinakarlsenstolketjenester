@@ -180,8 +180,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    const savedLanguage = localStorage.getItem("language") || "no";
-    updateLanguage(savedLanguage);
+    const lang = localStorage.getItem("language") || "no";
+    updateLanguage(lang);
 });
 
 // Skjema-sending med EmailJS
