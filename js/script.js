@@ -134,15 +134,15 @@ function updateLanguage(lang) {
     document.querySelector("#version-log")?.textContent = translations[lang].versionText + translations[lang].loadingText;
 }
 
-// Oppdater språk ved sideinnlasting
+// ** Sørg for at siden er lastet før oversettelse brukes **
 document.addEventListener("DOMContentLoaded", () => {
     updateLanguage(lang);
-});
 
-// Bytt språk-knapper
-document.querySelectorAll(".lang-button").forEach(button => {
-    button.addEventListener("click", () => {
-        localStorage.setItem("language", button.dataset.lang);
-        updateLanguage(button.dataset.lang);
+    // Språkknapper
+    document.querySelectorAll(".lang-button").forEach(button => {
+        button.addEventListener("click", () => {
+            localStorage.setItem("language", button.dataset.lang);
+            updateLanguage(button.dataset.lang);
+        });
     });
 });
