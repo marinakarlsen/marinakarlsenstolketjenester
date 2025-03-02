@@ -15,7 +15,7 @@ const translations = {
         sendButton: "Send forespørsel",
         formSuccess: "Bestillingen din har blitt sendt!",
 
-        // Navigasjon
+        // Navigasjonsmeny
         navBestill: "Bestill tolketjeneste",
         navTjenester: "Tjenester",
         navOmMeg: "Om meg",
@@ -28,7 +28,7 @@ const translations = {
         oppdragsskjerm: "Skjermtolking",
         oppdragsoppmøte: "Personlig oppmøte",
 
-        // Tjenester
+        // Tjenester-seksjonen
         tjenesterHeader: "Tjenester",
         tjenesterTelefon: "Telefontolking",
         tjenesterTelefonDesc: "Effektiv løsning for situasjoner hvor personlig oppmøte ikke er nødvendig.",
@@ -41,7 +41,7 @@ const translations = {
         tilbakemeldingerHeader: "Tilbakemeldinger",
         feedbackIntro: "Se hva kundene sier om mine tjenester:",
 
-        // Kontakt
+        // Kontakt-seksjonen
         kontaktHeader: "Kontakt",
         kontaktText: "Ta gjerne kontakt via e-post eller telefon:",
 
@@ -68,7 +68,7 @@ const translations = {
         sendButton: "Надіслати запит",
         formSuccess: "Ваш запит було надіслано!",
 
-        // Navigasjon
+        // Navigasjonsmeny
         navBestill: "Замовити послугу",
         navTjenester: "Послуги",
         navOmMeg: "Про мене",
@@ -81,7 +81,7 @@ const translations = {
         oppdragsskjerm: "Відеопереклад",
         oppdragsoppmøte: "Особиста присутність",
 
-        // Tjenester
+        // Tjenester-seksjonen
         tjenesterHeader: "Послуги",
         tjenesterTelefon: "Телефонний переклад",
         tjenesterTelefonDesc: "Ефективне рішення для ситуацій, де особиста присутність не є необхідною.",
@@ -94,7 +94,7 @@ const translations = {
         tilbakemeldingerHeader: "Відгуки",
         feedbackIntro: "Що клієнти кажуть про мої послуги:",
 
-        // Kontakt
+        // Kontakt-seksjonen
         kontaktHeader: "Контакт",
         kontaktText: "Зв'яжіться зі мною електронною поштою або телефоном:",
 
@@ -111,7 +111,78 @@ const translations = {
 // Hent språk fra lagring
 const lang = localStorage.getItem("language") || "no";
 
-// Oppdater språkfunksjon
+// **Sikre at dokumentet er lastet før vi utfører handlinger**
+document.addEventListener("DOMContentLoaded", () => {
+    updateLanguage(lang);
+
+    // Språkbytte-knapper
+    document.querySelectorAll(".lang-button").forEach(button => {
+        button.addEventListener("click", () => {
+            localStorage.setItem("language", button.dataset.lang);
+            updateLanguage(button.dataset.lang);
+        });
+    });
+
+    // Skjema-sending med EmailJS
+    const contactForm = document.querySelector(".contact-form");
+    if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const selectedLanguage = localStorage.getItem("language") || "no";
+            const form = e.target;
+            const formData = {
+                dato: form.dato.value,
+                starttid: form.starttid.value,
+                sluttid: form.sluttid.value,
+                adresse: form.adresse.value,
+                oppdragstype: form.oppdragstype.value,
+                tema: form.tema.value,
+                kundeinfo: form.kundeinfo.value,
+                epost: form.epost.value,
+                telefon: form.telefon.value,
+                notater: form.notater.value,
+                language: selectedLanguage === "no" ? "Norsk" : "Українська"
+            };
+
+            fetch('https://api.emailjs.com/api/v1.0/email/send', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    service_id: 'service_p7gp21t',
+                    template_id: 'template_weqmq4a',
+                    user_id: 'bFcwSKHQToHSyB7aX',
+                    template_params: formData
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert(translations[selectedLanguage].formSuccess);
+                    form.reset();
+                } else {
+                    return response.text().then(error => { throw new Error(error); });
+                }
+            })
+            .catch(error => {
+                console.error('Feil ved sending av e-post:', error);
+                alert(`Noe gikk galt: ${error.message}`);
+            });
+        });
+    }
+
+    // **Oppdater versjonstekst**
+    fetch("version.json")
+        .then(response => response.json())
+        .then(data => {
+            const versionLogElement = document.querySelector("#version-log");
+            if (versionLogElement) {
+                versionLogElement.textContent = `Versjon: ${data.version}`;
+            }
+        })
+        .catch(error => console.error("Feil ved lasting av versjonsinformasjon:", error));
+});
+
+// **Funksjon for å oppdatere språkinnhold**
 function updateLanguage(lang) {
     if (!translations[lang]) return;
 
@@ -122,27 +193,4 @@ function updateLanguage(lang) {
     document.querySelector("nav ul li:nth-child(4) a")?.textContent = translations[lang].navTilbakemeldinger;
     document.querySelector("nav ul li:nth-child(5) a")?.textContent = translations[lang].navBetingelser;
     document.querySelector("nav ul li:nth-child(6) a")?.textContent = translations[lang].navKontakt;
-
-    // Skjema
-    document.querySelector("#bestill-header")?.textContent = translations[lang].header;
-
-    // Betingelser-siden
-    document.querySelector(".betingelser-container h1")?.textContent = translations[lang].betingelserHeader;
-    document.querySelector(".betingelser-container p")?.textContent = translations[lang].betingelserIntro;
-
-    // Oppdater versjonstekst
-    document.querySelector("#version-log")?.textContent = translations[lang].versionText + translations[lang].loadingText;
 }
-
-// ** Sørg for at siden er lastet før oversettelse brukes **
-document.addEventListener("DOMContentLoaded", () => {
-    updateLanguage(lang);
-
-    // Språkknapper
-    document.querySelectorAll(".lang-button").forEach(button => {
-        button.addEventListener("click", () => {
-            localStorage.setItem("language", button.dataset.lang);
-            updateLanguage(button.dataset.lang);
-        });
-    });
-});
