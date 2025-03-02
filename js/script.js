@@ -1,3 +1,103 @@
+//Språkdata for nettsiden
+const translations = {
+    no: {
+        header: "Bestill tolketjeneste",
+        datoLabel: "Dato:",
+        starttidLabel: "Starttid:",
+        sluttidLabel: "Sluttid:",
+        adresseLabel: "Adresse (hvis oppmøte):",
+        oppdragstypeLabel: "Oppdragstype:",
+        temaLabel: "Overordnet tema/felt:",
+        kundeinfoLabel: "Kundeinformasjon:",
+        epostLabel: "E-post:",
+        telefonLabel: "Telefon:",
+        notaterLabel: "Notater:",
+        sendButton: "Send forespørsel",
+        formSuccess: "Bestillingen din har blitt sendt!",
+
+        // Navigasjonsmeny
+        navBestill: "Bestill tolketjeneste",
+        navTjenester: "Tjenester",
+        navOmMeg: "Om meg",
+        navTilbakemeldinger: "Tilbakemeldinger",
+        navKontakt: "Kontakt",
+
+        // Oppdragstyper
+        oppdragstelefon: "Telefontolking",
+        oppdragsskjerm: "Skjermtolking",
+        oppdragsoppmøte: "Personlig oppmøte",
+
+        // Tjenester-seksjonen
+        tjenesterHeader: "Tjenester",
+        tjenesterTelefon: "Telefontolking",
+        tjenesterTelefonDesc: "Effektiv løsning for situasjoner hvor personlig oppmøte ikke er nødvendig.",
+        tjenesterSkjerm: "Skjermtolking",
+        tjenesterSkjermDesc: "Praktisk og fleksibelt for møter og konferanser via videoplattformer.",
+        tjenesterOppmote: "Personlig oppmøte",
+        tjenesterOppmoteDesc: "For situasjoner som krever tilstedeværelse og nærhet for maksimal effektivitet.",
+
+        // Tilbakemeldinger
+        tilbakemeldingerHeader: "Tilbakemeldinger",
+        feedbackIntro: "Se hva kundene sier om mine tjenester:",
+
+        // Kontakt-seksjonen
+        kontaktHeader: "Kontakt",
+        kontaktText: "Ta gjerne kontakt via e-post eller telefon:",
+
+        navBetingelser: "Betingelser",
+        betingelserTitle: "Vilkår og betingelser",
+        betingelserIntro: "Her finner du vilkår og betingelser for tolketjenestene.",
+    },
+    uk: {
+        header: "Замовити перекладацькі послуги",
+        datoLabel: "Дата:",
+        starttidLabel: "Час початку:",
+        sluttidLabel: "Час завершення:",
+        adresseLabel: "Адреса (якщо очно):",
+        oppdragstypeLabel: "Тип перекладу:",
+        temaLabel: "Тема:",
+        kundeinfoLabel: "Інформація про клієнта:",
+        epostLabel: "Електронна пошта:",
+        telefonLabel: "Телефон:",
+        notaterLabel: "Нотатки:",
+        sendButton: "Надіслати запит",
+        formSuccess: "Ваш запит було надіслано!",
+
+        // Navigasjonsmeny
+        navBestill: "Замовити послугу",
+        navTjenester: "Послуги",
+        navOmMeg: "Про мене",
+        navTilbakemeldinger: "Відгуки",
+        navKontakt: "Контакт",
+
+        // Oppdragstyper
+        oppdragstelefon: "Телефонний переклад",
+        oppdragsskjerm: "Відеопереклад",
+        oppdragsoppmøte: "Особиста присутність",
+
+        // Tjenester-seksjonen
+        tjenesterHeader: "Послуги",
+        tjenesterTelefon: "Телефонний переклад",
+        tjenesterTelefonDesc: "Ефективне рішення для ситуацій, де особиста присутність не є необхідною.",
+        tjenesterSkjerm: "Відеопереклад",
+        tjenesterSkjermDesc: "Зручний варіант для зустрічей і конференцій через відеоплатформи.",
+        tjenesterOppmote: "Особиста присутність",
+        tjenesterOppmoteDesc: "Для ситуацій, що вимагають присутності та особистого контакту.",
+
+        // Tilbakemeldinger
+        tilbakemeldingerHeader: "Відгуки",
+        feedbackIntro: "Що клієнти кажуть про мої послуги:",
+
+        // Kontakt-seksjonen
+        kontaktHeader: "Контакт",
+        kontaktText: "Зв'яжіться зі мною електронною поштою або телефоном:",
+
+        navBetingelser: "Умови",
+        betingelserTitle: "Умови та положення",
+        betingelserIntro: "Тут ви знайдете умови та положення для перекладацьких послуг.",
+    }
+};
+
 document.addEventListener("DOMContentLoaded", () => {
     if (document.querySelector(".betingelser-container")) {
         const betingelserTitle = document.querySelector(".betingelser-container h1");
@@ -11,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         return; // Stopper videre kjøring hvis vi er på betingelser.html
     }
-    
+
     // Finner språk-knappene i DOM
     const langButtons = document.querySelectorAll(".lang-button");
 
@@ -108,60 +208,70 @@ if (feedbackCarousel) {
     });
 }
 
-// EmailJS integrasjon for skjemaet
-document.querySelector('.contact-form').addEventListener('submit', function (e) {
-    e.preventDefault(); // Hindrer standard skjemaoppførsel
+// Finn skjemaet i DOM
+const contactForm = document.querySelector(".contact-form");
 
-    // Hent språket som er valgt (fra localStorage eller default til "no")
-    const selectedLanguage = localStorage.getItem("language") || "no";
+// Sjekk om skjemaet finnes før vi legger til en event listener
+if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+        e.preventDefault(); // Hindrer standard skjemaoppførsel
 
-    // Samle inn data fra skjemaet
-    const form = e.target;
-    const formData = {
-        dato: form.dato.value,
-        starttid: form.starttid.value,
-        sluttid: form.sluttid.value,
-        adresse: form.adresse.value,
-        oppdragstype: form.oppdragstype.value,
-        tema: form.tema.value,
-        kundeinfo: form.kundeinfo.value,
-        epost: form.epost.value,
-        telefon: form.telefon.value,
-        notater: form.notater.value,
-        language: selectedLanguage === "no" ? "Norsk" : "Українська" // Legger til valgt språk
-    };
-
-    // Send data til EmailJS via fetch
-    console.log('Formdata som sendes:', formData);
-    fetch('https://api.emailjs.com/api/v1.0/email/send', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            service_id: 'service_p7gp21t',   // Min Service ID
-            template_id: 'template_weqmq4a', // Min Template ID
-            user_id: 'bFcwSKHQToHSyB7aX',   // Min Public API Key
-            template_params: formData       // Sender formData med dato, starttid og sluttid
-        })
-    })
-    .then(response => {
-        if (response.ok) {
-            // Hent valgt språk fra localStorage eller standard til norsk
-            const selectedLanguage = localStorage.getItem("language") || "no";
-            alert(translations[selectedLanguage].formSuccess);
-            form.reset(); // Nullstill skjemaet
-        } else {
-            return response.text().then(error => {
-                throw new Error(`Feil ved sending av e-post: ${error}`);
-            });
+        // Sjekk om EmailJS er riktig lastet
+        if (typeof emailjs === "undefined") {
+            console.error("EmailJS er ikke lastet inn!");
+            alert("En feil oppstod. EmailJS er ikke initialisert.");
+            return;
         }
-    })
-    .catch(error => {
-        console.error('Feil ved sending av e-post:', error);
-        alert(`Noe gikk galt: ${error.message}`);
+
+        // Hent språket som er valgt (fra localStorage eller default til "no")
+        const selectedLanguage = localStorage.getItem("language") || "no";
+
+        // Samle inn data fra skjemaet
+        const form = e.target;
+        const formData = {
+            dato: form.dato.value,
+            starttid: form.starttid.value,
+            sluttid: form.sluttid.value,
+            adresse: form.adresse.value,
+            oppdragstype: form.oppdragstype.value,
+            tema: form.tema.value,
+            kundeinfo: form.kundeinfo.value,
+            epost: form.epost.value,
+            telefon: form.telefon.value,
+            notater: form.notater.value,
+            language: selectedLanguage === "no" ? "Norsk" : "Українська" // Legger til valgt språk
+        };
+
+        // Send data til EmailJS
+        console.log("Formdata som sendes:", formData);
+        fetch("https://api.emailjs.com/api/v1.0/email/send", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                service_id: "service_p7gp21t",   // Din Service ID
+                template_id: "template_weqmq4a", // Din Template ID
+                user_id: "bFcwSKHQToHSyB7aX",   // Din Public API Key
+                template_params: formData       // Sender formData med dato, starttid og sluttid
+            })
+        })
+        .then(response => {
+            if (response.ok) {
+                alert(translations[selectedLanguage].formSuccess); // Vis suksessmelding
+                form.reset(); // Nullstill skjemaet
+            } else {
+                return response.text().then(error => {
+                    throw new Error(`Feil ved sending av e-post: ${error}`);
+                });
+            }
+        })
+        .catch(error => {
+            console.error("Feil ved sending av e-post:", error);
+            alert(`Noe gikk galt: ${error.message}`);
+        });
     });
-});
+}
 
 // Hent versjonsnummeret fra version.json og vis det i versjonsloggen
 fetch('version.json') // Hent version.json
@@ -181,106 +291,6 @@ fetch('version.json') // Hent version.json
     .catch(error => {
         console.error('Feil ved lasting av versjonsinformasjon:', error);
     });
-
-//Språkdata for nettsiden
-    const translations = {
-        no: {
-            header: "Bestill tolketjeneste",
-            datoLabel: "Dato:",
-            starttidLabel: "Starttid:",
-            sluttidLabel: "Sluttid:",
-            adresseLabel: "Adresse (hvis oppmøte):",
-            oppdragstypeLabel: "Oppdragstype:",
-            temaLabel: "Overordnet tema/felt:",
-            kundeinfoLabel: "Kundeinformasjon:",
-            epostLabel: "E-post:",
-            telefonLabel: "Telefon:",
-            notaterLabel: "Notater:",
-            sendButton: "Send forespørsel",
-            formSuccess: "Bestillingen din har blitt sendt!",
-    
-            // Navigasjonsmeny
-            navBestill: "Bestill tolketjeneste",
-            navTjenester: "Tjenester",
-            navOmMeg: "Om meg",
-            navTilbakemeldinger: "Tilbakemeldinger",
-            navKontakt: "Kontakt",
-    
-            // Oppdragstyper
-            oppdragstelefon: "Telefontolking",
-            oppdragsskjerm: "Skjermtolking",
-            oppdragsoppmøte: "Personlig oppmøte",
-    
-            // Tjenester-seksjonen
-            tjenesterHeader: "Tjenester",
-            tjenesterTelefon: "Telefontolking",
-            tjenesterTelefonDesc: "Effektiv løsning for situasjoner hvor personlig oppmøte ikke er nødvendig.",
-            tjenesterSkjerm: "Skjermtolking",
-            tjenesterSkjermDesc: "Praktisk og fleksibelt for møter og konferanser via videoplattformer.",
-            tjenesterOppmote: "Personlig oppmøte",
-            tjenesterOppmoteDesc: "For situasjoner som krever tilstedeværelse og nærhet for maksimal effektivitet.",
-    
-            // Tilbakemeldinger
-            tilbakemeldingerHeader: "Tilbakemeldinger",
-            feedbackIntro: "Se hva kundene sier om mine tjenester:",
-    
-            // Kontakt-seksjonen
-            kontaktHeader: "Kontakt",
-            kontaktText: "Ta gjerne kontakt via e-post eller telefon:",
-
-            navBetingelser: "Betingelser",
-            betingelserTitle: "Vilkår og betingelser",
-            betingelserIntro: "Her finner du vilkår og betingelser for tolketjenestene.",
-        },
-        uk: {
-            header: "Замовити перекладацькі послуги",
-            datoLabel: "Дата:",
-            starttidLabel: "Час початку:",
-            sluttidLabel: "Час завершення:",
-            adresseLabel: "Адреса (якщо очно):",
-            oppdragstypeLabel: "Тип перекладу:",
-            temaLabel: "Тема:",
-            kundeinfoLabel: "Інформація про клієнта:",
-            epostLabel: "Електронна пошта:",
-            telefonLabel: "Телефон:",
-            notaterLabel: "Нотатки:",
-            sendButton: "Надіслати запит",
-            formSuccess: "Ваш запит було надіслано!",
-    
-            // Navigasjonsmeny
-            navBestill: "Замовити послугу",
-            navTjenester: "Послуги",
-            navOmMeg: "Про мене",
-            navTilbakemeldinger: "Відгуки",
-            navKontakt: "Контакт",
-    
-            // Oppdragstyper
-            oppdragstelefon: "Телефонний переклад",
-            oppdragsskjerm: "Відеопереклад",
-            oppdragsoppmøte: "Особиста присутність",
-    
-            // Tjenester-seksjonen
-            tjenesterHeader: "Послуги",
-            tjenesterTelefon: "Телефонний переклад",
-            tjenesterTelefonDesc: "Ефективне рішення для ситуацій, де особиста присутність не є необхідною.",
-            tjenesterSkjerm: "Відеопереклад",
-            tjenesterSkjermDesc: "Зручний варіант для зустрічей і конференцій через відеоплатформи.",
-            tjenesterOppmote: "Особиста присутність",
-            tjenesterOppmoteDesc: "Для ситуацій, що вимагають присутності та особистого контакту.",
-    
-            // Tilbakemeldinger
-            tilbakemeldingerHeader: "Відгуки",
-            feedbackIntro: "Що клієнти кажуть про мої послуги:",
-    
-            // Kontakt-seksjonen
-            kontaktHeader: "Контакт",
-            kontaktText: "Зв'яжіться зі мною електронною поштою або телефоном:",
-
-            navBetingelser: "Умови",
-            betingelserTitle: "Умови та положення",
-            betingelserIntro: "Тут ви знайдете умови та положення для перекладацьких послуг.",
-        }
-    };
     
     // Funksjon for å oppdatere språk
     function updateLanguage(lang) {
