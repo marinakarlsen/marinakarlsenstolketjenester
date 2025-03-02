@@ -14,14 +14,40 @@ const translations = {
         notaterLabel: "Notater:",
         sendButton: "Send forespørsel",
         formSuccess: "Bestillingen din har blitt sendt!",
+
+        // Navigasjonsmeny
         navBestill: "Bestill tolketjeneste",
         navTjenester: "Tjenester",
         navOmMeg: "Om meg",
         navTilbakemeldinger: "Tilbakemeldinger",
-        navKontakt: "Kontakt",
         navBetingelser: "Betingelser",
+        navKontakt: "Kontakt",
+
+        // Oppdragstyper
+        oppdragstelefon: "Telefontolking",
+        oppdragsskjerm: "Skjermtolking",
+        oppdragsoppmøte: "Personlig oppmøte",
+
+        // Tjenester-seksjonen
+        tjenesterHeader: "Tjenester",
+        tjenesterTelefon: "Telefontolking",
+        tjenesterTelefonDesc: "Effektiv løsning for situasjoner hvor personlig oppmøte ikke er nødvendig.",
+        tjenesterSkjerm: "Skjermtolking",
+        tjenesterSkjermDesc: "Praktisk og fleksibelt for møter og konferanser via videoplattformer.",
+        tjenesterOppmote: "Personlig oppmøte",
+        tjenesterOppmoteDesc: "For situasjoner som krever tilstedeværelse og nærhet for maksimal effektivitet.",
+
+        // Tilbakemeldinger
+        tilbakemeldingerHeader: "Tilbakemeldinger",
+        feedbackIntro: "Se hva kundene sier om mine tjenester:",
+
+        // Kontakt-seksjonen
+        kontaktHeader: "Kontakt",
+        kontaktText: "Ta gjerne kontakt via e-post eller telefon:",
+
+        // Betingelser-siden
         betingelserTitle: "Vilkår og betingelser",
-        betingelserIntro: "Her finner du vilkår og betingelser for tolketjenestene."
+        betingelserIntro: "Her finner du vilkår og betingelser for tolketjenestene.",
     },
     uk: {
         header: "Замовити перекладацькі послуги",
@@ -37,40 +63,44 @@ const translations = {
         notaterLabel: "Нотатки:",
         sendButton: "Надіслати запит",
         formSuccess: "Ваш запит було надіслано!",
+
+        // Navigasjonsmeny
         navBestill: "Замовити послугу",
         navTjenester: "Послуги",
         navOmMeg: "Про мене",
         navTilbakemeldinger: "Відгуки",
-        navKontakt: "Контакт",
         navBetingelser: "Умови",
+        navKontakt: "Контакт",
+
+        // Oppdragstyper
+        oppdragstelefon: "Телефонний переклад",
+        oppdragsskjerm: "Відеопереклад",
+        oppdragsoppmøte: "Особиста присутність",
+
+        // Tjenester-seksjonen
+        tjenesterHeader: "Послуги",
+        tjenesterTelefon: "Телефонний переклад",
+        tjenesterTelefonDesc: "Ефективне рішення для ситуацій, де особиста присутність не є необхідною.",
+        tjenesterSkjerm: "Відеопереклад",
+        tjenesterSkjermDesc: "Зручний варіант для зустрічей і конференцій через відеоплатформи.",
+        tjenesterOppmote: "Особиста присутність",
+        tjenesterOppmoteDesc: "Для ситуацій, що вимагають присутності та особистого контакту.",
+
+        // Tilbakemeldinger
+        tilbakemeldingerHeader: "Відгуки",
+        feedbackIntro: "Що клієнти кажуть про мої послуги:",
+
+        // Kontakt-seksjonen
+        kontaktHeader: "Контакт",
+        kontaktText: "Зв'яжіться зі мною електронною поштою або телефоном:",
+
+        // Betingelser-siden
         betingelserTitle: "Умови та положення",
-        betingelserIntro: "Тут ви знайдете умови та положення для перекладацьких послуг."
+        betingelserIntro: "Тут ви знайдете умови та положення для перекладацьких послуг.",
     }
 };
 
-// Når dokumentet er lastet inn
-document.addEventListener("DOMContentLoaded", () => {
-    // Språk-knapper
-    const langButtons = document.querySelectorAll(".lang-button");
-    
-    if (langButtons.length > 0) {
-        langButtons.forEach(button => {
-            button.addEventListener("click", () => {
-                langButtons.forEach(btn => btn.classList.remove("active"));
-                button.classList.add("active");
-                const selectedLang = button.dataset.lang;
-                updateLanguage(selectedLang);
-                localStorage.setItem("language", selectedLang);
-            });
-        });
-    }
-
-    // Bruk lagret språk eller sett til norsk
-    const savedLanguage = localStorage.getItem("language") || "no";
-    updateLanguage(savedLanguage);
-});
-
-// Funksjon for å oppdatere språk
+// Oppdater språkfunksjon
 function updateLanguage(lang) {
     if (document.querySelector(".betingelser-container")) {
         document.querySelector(".betingelser-container h1").textContent = translations[lang].betingelserTitle;
@@ -78,110 +108,77 @@ function updateLanguage(lang) {
         return;
     }
 
-    const elementsToUpdate = {
-        "#bestill-header": "header",
-        "label[for='dato']": "datoLabel",
-        "label[for='starttid']": "starttidLabel",
-        "label[for='sluttid']": "sluttidLabel",
-        "label[for='adresse']": "adresseLabel",
-        "label[for='oppdragstype']": "oppdragstypeLabel",
-        "label[for='tema']": "temaLabel",
-        "label[for='kundeinfo']": "kundeinfoLabel",
-        "label[for='epost']": "epostLabel",
-        "label[for='telefon']": "telefonLabel",
-        "label[for='notater']": "notaterLabel",
-        ".contact-form button": "sendButton"
-    };
+    document.querySelector("#bestill-header").textContent = translations[lang].header;
+    document.querySelector(".contact-form button").textContent = translations[lang].sendButton;
 
-    Object.keys(elementsToUpdate).forEach(selector => {
-        const element = document.querySelector(selector);
-        if (element) element.textContent = translations[lang][elementsToUpdate[selector]];
-    });
-
-    const navLinks = document.querySelectorAll("nav ul li a");
-    const navTranslations = ["navBestill", "navTjenester", "navOmMeg", "navTilbakemeldinger", "navBetingelser", "navKontakt"];
-
-    navLinks.forEach((link, index) => {
-        if (translations[lang][navTranslations[index]]) {
-            link.textContent = translations[lang][navTranslations[index]];
-        }
-    });
+    // Navigasjonsmeny
+    document.querySelector("nav ul li:nth-child(1) a").textContent = translations[lang].navBestill;
+    document.querySelector("nav ul li:nth-child(2) a").textContent = translations[lang].navTjenester;
+    document.querySelector("nav ul li:nth-child(3) a").textContent = translations[lang].navOmMeg;
+    document.querySelector("nav ul li:nth-child(4) a").textContent = translations[lang].navTilbakemeldinger;
+    document.querySelector("nav ul li:nth-child(5) a").textContent = translations[lang].navBetingelser;
+    document.querySelector("nav ul li:nth-child(6) a").textContent = translations[lang].navKontakt;
 }
 
-// EmailJS integrasjon for skjemaet
-const contactForm = document.querySelector(".contact-form");
-if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const selectedLanguage = localStorage.getItem("language") || "no";
+// Språkbytte-knapper
+document.addEventListener("DOMContentLoaded", () => {
+    const langButtons = document.querySelectorAll(".lang-button");
 
-        const form = e.target;
-        const formData = {
-            dato: form.dato.value,
-            starttid: form.starttid.value,
-            sluttid: form.sluttid.value,
-            adresse: form.adresse.value,
-            oppdragstype: form.oppdragstype.value,
-            tema: form.tema.value,
-            kundeinfo: form.kundeinfo.value,
-            epost: form.epost.value,
-            telefon: form.telefon.value,
-            notater: form.notater.value,
-            language: selectedLanguage === "no" ? "Norsk" : "Українська"
-        };
+    langButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            langButtons.forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
 
-        console.log('Formdata som sendes:', formData);
-        fetch('https://api.emailjs.com/api/v1.0/email/send', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                service_id: 'service_p7gp21t',
-                template_id: 'template_weqmq4a',
-                user_id: 'bFcwSKHQToHSyB7aX',
-                template_params: formData
-            })
-        })
-        .then(response => {
-            if (response.ok) {
-                alert(translations[selectedLanguage].formSuccess);
-                form.reset();
-            } else {
-                return response.text().then(error => {
-                    throw new Error(`Feil ved sending av e-post: ${error}`);
-                });
-            }
-        })
-        .catch(error => {
-            console.error('Feil ved sending av e-post:', error);
-            alert(`Noe gikk galt: ${error.message}`);
+            const selectedLang = button.dataset.lang;
+            updateLanguage(selectedLang);
+            localStorage.setItem("language", selectedLang);
         });
     });
-}
 
-// Smooth scrolling for navigasjon
-const navLinks = document.querySelectorAll('.sticky-nav a');
-navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        const href = link.getAttribute('href');
-        if (href.startsWith("#")) {
-            e.preventDefault();
-            const targetId = href.substring(1);
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    });
+    const savedLanguage = localStorage.getItem("language") || "no";
+    updateLanguage(savedLanguage);
 });
 
-// Versjonslogg
-fetch('version.json')
+// Skjema-sending med EmailJS
+document.querySelector(".contact-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const selectedLanguage = localStorage.getItem("language") || "no";
+    const form = e.target;
+    const formData = {
+        dato: form.dato.value,
+        starttid: form.starttid.value,
+        sluttid: form.sluttid.value,
+        adresse: form.adresse.value,
+        oppdragstype: form.oppdragstype.value,
+        tema: form.tema.value,
+        kundeinfo: form.kundeinfo.value,
+        epost: form.epost.value,
+        telefon: form.telefon.value,
+        notater: form.notater.value,
+        language: selectedLanguage === "no" ? "Norsk" : "Українська"
+    };
+
+    fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            service_id: 'service_p7gp21t',
+            template_id: 'template_weqmq4a',
+            user_id: 'bFcwSKHQToHSyB7aX',
+            template_params: formData
+        })
+    })
     .then(response => {
-        if (!response.ok) throw new Error('Kunne ikke laste versjonsinformasjon');
-        return response.json();
+        if (response.ok) {
+            alert(translations[selectedLanguage].formSuccess);
+            form.reset();
+        } else {
+            return response.text().then(error => { throw new Error(error); });
+        }
     })
-    .then(data => {
-        const versionLogElement = document.querySelector("#version-log");
-        if (versionLogElement) versionLogElement.textContent = `Versjon: ${data.version}`;
-    })
-    .catch(error => console.error('Feil ved lasting av versjonsinformasjon:', error));
+    .catch(error => {
+        console.error('Feil ved sending av e-post:', error);
+        alert(`Noe gikk galt: ${error.message}`);
+    });
+});
