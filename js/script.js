@@ -228,22 +228,3 @@ document.querySelector(".contact-form").addEventListener("submit", function (e) 
     });
 });
 
-// Hent versjonsnummeret fra version.json og vis det i versjonsloggen
-document.addEventListener("DOMContentLoaded", () => {
-    fetch("version.json")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Kunne ikke laste versjonsinformasjon");
-            }
-            return response.json();
-        })
-        .then(data => {
-            const versionLogElement = document.querySelector("#version-log");
-            if (versionLogElement) {
-                versionLogElement.textContent = `Versjon: ${data.version}`;
-            }
-        })
-        .catch(error => {
-            console.error("Feil ved lasting av versjonsinformasjon:", error);
-        });
-});
