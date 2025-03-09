@@ -208,63 +208,58 @@ if (feedbackCarousel) {
 }
 
 // EmailJS integrasjon for skjemaet
-const contactForm = document.querySelector(".contact-form");
+document.addEventListener("DOMContentLoaded", () => {
+    const contactForm = document.querySelector(".contact-form");
     if (contactForm) {
         contactForm.addEventListener("submit", function (e) {
+            e.preventDefault(); // Hindrer standard skjemaoppførsel
 
-            // Kode for å sende skjemaet
-
-    e.preventDefault(); // Hindrer standard skjemaoppførsel
-
-    // Hent språket som er valgt (fra localStorage eller default til "no")
-    const selectedLanguage = localStorage.getItem("language") || "no";
-
-    // Samle inn data fra skjemaet
-    const form = e.target;
-    const formData = {
-        dato: form.dato.value,
-        starttid: form.starttid.value,
-        sluttid: form.sluttid.value,
-        adresse: form.adresse.value,
-        oppdragstype: form.oppdragstype.value,
-        tema: form.tema.value,
-        kundeinfo: form.kundeinfo.value,
-        epost: form.epost.value,
-        telefon: form.telefon.value,
-        notater: form.notater.value,
-        language: selectedLanguage === "no" ? "Norsk" : "Українська" // Legger til valgt språk
-    };
-
-    // Send data til EmailJS via fetch
-    console.log('Formdata som sendes:', formData);
-    fetch('https://api.emailjs.com/api/v1.0/email/send', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            service_id: 'service_p7gp21t',   // Min Service ID
-            template_id: 'template_weqmq4a', // Min Template ID
-            user_id: 'bFcwSKHQToHSyB7aX',   // Min Public API Key
-            template_params: formData       // Sender formData med dato, starttid og sluttid
-        })
-    })
-    .then(response => {
-        if (response.ok) {
-            // Hent valgt språk fra localStorage eller standard til norsk
+            // Hent språket som er valgt (fra localStorage eller default til "no")
             const selectedLanguage = localStorage.getItem("language") || "no";
-            alert(translations[selectedLanguage].formSuccess);
-            form.reset(); // Nullstill skjemaet
-        } else {
-            return response.text().then(error => {
-                throw new Error(`Feil ved sending av e-post: ${error}`);
-            });
-        }
-    })
-    .catch(error => {
-        console.error('Feil ved sending av e-post:', error);
-        alert(`Noe gikk galt: ${error.message}`);
-    });
+
+            // Samle inn data fra skjemaet
+            const form = e.target;
+            const formData = {
+                dato: form.dato.value,
+                starttid: form.starttid.value,
+                sluttid: form.sluttid.value,
+                adresse: form.adresse.value,
+                oppdragstype: form.oppdragstype.value,
+                tema: form.tema.value,
+                kundeinfo: form.kundeinfo.value,
+                epost: form.epost.value,
+                telefon: form.telefon.value,
+                notater: form.notater.value,
+                language: selectedLanguage === "no" ? "Norsk" : "Українська" // Legger til valgt språk
+            };
+
+            // Send data til EmailJS via fetch
+            console.log("Formdata som sendes:", formData);
+            fetch("https://api.emailjs.com/api/v1.0/email/send", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    service_id: "service_p7gp21t", // Min Service ID
+                    template_id: "template_weqmq4a", // Min Template ID
+                    user_id: "bFcwSKHQToHSyB7aX", // Min Public API Key
+                    template_params: formData // Sender formData med dato, starttid og sluttid
+                })
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert(translations[selectedLanguage].formSuccess);
+                        form.reset(); // Nullstill skjemaet
+                    } else {
+                        return response.text().then(error => {
+                            throw new Error(`Feil ved sending av e-post: ${error}`);
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error("Feil ved sending av e-post:", error);
+                    alert(`Noe gikk galt: ${error.message}`);
+                });
+        });
     }
 });
 
