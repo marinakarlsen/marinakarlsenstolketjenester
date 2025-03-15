@@ -4,57 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Betingelser</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="js/script.js" defer></script>  <!-- Riktig JS-path -->
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
 </head>
 <body>
     <header>
         <nav class="sticky-nav">
             <ul>
-                <li><a href="index.html">Hjem</a></li>
-                <li><a href="index.html#tjenester">Tjenester</a></li>
-                <li><a href="index.html#om-meg">Om meg</a></li>
-                <li><a href="index.html#tilbakemeldinger">Tilbakemeldinger</a></li>
-                <li><a href="betingelser.html" class="active">Betingelser</a></li>
-                <li><a href="index.html#kontakt">Kontakt</a></li>
+                <li><a href="index.html" data-translate="navBestill">Bestill tolketjeneste</a></li>
+                <li><a href="index.html#tjenester" data-translate="navTjenester">Tjenester</a></li>
+                <li><a href="index.html#om-meg" data-translate="navOmMeg">Om meg</a></li>
+                <li><a href="index.html#tilbakemeldinger" data-translate="navTilbakemeldinger">Tilbakemeldinger</a></li>
+                <li><a href="betingelser.html" class="active" data-translate="navBetingelser">Betingelser</a></li>
+                <li><a href="index.html#kontakt" data-translate="navKontakt">Kontakt</a></li>
             </ul>
         </nav>
+
+        <div class="language-switcher">
+            <button class="lang-button" data-lang="no">🇳🇴 Norsk</button>
+            <button class="lang-button" data-lang="uk">🇺🇦 Українська</button>
+        </div>
     </header>
 
     <main class="betingelser-container">
-        <h1>Betingelser for tolketjenester</h1>
-    
+        <h1 data-translate="betingelserHeader">Betingelser for tolketjenester</h1>
+
         <section>
-            <h2>1. Bestilling og avbestilling</h2>
-            <p>
+            <h2 data-translate="betingelserBestilling">1. Bestilling og avbestilling</h2>
+            <p data-translate="betingelserBestillingText">
                 Alle tolkeoppdrag må bestilles i god tid for å sikre tilgjengelighet. Ved behov for tolketjenester på kort varsel vil vi forsøke å imøtekomme forespørselen, men dette kan ikke garanteres.
             </p>
-            <p>
+            <p data-translate="betingelserAvbestilling">
                 Avbestilling må skje senest <strong>24 timer før avtalt tolketid</strong>. Ved avbestilling mindre enn 24 timer før, vil oppdraget faktureres i sin helhet.
             </p>
         </section>
-    
+
         <section>
-            <h2>2. Priser og betalingsbetingelser</h2>
-            <p>
+            <h2 data-translate="betingelserPriser">2. Priser og betalingsbetingelser</h2>
+            <p data-translate="betingelserPriserText">
                 Prisen på tolketjenester avhenger av flere faktorer, inkludert:
             </p>
             <ul>
-                <li><strong>Type tolkning</strong> (telefontolking, skjermtolking eller personlig oppmøte)</li>
-                <li><strong>Tidspunkt for oppdraget</strong> (ordinær arbeidstid 08:00–16:00 eller kvelds-/helgetid)</li>
+                <li data-translate="betingelserPrisType"><strong>Type tolkning</strong> (telefontolking, skjermtolking eller personlig oppmøte)</li>
+                <li data-translate="betingelserPrisTid"><strong>Tidspunkt for oppdraget</strong> (ordinær arbeidstid 08:00–16:00 eller kvelds-/helgetid)</li>
             </ul>
-            <p>
+            <p data-translate="betingelserPrisKontakt">
                 Ta kontakt for et pristilbud tilpasset dine behov. Betaling skjer via faktura med <strong>14 dagers betalingsfrist</strong>.
             </p>
         </section>
-    
+
         <section>
-            <h2>3. Kvalifikasjoner og tolkeautorisasjon</h2>
-            <p>
+            <h2 data-translate="betingelserKvalifikasjoner">3. Kvalifikasjoner og tolkeautorisasjon</h2>
+            <p data-translate="betingelserKvalifikasjonerText">
                 Jeg er registrert i <strong>Nasjonalt tolkeregister</strong> i kategori <strong>C</strong>, som innebærer at jeg har bestått <strong>statsautorisasjonsprøven</strong> for tolker i ukrainsk.
             </p>
-            <p>
+            <p data-translate="betingelserKategorier">
                 I Norge er tolker klassifisert i følgende kategorier basert på kompetanse:
             </p>
             <ul>
@@ -65,25 +69,23 @@
                 <li><strong>Kategori E</strong> – Bestått Tospråktesten med kurs i tolkeetikk og ansvarsbevissthet (TAO)</li>
             </ul>
         </section>
-    
+
         <section>
-            <h2>4. Hvorfor bruke en registrert tolk?</h2>
-            <p>
+            <h2 data-translate="betingelserHvorforTolk">4. Hvorfor bruke en registrert tolk?</h2>
+            <p data-translate="betingelserHvorforTolkText">
                 Nasjonalt tolkeregister er et offentlig register over kvalifiserte tolker i Norge. En registrert tolk har dokumentert kompetanse, kjennskap til tolkeetiske retningslinjer og er underlagt kravene i <strong>Tolkeloven</strong>.
                 Dette sikrer kvalitet, nøytralitet og profesjonell utførelse av tolkeoppdrag.
             </p>
         </section>
-    
+
         <section>
-            <h2>5. Kontakt</h2>
-            <p>
+            <h2 data-translate="betingelserKontakt">5. Kontakt</h2>
+            <p data-translate="betingelserKontaktText">
                 For spørsmål om betingelser, vennligst kontakt meg på:
             </p>
-            <p>
-                📧 <a href="mailto:marinakarlsen5@gmail.com">marinakarlsen5@gmail.com</a>
-            </p>
+            <p>📧 <a href="mailto:marinakarlsen5@gmail.com">marinakarlsen5@gmail.com</a></p>
         </section>
-    </main>    
+    </main>
 
     <footer>
         <p>&copy; 2025 Marina Karlsens Tolketjenester. Alle rettigheter reservert.</p>

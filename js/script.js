@@ -361,3 +361,19 @@ fetch('version.json') // Hent version.json
             kontaktInfo[1].innerHTML = `<i class="fa fa-phone"></i> ${translations[lang].telefonLabel} <a href="tel:+4746930229">+47 469 30 229</a>`;
         }
     }    
+
+// Språk-oppdatering for Betingelser-siden
+function updateBetingelserLanguage(lang) {
+    document.querySelectorAll("[data-translate]").forEach((element) => {
+        const key = element.getAttribute("data-translate");
+        if (translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+    });
+}
+
+// Oppdater språk når siden lastes
+document.addEventListener("DOMContentLoaded", () => {
+    const savedLang = localStorage.getItem("language") || "no";
+    updateBetingelserLanguage(savedLang);
+});
