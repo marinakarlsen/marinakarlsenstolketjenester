@@ -377,3 +377,54 @@ document.addEventListener("DOMContentLoaded", () => {
     const savedLang = localStorage.getItem("language") || "no";
     updateBetingelserLanguage(savedLang);
 });
+
+// 🔹 Funksjon for å oppdatere språket på Betingelser-siden
+function updateBetingelserLanguage(lang) {
+    document.querySelectorAll("[data-translate]").forEach((element) => {
+        const key = element.getAttribute("data-translate");
+        if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+    });
+}
+
+// 🔹 Språk-knapper som oppdaterer både hovedsiden og Betingelser-siden
+document.addEventListener("DOMContentLoaded", () => {
+    const langButtons = document.querySelectorAll(".lang-button");
+    const savedLang = localStorage.getItem("language") || "no";
+
+    // Sett aktiv klasse på riktig knapp ved last
+    langButtons.forEach(button => {
+        if (button.dataset.lang === savedLang) {
+            button.classList.add("active");
+        }
+    });
+
+    // Oppdater språk på riktig side
+    if (document.querySelector(".betingelser-container")) {
+        updateBetingelserLanguage(savedLang);
+    } else {
+        updateLanguage(savedLang);
+    }
+
+    // Språkbytte ved klikk
+    langButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const selectedLang = button.dataset.lang;
+
+            // Lagre språk i nettleser
+            localStorage.setItem("language", selectedLang);
+
+            // Oppdater aktiv klasse
+            langButtons.forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
+
+            // Oppdater språk på riktig side
+            if (document.querySelector(".betingelser-container")) {
+                updateBetingelserLanguage(selectedLang);
+            } else {
+                updateLanguage(selectedLang);
+            }
+        });
+    });
+});
