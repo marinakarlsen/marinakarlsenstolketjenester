@@ -1,3 +1,5 @@
+const lang = localStorage.getItem("language") || "no";
+
 //Språkdata for nettsiden
 const translations = {
     no: {
@@ -47,6 +49,25 @@ const translations = {
         navBetingelser: "Betingelser",
         betingelserTitle: "Vilkår og betingelser",
         betingelserIntro: "Her finner du vilkår og betingelser for tolketjenestene.",
+
+        // Betingelser-siden
+        betingelserHeader: "Vilkår og betingelser",
+        betingelserIntro: "Her finner du vilkår og betingelser for bestilling av tolketjenester.",
+
+        betingelserPris: "Prisen for tolketjenester avhenger av oppdragstype, tidspunkt og eventuelle reiseutgifter. Oppdrag innenfor ordinær arbeidstid (08:00–16:00) har standardpriser, mens oppdrag utenom dette har egne satser. Hasteoppdrag kan også påvirke prisen. Ta kontakt for et pristilbud.",
+
+        betingelserKategorier: "I Norge er tolker inndelt i fem kategorier i Nasjonalt Tolkeregister basert på kvalifikasjoner:\n\n" +
+        "• Kategori A: Statsautoriserte tolker med bachelorgrad i tolking.\n" +
+        "• Kategori B: Statsautoriserte tolker med grunnemne i tolking.\n" +
+        "• Kategori C: Statsautoriserte tolker.\n" +
+        "• Kategori D: Tolker med grunnemne i tolking (30 studiepoeng).\n" +
+        "• Kategori E: Tolker som har bestått Tospråktesten og fullført kurs (TAO).",
+
+        betingelserRegister: "Nasjonalt Tolkeregister er et offentlig register over kvalifiserte tolker i Norge. For å være registrert, må tolken ha fullført offisielle kvalifiseringstilbud. Registrering i registeret er en garanti for at tolken oppfyller krav til kompetanse, ferdigheter og etiske retningslinjer.",
+
+        betingelserAvbestilling: "Alle tolketjenester må avbestilles senest 24 timer før oppdragets start. Ved senere avbestilling vil hele beløpet faktureres.",
+
+        kontaktBetingelser: "For spørsmål om betingelser, vennligst kontakt meg på "
     },
     uk: {
         header: "Замовити перекладацькі послуги",
@@ -92,9 +113,24 @@ const translations = {
         kontaktHeader: "Контакт",
         kontaktText: "Зв'яжіться зі мною електронною поштою або телефоном:",
 
-        navBetingelser: "Умови",
-        betingelserTitle: "Умови та положення",
-        betingelserIntro: "Тут ви знайдете умови та положення для перекладацьких послуг.",
+        // Betingelser-siden
+        betingelserHeader: "Умови та положення",
+        betingelserIntro: "Тут ви знайдете умови та положення для замовлення перекладацьких послуг.",
+
+        betingelserPris: "Ціна за перекладацькі послуги залежить від типу завдання, часу та можливих витрат на поїздку. Робота у стандартний робочий час (08:00–16:00) має стандартні тарифи, тоді як завдання поза цим часом мають інші ставки. Термінові замовлення також можуть вплинути на ціну. Зверніться до мене для отримання цінової пропозиції.",
+
+        betingelserKategorier: "У Норвегії перекладачі поділяються на п’ять категорій у Національному реєстрі перекладачів відповідно до їхньої кваліфікації:\n\n" +
+        "• Категорія A: Перекладачі з державною авторизацією та ступенем бакалавра в галузі перекладу.\n" +
+        "• Категорія B: Перекладачі з державною авторизацією та основним курсом перекладу.\n" +
+        "• Категорія C: Державні авторизовані перекладачі.\n" +
+        "• Категорія D: Перекладачі, які пройшли основний курс перекладу (30 кредитів).\n" +
+        "• Категорія E: Перекладачі, які склали двомовний тест та пройшли курс TAO.",
+
+        betingelserRegister: "Національний реєстр перекладачів – це офіційний реєстр кваліфікованих перекладачів у Норвегії. Для реєстрації перекладач повинен пройти офіційні програми підготовки. Реєстрація гарантує відповідність перекладача вимогам до компетентності, навичок і етичних норм.",
+
+        betingelserAvbestilling: "Всі послуги перекладу необхідно скасувати не пізніше, ніж за 24 години до початку завдання. При пізнішому скасуванні буде виставлено рахунок на повну суму.",
+
+        kontaktBetingelser: "З питань умов, будь ласка, зв’яжіться зі мною за адресою "
     }
 };
 document.addEventListener("DOMContentLoaded", () => {
@@ -428,3 +464,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+function updateBetingelserLanguage(lang) {
+    if (!translations[lang]) return;
+
+    document.querySelector(".betingelser-container h1")?.textContent = translations[lang].betingelserHeader;
+    document.querySelector(".betingelser-container p")?.textContent = translations[lang].betingelserIntro;
+    document.querySelector("#betingelser-pris")?.textContent = translations[lang].betingelserPris;
+    document.querySelector("#betingelser-kategorier")?.textContent = translations[lang].betingelserKategorier;
+    document.querySelector("#betingelser-register")?.textContent = translations[lang].betingelserRegister;
+}
