@@ -429,7 +429,7 @@ function updateBetingelserLanguage(lang) {
     });
 }
 
-// 🔹 Språk-knapper som oppdaterer både hovedsiden og Betingelser-siden
+// Språk-knapper som oppdaterer både hovedsiden og Betingelser-siden
 document.addEventListener("DOMContentLoaded", () => {
     const langButtons = document.querySelectorAll(".lang-button");
     const savedLang = localStorage.getItem("language") || "no";
@@ -473,9 +473,10 @@ document.addEventListener("DOMContentLoaded", () => {
 function updateBetingelserLanguage(lang) {
     if (!translations[lang]) return;
 
-    document.querySelector(".betingelser-container h1")?.textContent = translations[lang].betingelserHeader;
-    document.querySelector(".betingelser-container p")?.textContent = translations[lang].betingelserIntro;
-    document.querySelector("#betingelser-pris")?.textContent = translations[lang].betingelserPris;
-    document.querySelector("#betingelser-kategorier")?.textContent = translations[lang].betingelserKategorier;
-    document.querySelector("#betingelser-register")?.textContent = translations[lang].betingelserRegister;
+    document.querySelectorAll("[data-translate]").forEach((element) => {
+        const key = element.getAttribute("data-translate");
+        if (translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+    });
 }
