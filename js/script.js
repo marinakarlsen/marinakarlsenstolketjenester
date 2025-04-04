@@ -22,6 +22,7 @@ const translations = {
         navTjenester: "Tjenester",
         navOmMeg: "Om meg",
         navTilbakemeldinger: "Tilbakemeldinger",
+        navBetingelser: "Betingelser",
         navKontakt: "Kontakt",
 
         // Oppdragstyper
@@ -89,6 +90,7 @@ const translations = {
         navTjenester: "Послуги",
         navOmMeg: "Про мене",
         navTilbakemeldinger: "Відгуки",
+        navBetingelser: "Умови та положення",
         navKontakt: "Контакт",
 
         // Oppdragstyper
