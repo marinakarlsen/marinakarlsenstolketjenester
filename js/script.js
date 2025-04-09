@@ -3,6 +3,7 @@ const lang = localStorage.getItem("language") || "no";
 //Språkdata for nettsiden
 const translations = {
     no: {
+        // Skjemafelt og meldinger
         header: "Bestill tolketjeneste",
         datoLabel: "Dato:",
         starttidLabel: "Starttid:",
@@ -17,7 +18,7 @@ const translations = {
         sendButton: "Send forespørsel",
         formSuccess: "Bestillingen din har blitt sendt!",
 
-        // Navigasjonsmeny
+        // Navigasjon
         navBestill: "Bestill tolketjeneste",
         navTjenester: "Tjenester",
         navOmMeg: "Om meg",
@@ -47,28 +48,32 @@ const translations = {
         kontaktHeader: "Kontakt",
         kontaktText: "Ta gjerne kontakt via e-post eller telefon:",
 
-        navBetingelser: "Betingelser",
-        betingelserTitle: "Vilkår og betingelser",
-        betingelserIntro: "Her finner du vilkår og betingelser for tolketjenestene.",
-
         // Betingelser-siden
         betingelserHeader: "Vilkår og betingelser",
-        betingelserIntro: "Her finner du vilkår og betingelser for bestilling av tolketjenester.",
-
-        betingelserPris: "Prisen for tolketjenester avhenger av oppdragstype, tidspunkt og eventuelle reiseutgifter. Oppdrag innenfor ordinær arbeidstid (08:00–16:00) har standardpriser, mens oppdrag utenom dette har egne satser. Hasteoppdrag kan også påvirke prisen. Ta kontakt for et pristilbud.",
-
-        betingelserKategorier: "I Norge er tolker inndelt i fem kategorier i Nasjonalt Tolkeregister basert på kvalifikasjoner:\n\n" +
-        "• Kategori A: Statsautoriserte tolker med bachelorgrad i tolking.\n" +
-        "• Kategori B: Statsautoriserte tolker med grunnemne i tolking.\n" +
-        "• Kategori C: Statsautoriserte tolker.\n" +
-        "• Kategori D: Tolker med grunnemne i tolking (30 studiepoeng).\n" +
-        "• Kategori E: Tolker som har bestått Tospråktesten og fullført kurs (TAO).",
-
-        betingelserRegister: "Nasjonalt Tolkeregister er et offentlig register over kvalifiserte tolker i Norge. For å være registrert, må tolken ha fullført offisielle kvalifiseringstilbud. Registrering i registeret er en garanti for at tolken oppfyller krav til kompetanse, ferdigheter og etiske retningslinjer.",
-
+        betingelserBestilling: "1. Bestilling og avbestilling",
+        betingelserBestillingText: "Alle tolkeoppdrag må bestilles i god tid for å sikre tilgjengelighet. Ved behov for tolketjenester på kort varsel vil vi forsøke å imøtekomme forespørselen, men dette kan ikke garanteres.",
         betingelserAvbestilling: "Alle tolketjenester må avbestilles senest 24 timer før oppdragets start. Ved senere avbestilling vil hele beløpet faktureres.",
 
-        kontaktBetingelser: "For spørsmål om betingelser, vennligst kontakt meg på "
+        betingelserPriser: "2. Priser og betalingsbetingelser",
+        betingelserPriserText: "Prisen på tolketjenester avhenger av flere faktorer, inkludert:",
+        betingelserPrisType: "Type tolkning (telefontolking, skjermtolking eller personlig oppmøte)",
+        betingelserPrisTid: "Tidspunkt for oppdraget (ordinær arbeidstid 08:00–16:00 eller kvelds-/helgetid)",
+        betingelserPrisKontakt: "Ta kontakt for et pristilbud tilpasset dine behov. Betaling skjer via faktura med 14 dagers betalingsfrist.",
+
+        betingelserKvalifikasjoner: "3. Kvalifikasjoner og tolkeautorisasjon",
+        betingelserKvalifikasjonerText: "Jeg er registrert i Nasjonalt tolkeregister i kategori C, som innebærer at jeg har bestått statsautorisasjonsprøven for tolker i ukrainsk.",
+        betingelserKategorierIntro: "I Norge er tolker klassifisert i følgende kategorier basert på kompetanse:",
+        betingelserKategoriA: "Kategori A – Statsautorisert tolk med fullført bachelorgrad i tolking",
+        betingelserKategoriB: "Kategori B – Statsautorisert tolk eller bachelorgrad i tolking kombinert med grunnemne (30 studiepoeng)",
+        betingelserKategoriC: "Kategori C – Statsautorisert tolk",
+        betingelserKategoriD: "Kategori D – Grunnemne i tolking i offentlig sektor (30 studiepoeng)",
+        betingelserKategoriE: "Kategori E – Bestått Tospråktesten med kurs i tolkeetikk og ansvarsbevissthet (TAO)",
+
+        betingelserHvorforTolk: "4. Hvorfor bruke en registrert tolk?",
+        betingelserHvorforTolkText: "Nasjonalt tolkeregister er et offentlig register over kvalifiserte tolker i Norge. En registrert tolk har dokumentert kompetanse, kjennskap til tolkeetiske retningslinjer og er underlagt kravene i Tolkeloven. Dette sikrer kvalitet, nøytralitet og profesjonell utførelse av tolkeoppdrag.",
+
+        betingelserKontakt: "5. Kontakt",
+        betingelserKontaktText: "For spørsmål om betingelser, vennligst kontakt meg på:\n📧 marinakarlsen5@gmail.com"
     },
     uk: {
         header: "Замовити перекладацькі послуги",
@@ -85,7 +90,6 @@ const translations = {
         sendButton: "Надіслати запит",
         formSuccess: "Ваш запит було надіслано!",
 
-        // Navigasjonsmeny
         navBestill: "Замовити послугу",
         navTjenester: "Послуги",
         navOmMeg: "Про мене",
@@ -93,12 +97,10 @@ const translations = {
         navBetingelser: "Умови та положення",
         navKontakt: "Контакт",
 
-        // Oppdragstyper
         oppdragstelefon: "Телефонний переклад",
         oppdragsskjerm: "Відеопереклад",
         oppdragsoppmøte: "Особиста присутність",
 
-        // Tjenester-seksjonen
         tjenesterHeader: "Послуги",
         tjenesterTelefon: "Телефонний переклад",
         tjenesterTelefonDesc: "Ефективне рішення для ситуацій, де особиста присутність не є необхідною.",
@@ -107,15 +109,12 @@ const translations = {
         tjenesterOppmote: "Особиста присутність",
         tjenesterOppmoteDesc: "Для ситуацій, що вимагають присутності та особистого контакту.",
 
-        // Tilbakemeldinger
         tilbakemeldingerHeader: "Відгуки",
         feedbackIntro: "Що клієнти кажуть про мої послуги:",
 
-        // Kontakt-seksjonen
         kontaktHeader: "Контакт",
         kontaktText: "Зв'яжіться зі мною електронною поштою або телефоном:",
 
-        // Betingelser-siden
         betingelserHeader: "Умови та положення",
         betingelserBestilling: "1. Замовлення та скасування",
         betingelserBestillingText: "Усі замовлення на перекладацькі послуги мають здійснюватися завчасно для забезпечення доступності. У разі потреби в терміновому наданні послуг ми намагатимемося задовольнити запит, однак це не може бути гарантовано.",
@@ -140,9 +139,10 @@ const translations = {
         betingelserHvorforTolkText: "Національний реєстр перекладачів – це офіційний реєстр кваліфікованих перекладачів у Норвегії. Зареєстрований перекладач має підтверджену компетентність, знайомий з етичними принципами перекладу та підпадає під дію вимог Закону про перекладацьку діяльність. Це забезпечує якість, неупередженість і професійне виконання перекладацьких завдань.",
 
         betingelserKontakt: "5. Контакт",
-        betingelserKontaktText: "З питаннями щодо умов, будь ласка, звертайтеся за адресою:"
-        }
+        betingelserKontaktText: "З питаннями щодо умов, будь ласка, звертайтеся за адресою:\n📧 marinakarlsen5@gmail.com"
+    }
 };
+
 document.addEventListener("DOMContentLoaded", () => {
     const savedLang = localStorage.getItem("language") || "no";
 
