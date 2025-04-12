@@ -391,8 +391,8 @@ header {
 
 /* Bildet og kortet rundt */
 .kort.bilde {
-    flex: 1.2; /* Øker bredden litt */
-    max-width: 400px; /* Øker maksimal bredde på bildet */
+    flex: 1.5; /* Øker bredden litt */
+    max-width: 600px; /* Øker maksimal bredde på bildet */
     padding: 1rem;
     background-color: #f4f4f4;
     border-radius: 10px;
