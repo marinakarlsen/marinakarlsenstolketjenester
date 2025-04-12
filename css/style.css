@@ -369,28 +369,21 @@ header {
 
 .om-meg-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-    max-width: 1000px;
-    margin: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
-.tekst-om-meg {
-    max-width: 700px;
-    text-align: left;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 2rem;
-}
-
-.bilde-om-meg {
-    text-align: center;
+.kort {
+    background-color: #f3f3f3; /* Velg ønsket temafarge */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    max-width: 500px;
 }
 
 .profilbilde {
-    max-width: 300px;
+    width: 100%;
     height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
 }

@@ -506,3 +506,29 @@ function updateBetingelserLanguage(lang) {
         }
     });
 }
+
+// Funksjon for å sette språket
+function setLanguage(lang) {
+    localStorage.setItem('selectedLanguage', lang);
+    loadTranslations(lang);
+}
+
+// Funksjon for å laste oversettelser basert på valgt språk
+function loadTranslations(lang) {
+    fetch(`translations_${lang}.json`)
+        .then(response => response.json())
+        .then(translations => {
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[key]) {
+                    element.textContent = translations[key];
+                }
+            });
+        });
+}
+
+// Ved lasting av siden, sjekk lagret språkvalg
+document.addEventListener('DOMContentLoaded', () => {
+    const lang = localStorage.getItem('selectedLanguage') || 'no';
+    loadTranslations(lang);
+});
