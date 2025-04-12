@@ -493,7 +493,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 updateLanguage(selectedLang);
             }
         });
+        if (document.querySelector(".om-meg-container")) {
+            updateOmMegLanguage(selectedLang);
+        }        
     });
+
+    const currentLang = localStorage.getItem("language") || "no";
+
+    if (document.querySelector(".om-meg-container")) {
+        updateOmMegLanguage(currentLang);
+    }
 });
 
 function updateBetingelserLanguage(lang) {
@@ -532,3 +541,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const lang = localStorage.getItem('selectedLanguage') || 'no';
     loadTranslations(lang);
 });
+
+function updateOmMegLanguage(lang) {
+    document.querySelectorAll("[data-translate]").forEach(element => {
+        const key = element.getAttribute("data-translate");
+        if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+    });
+}
