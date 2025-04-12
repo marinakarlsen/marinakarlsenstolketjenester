@@ -371,19 +371,51 @@ header {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
+    padding: 80px 20px 40px; /* Skyver innholdet ned fra toppen */
+    box-sizing: border-box;
 }
 
-.kort {
-    background-color: #f3f3f3; /* Velg ønsket temafarge */
+/* Tekstkortet */
+.kort.text {
+    background-color: #f9f9f9;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 20px;
-    max-width: 500px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    max-width: 700px; /* Gjør det litt bredere */
+    flex: 1 1 700px;
+}
+
+/* Bildet og kortet rundt */
+.kort.bilde {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .profilbilde {
-    width: 100%;
+    max-width: 100%;
     height: auto;
     border-radius: 8px;
+}
+
+/* Footer nederst */
+footer {
+    margin-top: 60px;
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #ccc;
+    font-size: 0.9rem;
+    background-color: #f7f7f7;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+footer p {
+    margin: 0;
+    padding: 0 20px;
 }
