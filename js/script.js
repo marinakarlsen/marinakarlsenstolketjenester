@@ -309,13 +309,13 @@ document.addEventListener("DOMContentLoaded", () => {
                         form.reset(); // Nullstill skjemaet
                     } else {
                         return response.text().then(error => {
-                            throw new Error(Feil ved sending av e-post: ${error});
+                            throw new Error(`Feil ved sending av e-post: ${error}`);
                         });
                     }
                 })
                 .catch(error => {
                     console.error("Feil ved sending av e-post:", error);
-                    alert(Noe gikk galt: ${error.message});
+                    alert(`Noe gikk galt: ${error.message}`);
                 });
         });
     }
@@ -498,7 +498,7 @@ function setLanguage(lang) {
 
 // Funksjon for å laste oversettelser basert på valgt språk
 function loadTranslations(lang) {
-    fetch(translations_${lang}.json)
+    fetch(`translations_${lang}.json`)
         .then(response => response.json())
         .then(translations => {
             document.querySelectorAll('[data-translate]').forEach(element => {
