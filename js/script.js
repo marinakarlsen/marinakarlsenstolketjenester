@@ -333,7 +333,7 @@ fetch('version.json') // Hent version.json
         // Sett versjonsnummeret i HTML-elementet med id="version-log"
         const versionLogElement = document.querySelector("#version-log");
         if (versionLogElement) {
-            versionLogElement.textContent = Versjon: ${data.version};
+            versionLogElement.textContent = `Versjon: ${data.version}`;
         }
     })
     .catch(error => {
