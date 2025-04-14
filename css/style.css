@@ -425,3 +425,44 @@ footer p {
     margin: 0;
     padding: 0 20px;
 }
+
+.slide-in {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.6s ease-out;
+}
+  
+  .slide-in.visible {
+    opacity: 1;
+    transform: translateX(0);
+    }  
+.highlight-quote {
+    font-style: italic;
+    background-color: #f0f0f0;
+    border-left: 4px solid #ccc;
+    margin: 1em 0;
+    padding: 0.5em 1em;
+  }
+  
+  .timeline {
+    position: relative;
+    margin: 2em 0;
+    padding-left: 2em;
+    border-left: 2px solid #ccc;
+  }
+  
+  .timeline-item {
+    position: relative;
+    margin-bottom: 1em;
+  }
+  
+  .timeline-date {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
+  
+  .timeline-content {
+    background-color: #f9f9f9;
+    padding: 0.5em;
+    border-radius: 4px;
+  }  
