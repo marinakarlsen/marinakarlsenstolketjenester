@@ -431,6 +431,48 @@ body {
     font-style: italic;
   }
   
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+.tidslinje-horisontal {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 1.2rem;
+  padding: 1rem 0;
+  justify-content: center;
+  scroll-snap-type: x mandatory;
+}
+
+.hendelse {
+  min-width: 180px;
+  background-color: #fff8f8;
+  border: 3px solid #ff99cc;
+  border-radius: 20px;
+  padding: 0.8rem 1rem;
+  text-align: center;
+  scroll-snap-align: start;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0px 3px 12px rgba(255, 153, 204, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.hendelse:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(255, 153, 204, 0.2);
+}
+
+.hendelse p {
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.hendelse strong {
+  color: #5e3b76;
+  font-weight: 500;
+  font-size: 1rem;
+}
   
   /* ================================
      ANIMASJONER
