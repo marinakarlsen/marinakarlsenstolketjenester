@@ -438,36 +438,51 @@ body {
     flex-wrap: nowrap;
     overflow-x: auto;
     gap: 1.2rem;
-    padding: 1rem 2rem;
+    padding: 2rem;
     scroll-snap-type: x mandatory;
     scroll-padding-left: 2rem;
     justify-content: flex-start;
-  }  
+    position: relative;
+  }
+
+  .tidslinje-horisontal::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 2rem;
+    right: 2rem;
+    height: 3px;
+    background-color: #ff99cc;
+    z-index: 0;
+  }
 
   .hendelse {
     min-width: 180px;
     background-color: #fff8f8;
-    border: 3px solid #ff99cc;
-    border-radius: 40px; /* Økt fra 20px til 40px */
-    padding: 0.8rem 1rem;
+    border: 4px solid #ff99cc;
+    border-radius: 40px;
+    padding: 1rem 1.2rem;
     text-align: center;
     scroll-snap-align: start;
-    font-family: 'Poppins', sans-serif;
-    box-shadow: 0px 3px 12px rgba(255, 153, 204, 0.1);
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0px 4px 15px rgba(255, 153, 204, 0.15);
     transition: transform 0.2s ease;
-  }  
-
-.hendelse:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(255, 153, 204, 0.2);
-}
-
-.hendelse p {
-  font-size: 1rem;
-  color: #333;
-  margin: 0;
-  line-height: 1.5;
-}
+  }
+  
+  .hendelse:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(255, 153, 204, 0.25);
+  }
+  
+  .hendelse p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #333;
+  }
 
 .hendelse strong {
   color: #5e3b76;
