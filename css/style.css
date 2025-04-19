@@ -433,28 +433,29 @@ body {
   
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
-.tidslinje-horisontal {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  gap: 1.2rem;
-  padding: 1rem 0;
-  justify-content: center;
-  scroll-snap-type: x mandatory;
-}
+  .tidslinje-horisontal {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 1.2rem;
+    padding: 1rem 2rem;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 2rem;
+    justify-content: flex-start;
+  }  
 
-.hendelse {
-  min-width: 180px;
-  background-color: #fff8f8;
-  border: 3px solid #ff99cc;
-  border-radius: 20px;
-  padding: 0.8rem 1rem;
-  text-align: center;
-  scroll-snap-align: start;
-  font-family: 'Poppins', sans-serif;
-  box-shadow: 0px 3px 12px rgba(255, 153, 204, 0.1);
-  transition: transform 0.2s ease;
-}
+  .hendelse {
+    min-width: 180px;
+    background-color: #fff8f8;
+    border: 3px solid #ff99cc;
+    border-radius: 40px; /* Økt fra 20px til 40px */
+    padding: 0.8rem 1rem;
+    text-align: center;
+    scroll-snap-align: start;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0px 3px 12px rgba(255, 153, 204, 0.1);
+    transition: transform 0.2s ease;
+  }  
 
 .hendelse:hover {
   transform: scale(1.05);
