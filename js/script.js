@@ -302,6 +302,19 @@ document.addEventListener("DOMContentLoaded", () => {
         slideInElements.forEach(el => observer.observe(el));
     }
 
+    // Fade-in effekt
+    const fadeInElements = document.querySelectorAll('.fade-in');
+    if (fadeInElements.length > 0) {
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+        fadeInElements.forEach(el => fadeObserver.observe(el));
+    }
+
     // Logo skrinking
     const logoContainer = document.querySelector('.logo-container');
     if (logoContainer) {
