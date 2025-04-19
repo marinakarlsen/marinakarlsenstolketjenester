@@ -457,38 +457,39 @@ body {
   }
 
   .hendelse {
-    min-width: 180px;
+    min-width: 160px;
     background-color: #fff8f8;
     border: 4px solid #ff99cc;
-    border-radius: 40px;
-    padding: 1rem 1.2rem;
+    border-radius: 999px; /* Superrund! */
+    padding: 0.6rem 1.2rem;
     text-align: center;
     scroll-snap-align: start;
     font-family: 'Playfair Display', serif;
     font-weight: 500;
     position: relative;
     z-index: 1;
-    box-shadow: 0px 4px 15px rgba(255, 153, 204, 0.15);
+    box-shadow: 0px 4px 15px rgba(255, 153, 204, 0.1);
     transition: transform 0.2s ease;
   }
   
   .hendelse:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 18px rgba(255, 153, 204, 0.25);
+    transform: scale(1.06);
+    box-shadow: 0 6px 18px rgba(255, 153, 204, 0.2);
   }
   
   .hendelse p {
     margin: 0;
-    font-size: 1.1rem;
-    line-height: 1.5;
+    font-size: 1rem;
+    line-height: 1.4;
     color: #333;
   }
-
-.hendelse strong {
-  color: #5e3b76;
-  font-weight: 500;
-  font-size: 1rem;
-}
+  
+  .hendelse strong {
+    display: block;
+    color: #5e3b76;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+  }  
   
   /* ================================
      ANIMASJONER
