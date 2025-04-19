@@ -438,11 +438,11 @@ body {
     flex-wrap: nowrap;
     overflow-x: auto;
     gap: 1.2rem;
-    padding: 2rem;
+    padding: 2rem 2.5rem 2rem 2rem; /* Mer høyre-padding */
     scroll-snap-type: x mandatory;
     scroll-padding-left: 2rem;
     justify-content: flex-start;
-  }
+  }  
   
   .hendelse {
     min-width: 160px;
@@ -464,6 +464,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    flex-shrink: 0;
   }
   
   .hendelse:hover {
