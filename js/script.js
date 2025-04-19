@@ -1,6 +1,5 @@
 const lang = localStorage.getItem("language") || "no";
 
-//Språkdata for nettsiden
 const translations = {
     no: {
         header: "Bestill tolketjeneste",
@@ -152,21 +151,122 @@ const translations = {
         }
 };
 
+// === Globale funksjoner for språk ===
+
+function updateLanguage(lang) {
+    const t = translations[lang];
+    if (!t) return;
+
+    const setText = (selector, key) => {
+        const el = document.querySelector(selector);
+        if (el && t[key]) el.textContent = t[key];
+    };
+
+    setText("#bestill-header", "header");
+    setText("label[for='dato']", "datoLabel");
+    setText("label[for='starttid']", "starttidLabel");
+    setText("label[for='sluttid']", "sluttidLabel");
+    setText("label[for='adresse']", "adresseLabel");
+    setText("label[for='oppdragstype']", "oppdragstypeLabel");
+    setText("label[for='tema']", "temaLabel");
+    setText("label[for='kundeinfo']", "kundeinfoLabel");
+    setText("label[for='epost']", "epostLabel");
+    setText("label[for='telefon']", "telefonLabel");
+    setText("label[for='notater']", "notaterLabel");
+
+    const sendBtn = document.querySelector(".contact-form button");
+    if (sendBtn && t.sendButton) sendBtn.textContent = t.sendButton;
+
+    const navItems = document.querySelectorAll("nav ul li a");
+    if (navItems.length >= 6) {
+        navItems[0].textContent = t.navBestill;
+        navItems[1].textContent = t.navTjenester;
+        navItems[2].textContent = t.navOmMeg;
+        navItems[3].textContent = t.navTilbakemeldinger;
+        navItems[4].textContent = t.navBetingelser;
+        navItems[5].textContent = t.navKontakt;
+    }
+
+    const tele = document.querySelector("#oppdragstype option[value='telefontolking']");
+    const skjerm = document.querySelector("#oppdragstype option[value='skjermtolking']");
+    const pers = document.querySelector("#oppdragstype option[value='personlig']");
+    if (tele) tele.textContent = t.oppdragstelefon;
+    if (skjerm) skjerm.textContent = t.oppdragsskjerm;
+    if (pers) pers.textContent = t.oppdragsoppmøte;
+
+    setText("#tjenester h2", "tjenesterHeader");
+    setText("#tjenester .service:nth-child(1) h3", "tjenesterTelefon");
+    setText("#tjenester .service:nth-child(1) p", "tjenesterTelefonDesc");
+    setText("#tjenester .service:nth-child(2) h3", "tjenesterSkjerm");
+    setText("#tjenester .service:nth-child(2) p", "tjenesterSkjermDesc");
+    setText("#tjenester .service:nth-child(3) h3", "tjenesterOppmote");
+    setText("#tjenester .service:nth-child(3) p", "tjenesterOppmoteDesc");
+
+    setText("#tilbakemeldinger h2", "tilbakemeldingerHeader");
+    setText("#tilbakemeldinger p", "feedbackIntro");
+
+    setText("#kontakt h2", "kontaktHeader");
+    setText("#kontakt p", "kontaktText");
+
+    const kontaktInfo = document.querySelectorAll("#kontakt li");
+    if (kontaktInfo.length >= 2) {
+        kontaktInfo[0].innerHTML = `<i class="fa fa-envelope"></i> ${t.epostLabel} <a href="mailto:marinakarlsen5@gmail.com">marinakarlsen5@gmail.com</a>`;
+        kontaktInfo[1].innerHTML = `<i class="fa fa-phone"></i> ${t.telefonLabel} <a href="tel:+4746930229">+47 469 30 229</a>`;
+    }
+}
+
+function updateBetingelserLanguage(lang) {
+    const t = translations[lang];
+    if (!t) return;
+    document.querySelectorAll("[data-translate]").forEach(el => {
+        const key = el.getAttribute("data-translate");
+        if (t[key]) el.textContent = t[key];
+    });
+}
+
+function updateOmMegLanguage(lang) {
+    const t = translations[lang];
+    if (!t) return;
+    document.querySelectorAll("[data-translate]").forEach(el => {
+        const key = el.getAttribute("data-translate");
+        if (t[key]) el.textContent = t[key];
+    });
+}
+
+function setLanguage(lang) {
+    localStorage.setItem('selectedLanguage', lang);
+    loadTranslations(lang);
+}
+
+function loadTranslations(lang) {
+    fetch(`translations_${lang}.json`)
+        .then(response => response.json())
+        .then(translations => {
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[key]) {
+                    element.textContent = translations[key];
+                }
+            });
+        });
+}
+
+// === DOMContentLoaded ===
+
 document.addEventListener("DOMContentLoaded", () => {
     const savedLang = localStorage.getItem("language") || "no";
-    const isBetingelser = document.querySelector(".betingelser-container");
-    const isOmMeg = document.querySelector(".om-meg-container");
 
-    if (isBetingelser) {
+    // Språk-oppdatering for gjeldende side
+    if (document.querySelector(".betingelser-container")) {
         updateBetingelserLanguage(savedLang);
-    } else if (isOmMeg) {
+    } else if (document.querySelector(".om-meg-container")) {
         updateOmMegLanguage(savedLang);
     } else {
         updateLanguage(savedLang);
     }
 
+    // Språkvalg-knapper
     const langButtons = document.querySelectorAll(".lang-button");
-
     langButtons.forEach(button => {
         if (button.dataset.lang === savedLang) {
             button.classList.add("active");
@@ -188,95 +288,74 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
-});
 
-// Funksjon for å oppdatere språket på Betingelser-siden
-function updateBetingelserLanguage(lang) {
-    document.querySelectorAll("[data-translate]").forEach(element => {
-        const key = element.getAttribute("data-translate");
-        if (translations[lang] && translations[lang][key]) {
-            element.textContent = translations[lang][key];
+    // Slide-in effekt
+    const slideInElements = document.querySelectorAll('.slide-in');
+    if (slideInElements.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+        slideInElements.forEach(el => observer.observe(el));
+    }
+
+    // Logo skrinking
+    const logoContainer = document.querySelector('.logo-container');
+    if (logoContainer) {
+        window.addEventListener('scroll', () => {
+            logoContainer.classList.toggle('shrink', window.scrollY > 50);
+        });
+
+        const logoLink = logoContainer.querySelector('a');
+        if (logoLink) {
+            logoLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
         }
-    });
-}
-
-// Sjekk om EmailJS er lastet og initialisert
-function checkEmailJS() {
-    if (typeof emailjs === 'undefined') {
-        console.error('EmailJS er ikke lastet inn!');
-        alert('En feil oppstod. EmailJS er ikke initialisert.');
-        return false; // Indikerer feil
     }
-    emailjs.init('bFcwSKHQToHSyB7aX'); // Din Public API Key
-    console.log('EmailJS er initialisert med den nyeste SDK-en');
-    return true; // Indikerer suksess
-}
 
-// Kjør sjekk for EmailJS
-if (document.querySelector(".contact-form")) {
-    if (!checkEmailJS()) {
-        throw new Error("EmailJS ble ikke initialisert. Kontroller innstillingene dine.");
-    }
-}
-
-// Dynamisk logo-effekt ved scrolling
-const logoContainer = document.querySelector('.logo-container');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        logoContainer.classList.add('shrink');
-    } else {
-        logoContainer.classList.remove('shrink');
-    }
-});
-
-// Gjør logoen klikkbar og sender brukeren til toppen
-const logoLink = document.querySelector('.logo-container a');
-logoLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-// Legg til smooth scrolling for navigasjonslenker
-const navLinks = document.querySelectorAll('.sticky-nav a');
-
-navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        const href = link.getAttribute('href');
-
-        // Hvis lenken starter med "#", scroll til seksjonen
-        if (href.startsWith("#")) {
-            e.preventDefault();
-            const targetId = href.substring(1);
+    // Smooth scrolling for interne lenker
+    document.querySelectorAll('.sticky-nav a[href^="#"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const targetId = link.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
             if (targetSection) {
+                e.preventDefault();
                 targetSection.scrollIntoView({ behavior: 'smooth' });
             }
-        }
+        });
     });
-});
 
-// Aktiver interaktiv karusell for tilbakemeldinger (hvis det er flere elementer)
-const feedbackCarousel = document.querySelector('.feedback-carousel');
-if (feedbackCarousel) {
-    feedbackCarousel.addEventListener('wheel', (e) => {
-        e.preventDefault();
-        feedbackCarousel.scrollLeft += e.deltaY;
-    });
-}
+    // Tilbakemelding-karusell
+    const feedbackCarousel = document.querySelector('.feedback-carousel');
+    if (feedbackCarousel) {
+        feedbackCarousel.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            feedbackCarousel.scrollLeft += e.deltaY;
+        });
+    }
 
-// EmailJS integrasjon for skjemaet
-document.addEventListener("DOMContentLoaded", () => {
+    // EmailJS
     const contactForm = document.querySelector(".contact-form");
     if (contactForm) {
+        if (typeof emailjs === 'undefined') {
+            console.error('EmailJS er ikke lastet inn!');
+            alert('En feil oppstod. EmailJS er ikke initialisert.');
+            return;
+        }
+
+        emailjs.init('bFcwSKHQToHSyB7aX');
+        console.log('EmailJS er initialisert med den nyeste SDK-en');
+
         contactForm.addEventListener("submit", function (e) {
-            e.preventDefault(); // Hindrer standard skjemaoppførsel
-
-            // Hent språket som er valgt (fra localStorage eller default til "no")
-            const selectedLanguage = localStorage.getItem("language") || "no";
-
-            // Samle inn data fra skjemaet
+            e.preventDefault();
             const form = e.target;
+            const selectedLang = localStorage.getItem("language") || "no";
+
             const formData = {
                 dato: form.dato.value,
                 starttid: form.starttid.value,
@@ -288,251 +367,49 @@ document.addEventListener("DOMContentLoaded", () => {
                 epost: form.epost.value,
                 telefon: form.telefon.value,
                 notater: form.notater.value,
-                language: selectedLanguage === "no" ? "Norsk" : "Українська" // Legger til valgt språk
+                language: selectedLang === "no" ? "Norsk" : "Українська"
             };
 
-            // Send data til EmailJS via fetch
-            console.log("Formdata som sendes:", formData);
             fetch("https://api.emailjs.com/api/v1.0/email/send", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    service_id: "service_p7gp21t", // Min Service ID
-                    template_id: "template_weqmq4a", // Min Template ID
-                    user_id: "bFcwSKHQToHSyB7aX", // Min Public API Key
-                    template_params: formData // Sender formData med dato, starttid og sluttid
+                    service_id: "service_p7gp21t",
+                    template_id: "template_weqmq4a",
+                    user_id: "bFcwSKHQToHSyB7aX",
+                    template_params: formData
                 })
             })
-                .then(response => {
-                    if (response.ok) {
-                        alert(translations[selectedLanguage].formSuccess);
-                        form.reset(); // Nullstill skjemaet
-                    } else {
-                        return response.text().then(error => {
-                            throw new Error(`Feil ved sending av e-post: ${error}`);
-                        });
-                    }
-                })
-                .catch(error => {
-                    console.error("Feil ved sending av e-post:", error);
-                    alert(`Noe gikk galt: ${error.message}`);
-                });
-        });
-    }
-});
-
-// Hent versjonsnummeret fra version.json og vis det i versjonsloggen
-fetch('version.json') // Hent version.json
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Kunne ikke laste versjonsinformasjon');
-        }
-        return response.json(); // Konverter JSON-innhold til et objekt
-    })
-    .then(data => {
-        // Sett versjonsnummeret i HTML-elementet med id="version-log"
-        const versionLogElement = document.querySelector("#version-log");
-        if (versionLogElement) {
-            versionLogElement.textContent = `Versjon: ${data.version}`;
-        }
-    })
-    .catch(error => {
-        console.error('Feil ved lasting av versjonsinformasjon:', error);
-    });
-    
-    // Funksjon for å oppdatere språk
-    function updateLanguage(lang) {
-        const t = translations[lang];
-        if (!t) return;
-    
-        const setText = (selector, key) => {
-            const el = document.querySelector(selector);
-            if (el && t[key]) el.textContent = t[key];
-        };
-    
-        setText("#bestill-header", "header");
-        setText("label[for='dato']", "datoLabel");
-        setText("label[for='starttid']", "starttidLabel");
-        setText("label[for='sluttid']", "sluttidLabel");
-        setText("label[for='adresse']", "adresseLabel");
-        setText("label[for='oppdragstype']", "oppdragstypeLabel");
-        setText("label[for='tema']", "temaLabel");
-        setText("label[for='kundeinfo']", "kundeinfoLabel");
-        setText("label[for='epost']", "epostLabel");
-        setText("label[for='telefon']", "telefonLabel");
-        setText("label[for='notater']", "notaterLabel");
-    
-        const sendBtn = document.querySelector(".contact-form button");
-        if (sendBtn && t.sendButton) sendBtn.textContent = t.sendButton;
-    
-        const navItems = document.querySelectorAll("nav ul li a");
-        if (navItems.length >= 6) {
-            navItems[0].textContent = t.navBestill;
-            navItems[1].textContent = t.navTjenester;
-            navItems[2].textContent = t.navOmMeg;
-            navItems[3].textContent = t.navTilbakemeldinger;
-            navItems[4].textContent = t.navBetingelser;
-            navItems[5].textContent = t.navKontakt;
-        }
-    
-        const tele = document.querySelector("#oppdragstype option[value='telefontolking']");
-        const skjerm = document.querySelector("#oppdragstype option[value='skjermtolking']");
-        const pers = document.querySelector("#oppdragstype option[value='personlig']");
-        if (tele) tele.textContent = t.oppdragstelefon;
-        if (skjerm) skjerm.textContent = t.oppdragsskjerm;
-        if (pers) pers.textContent = t.oppdragsoppmøte;
-    
-        setText("#tjenester h2", "tjenesterHeader");
-        setText("#tjenester .service:nth-child(1) h3", "tjenesterTelefon");
-        setText("#tjenester .service:nth-child(1) p", "tjenesterTelefonDesc");
-        setText("#tjenester .service:nth-child(2) h3", "tjenesterSkjerm");
-        setText("#tjenester .service:nth-child(2) p", "tjenesterSkjermDesc");
-        setText("#tjenester .service:nth-child(3) h3", "tjenesterOppmote");
-        setText("#tjenester .service:nth-child(3) p", "tjenesterOppmoteDesc");
-    
-        setText("#tilbakemeldinger h2", "tilbakemeldingerHeader");
-        setText("#tilbakemeldinger p", "feedbackIntro");
-    
-        setText("#kontakt h2", "kontaktHeader");
-        setText("#kontakt p", "kontaktText");
-    
-        const kontaktInfo = document.querySelectorAll("#kontakt li");
-        if (kontaktInfo.length >= 2) {
-            kontaktInfo[0].innerHTML = `<i class="fa fa-envelope"></i> ${t.epostLabel} <a href="mailto:marinakarlsen5@gmail.com">marinakarlsen5@gmail.com</a>`;
-            kontaktInfo[1].innerHTML = `<i class="fa fa-phone"></i> ${t.telefonLabel} <a href="tel:+4746930229">+47 469 30 229</a>`;
-        }
-    }
-      
-
-// Språk-oppdatering for Betingelser-siden
-function updateBetingelserLanguage(lang) {
-    const t = translations[lang];
-    if (!t) return;
-    document.querySelectorAll("[data-translate]").forEach(el => {
-        const key = el.getAttribute("data-translate");
-        if (t[key]) el.textContent = t[key];
-    });
-}
-
-function updateOmMegLanguage(lang) {
-    const t = translations[lang];
-    if (!t) return;
-    document.querySelectorAll("[data-translate]").forEach(el => {
-        const key = el.getAttribute("data-translate");
-        if (t[key]) el.textContent = t[key];
-    });
-}
-
-// Oppdater språk når siden lastes
-document.addEventListener("DOMContentLoaded", () => {
-    const savedLang = localStorage.getItem("language") || "no";
-    updateBetingelserLanguage(savedLang);
-});
-
-// Språk-knapper som oppdaterer både hovedsiden og Betingelser-siden
-document.addEventListener("DOMContentLoaded", () => {
-    const langButtons = document.querySelectorAll(".lang-button");
-    const savedLang = localStorage.getItem("language") || "no";
-
-    // Sett aktiv klasse på riktig knapp ved last
-    langButtons.forEach(button => {
-        if (button.dataset.lang === savedLang) {
-            button.classList.add("active");
-        }
-    });
-
-    // Oppdater språk på riktig side
-    if (document.querySelector(".betingelser-container")) {
-        updateBetingelserLanguage(savedLang);
-    } else {
-        updateLanguage(savedLang);
-    }
-
-    // Språkbytte ved klikk
-    langButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const selectedLang = button.dataset.lang;
-
-            // Lagre språk i nettleser
-            localStorage.setItem("language", selectedLang);
-
-            // Oppdater aktiv klasse
-            langButtons.forEach(btn => btn.classList.remove("active"));
-            button.classList.add("active");
-
-            // Oppdater språk på riktig side
-            if (document.querySelector(".betingelser-container")) {
-                updateBetingelserLanguage(selectedLang);
-            } else {
-                updateLanguage(selectedLang);
-            }
-        });
-        if (document.querySelector(".om-meg-container")) {
-            updateOmMegLanguage(selectedLang);
-        }        
-    });
-
-    const currentLang = localStorage.getItem("language") || "no";
-
-    if (document.querySelector(".om-meg-container")) {
-        updateOmMegLanguage(currentLang);
-    }
-});
-
-function updateBetingelserLanguage(lang) {
-    if (!translations[lang]) return;
-
-    document.querySelectorAll("[data-translate]").forEach((element) => {
-        const key = element.getAttribute("data-translate");
-        if (translations[lang][key]) {
-            element.textContent = translations[lang][key];
-        }
-    });
-}
-
-// Funksjon for å sette språket
-function setLanguage(lang) {
-    localStorage.setItem('selectedLanguage', lang);
-    loadTranslations(lang);
-}
-
-// Funksjon for å laste oversettelser basert på valgt språk
-function loadTranslations(lang) {
-    fetch(`translations_${lang}.json`)
-        .then(response => response.json())
-        .then(translations => {
-            document.querySelectorAll('[data-translate]').forEach(element => {
-                const key = element.getAttribute('data-translate');
-                if (translations[key]) {
-                    element.textContent = translations[key];
+            .then(response => {
+                if (response.ok) {
+                    alert(translations[selectedLang].formSuccess);
+                    form.reset();
+                } else {
+                    return response.text().then(error => {
+                        throw new Error(`Feil ved sending av e-post: ${error}`);
+                    });
                 }
+            })
+            .catch(error => {
+                console.error("Feil ved sending av e-post:", error);
+                alert(`Noe gikk galt: ${error.message}`);
             });
         });
-}
-
-// Ved lasting av siden, sjekk lagret språkvalg
-document.addEventListener('DOMContentLoaded', () => {
-    const lang = localStorage.getItem('selectedLanguage') || 'no';
-    loadTranslations(lang);
-});
-
-function updateOmMegLanguage(lang) {
-    document.querySelectorAll("[data-translate]").forEach(element => {
-        const key = element.getAttribute("data-translate");
-        if (translations[lang] && translations[lang][key]) {
-            element.textContent = translations[lang][key];
-        }
-    });
-}
-
-const slideInElements = document.querySelectorAll('.slide-in');
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
     }
-  });
-});
 
-slideInElements.forEach(el => observer.observe(el));
+    // Hent versjon fra version.json
+    fetch('version.json')
+        .then(response => {
+            if (!response.ok) throw new Error('Kunne ikke laste versjonsinformasjon');
+            return response.json();
+        })
+        .then(data => {
+            const versionLogElement = document.querySelector("#version-log");
+            if (versionLogElement) {
+                versionLogElement.textContent = `Versjon: ${data.version}`;
+            }
+        })
+        .catch(error => {
+            console.error('Feil ved lasting av versjonsinformasjon:', error);
+        });
+});
