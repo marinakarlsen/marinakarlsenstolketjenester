@@ -1,50 +1,46 @@
-/* Generelle innstillinger */
+/* ================================
+   GENERELT
+================================== */
 body {
     font-family: 'Montserrat', 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
     color: #333;
-}
-
-/* Seksjonstemaer */
-#bestill {
-    background-color: #f0f8ff; /* Lys blå */
-}
-
-#tjenester {
-    background-color: #f8f3fc; /* Lys lilla */
-}
-
-#om-meg {
-    background-color: #fff8f8; /* Lys rosa */
-}
-
-#tilbakemeldinger {
-    background-color: #fef6e4; /* Lys beige */
-}
-
-#kontakt {
-    background-color: #eafaf1; /* Lys grønn for variasjon */
-}
-
-h2 {
+  }
+  
+  h2 {
     text-align: center;
     margin-bottom: 20px;
     font-size: 2rem;
     color: #5e3b76;
-}
-
-.section {
+  }
+  
+  .section {
     padding: 40px 20px;
     margin-bottom: 20px;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Logo */
-.logo-container {
+  }
+  
+  /* ================================
+     SEKSJONSFARGER
+  ================================== */
+  #bestill    { background-color: #f0f8ff; }
+  #tjenester  { background-color: #f8f3fc; }
+  #om-meg     { background-color: #fff8f8; }
+  #tilbakemeldinger { background-color: #fef6e4; }
+  #kontakt    { background-color: #eafaf1; }
+  
+  /* ================================
+     HEADER + LOGO
+  ================================== */
+  header {
+    position: relative;
+  }
+  
+  .logo-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,19 +50,21 @@ h2 {
     top: 0;
     z-index: 1000;
     transition: all 0.3s ease;
-}
-
-.logo-container img {
+  }
+  
+  .logo-container img {
     max-width: 300px;
     transition: transform 0.3s ease;
-}
-
-.logo-container.shrink img {
+  }
+  
+  .logo-container.shrink img {
     max-width: 200px;
-}
-
-/* Navigasjonsmeny */
-.sticky-nav ul {
+  }
+  
+  /* ================================
+     NAVIGASJON
+  ================================== */
+  .sticky-nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
@@ -74,98 +72,133 @@ h2 {
     padding: 10px 0;
     background-color: #ffffff;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.sticky-nav li {
+  }
+  
+  .sticky-nav li {
     margin: 0 15px;
-}
-
-.sticky-nav a {
+  }
+  
+  .sticky-nav a {
     text-decoration: none;
     font-size: 1rem;
     color: #5e3b76;
     padding: 10px 15px;
     border-radius: 25px;
     transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.sticky-nav a:hover {
+  }
+  
+  .sticky-nav a:hover {
     background-color: #d991d3;
     color: #fff;
-}
-
-/* Bestillingsskjema */
-.contact-form {
+  }
+  
+  /* ================================
+     SPRÅKVELGER
+  ================================== */
+  .language-switcher {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .lang-button {
+    background: none;
+    border: none;
+    font-weight: 300;
+    font-size: 16px;
+    color: #555;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: color 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .lang-button.active,
+  .lang-button:hover {
+    color: #ff77aa;
+  }
+  
+  /* ================================
+     BESTILLINGSKJEMA
+  ================================== */
+  .contact-form {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Midtstiller feltene */
-    max-width: 600px; /* Begrens bredde */
-    margin: 0 auto; /* Sentrer skjemaet */
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
     padding: 20px;
-    background-color: #ffffff; /* Hvit bakgrunn */
-    border-radius: 15px; /* Runde hjørner */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Pen skygge */
-}
-
-.contact-form label {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-form label {
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 8px;
-    color: #333; /* Mørk tekst */
-    align-self: flex-start; /* Venstrestilt tekst */
-}
-
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
-    width: 100%; /* Full bredde */
+    color: #333;
+    align-self: flex-start;
+  }
+  
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    width: 100%;
     padding: 12px;
     margin-bottom: 15px;
-    border-radius: 8px; /* Runde kanter */
+    border-radius: 8px;
     border: 1px solid #ddd;
     font-size: 16px;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05); /* Lett innvendig skygge */
+    background-color: #f9f9f9;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
     transition: border-color 0.3s;
-}
-
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
-    border-color: #ff99cc; /* Rosa kant ved fokus */
-    outline: none; /* Fjern blå ramme */
-}
-
-.contact-form button {
-    background-color: #ff99cc; /* Rosa knapp */
+  }
+  
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus {
+    background-color: #fff;
+    border-color: #ff99cc;
+    outline: none;
+  }
+  
+  .contact-form button {
+    background-color: #ff99cc;
     color: white;
     font-size: 16px;
     padding: 12px 20px;
     border: none;
-    border-radius: 25px; /* Runde knapper */
+    border-radius: 25px;
     cursor: pointer;
-    box-shadow: 0 3px 8px rgba(255, 153, 204, 0.3); /* Rosa skygge */
+    box-shadow: 0 3px 8px rgba(255, 153, 204, 0.3);
     transition: all 0.3s ease;
-}
-
-.contact-form button:hover {
-    background-color: #e687b5; /* Mørkere rosa */
-    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4); /* Forsterket skygge */
-}
-
-.contact-form textarea {
-    resize: none; /* Deaktiver størrelsesendring */
-    height: 100px; /* Sett fast høyde */
-}
-
-/* Tjenester */
-.services-container {
+  }
+  
+  .contact-form button:hover {
+    background-color: #e687b5;
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+  }
+  
+  .contact-form textarea {
+    resize: none;
+    height: 100px;
+  }
+  
+  /* ================================
+     TJENESTER
+  ================================== */
+  .services-container {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     gap: 20px;
-}
-
-.service {
+  }
+  
+  .service {
     background-color: #f8f8f8;
     border-radius: 10px;
     padding: 20px;
@@ -173,53 +206,44 @@ h2 {
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service:hover {
+  }
+  
+  .service:hover {
     transform: translateY(-5px);
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.service h3 {
+  }
+  
+  .service h3 {
     font-size: 1.5rem;
     margin-bottom: 10px;
     color: #5e3b76;
-}
-
-.service p {
+  }
+  
+  .service p {
     font-size: 1rem;
     line-height: 1.5;
-}
-
-/* Tilbakemeldinger */
-/* Tilbakemeldinger - Kortstil */
-.feedback-section {
-    background-color: #f8f3fc; /* Lys lilla */
+  }
+  
+  /* ================================
+     TILBAKEMELDINGER
+  ================================== */
+  .feedback-section {
+    background-color: #f8f3fc;
     padding: 30px 20px;
     text-align: center;
     border-radius: 15px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.feedback-section h2 {
-    color: #5e3b76; /* Dyp lilla */
-}
-
-.feedback-section p {
-    font-size: 1rem;
-    margin-bottom: 20px;
-    color: #555;
-}
-
-.feedback-carousel {
+  }
+  
+  .feedback-carousel {
     display: flex;
     gap: 20px;
     overflow-x: auto;
     padding: 10px;
     scroll-snap-type: x mandatory;
-}
-
-.feedback-card {
+  }
+  
+  .feedback-card {
     background-color: #ffffff;
     border-radius: 15px;
     padding: 20px;
@@ -229,188 +253,34 @@ h2 {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: left;
-}
-
-.feedback-card:hover {
+  }
+  
+  .feedback-card:hover {
     transform: translateY(-5px);
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-.feedback-card h3 {
+  }
+  
+  .feedback-card h3 {
     font-size: 1.2rem;
-    margin-bottom: 10px;
     color: #5e3b76;
-}
-
-.feedback-card p {
+  }
+  
+  .feedback-card p {
     font-size: 1rem;
     color: #333;
-    margin-bottom: 15px;
     line-height: 1.5;
-}
-
-.feedback-card span {
+  }
+  
+  .feedback-card span {
     font-size: 0.9rem;
     color: #999;
     font-style: italic;
-}
-
-.version-log {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 0.9rem;
-    color: #888; /* Grå tekst for å gi lavere prioritet */
-}
-
-#version-log {
-    font-size: 0.9em;
-    color: gray;
-    text-align: center;
-    margin-top: 10px;
-}
-
-/* Ensartet bredde og padding */
-input, select, textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    background-color: #f9f9f9;
-    color: #333;
-}
-
-/* Fokus-stil */
-input:focus, select:focus, textarea:focus {
-    background-color: #fff;
-    outline: none;
-    border-color: #007BFF;
-}
-
-/* Knappestil */
-button {
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-header {
-    position: relative; /* Sørger for at absolute-position fungerer */
-}
-
-.language-switcher {
-    position: absolute !important;
-    top: 10px !important;
-    right: 20px !important;
-    display: flex !important;
-    align-items: center !important;
-    z-index: 1000 !important;
-}
-
-.lang-button {
-    background: none !important;  /* Fjern all bakgrunnsfarge */
-    border: none !important;      /* Fjern kantlinje */
-    font-weight: 300 !important;  /* Tynnere skrift */
-    font-size: 16px !important;
-    color: #555 !important;       /* Standard grå tekst */
-    cursor: pointer !important;
-    margin-left: 10px !important;
-    transition: color 0.3s ease !important;
-    text-decoration: none !important;
-}
-
-.lang-button.active {
-    color: #ff77aa !important; /* Rosa farge for aktiv knapp */
-}
-
-.lang-button:hover {
-    color: #ff77aa !important; /* Rosa farge ved hover */
-}
-
-/* Sikrer at betingelsene har samme utseende som andre seksjoner */
-.betingelser-container {
-    max-width: 800px;
-    margin: 60px auto;
-    padding: 40px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.betingelser-container h1 {
-    text-align: center;
-    font-size: 2rem;
-    color: #5e3b76; /* Lilla farge som matcher overskrifter */
-    margin-bottom: 20px;
-}
-
-.betingelser-container section {
-    margin-bottom: 30px;
-}
-
-.betingelser-container h2 {
-    font-size: 1.5rem;
-    color: #5e3b76;
-    margin-bottom: 10px;
-}
-
-.betingelser-container p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #333;
-}
-
-.om-meg-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch; /* sørger for like høyde */
-    gap: 2rem;
-    margin-top: 5rem;
-    padding: 2rem;
-}
-
-/* Tekstkortet */
-.kort.text {
-    flex: 2; /* gjør denne litt bredere enn bildet */
-    padding: 2rem;
-    background-color: #fff8ec;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* Bildet og kortet rundt */
-.kort.bilde {
-    flex: 1.5; /* Øker bredden litt */
-    max-width: 600px; /* Øker maksimal bredde på bildet */
-    padding: 1rem;
-    background-color: #f4f4f4;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.profilbilde {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    object-fit: contain;
-}
-
-/* Footer nederst */
-footer {
+  }
+  
+  /* ================================
+     FOOTER
+  ================================== */
+  footer {
     margin-top: 60px;
     text-align: center;
     padding: 20px 0;
@@ -419,163 +289,89 @@ footer {
     background-color: #f7f7f7;
     width: 100%;
     box-sizing: border-box;
-}
-
-footer p {
-    margin: 0;
-    padding: 0 20px;
-}
-
-.slide-in {
+  }
+  
+  /* ================================
+     "OM MEG" – MODERNE LAYOUT
+  ================================== */
+  .innhold-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .bilde-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  
+  .portrettbilde {
+    width: 200px;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+  
+  .tekstinnhold p {
+    text-align: left;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5em;
+  }
+  
+  .tidslinje-moderne {
+    margin-top: 3rem;
+    text-align: left;
+  }
+  
+  .tidslinje-tittel {
+    text-align: center;
+    color: #5e3b76;
+    margin-bottom: 1rem;
+  }
+  
+  .punkter {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .punkter li {
+    position: relative;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    border-left: 4px solid #379683;
+  }
+  
+  .punkter li::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 0.4rem;
+    width: 10px;
+    height: 10px;
+    background-color: #379683;
+    border-radius: 50%;
+  }
+  
+  /* ================================
+     ANIMASJONER
+  ================================== */
+  .slide-in {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.6s ease-out;
-}
+  }
   
-.slide-in.visible {
+  .slide-in.visible,
+  .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
-}
+  }
   
-.highlight-quote {
-    font-style: italic;
-    background-color: #eaf5f2; /* Lys temagrønn */
-    border-left: 5px solid #379683; /* Primær temafarge */
-    margin: 2em 0;
-    padding: 1em 1.5em;
-    font-size: 1.1em;
-    color: #333;
-}  
-  
-.timeline {
-    position: relative;
-    margin: 3em 0;
-    padding-left: 2em;
-    border-left: 4px solid #379683; /* Primærfarge */
-}
-  
-.timeline-item {
-    position: relative;
-    margin-bottom: 2em;
-}
-  
-.timeline-date {
-    font-weight: bold;
-    color: #05386b; /* Dyp blågrønn */
-    margin-bottom: 0.3em;
-}
-  
-.timeline-content {
-    background-color: #edf7f5;
-    border-left: 4px solid #379683;
-    padding: 0.7em 1em;
-    border-radius: 4px;
-    color: #333;
-} 
-
-.om-avsnitt {
-    background-color: #eaf5f2;
-    border-left: 4px solid #379683;
-    padding: 1.2em 1.5em;
-    margin-bottom: 1.5em;
-    border-radius: 6px;
-    font-size: 1.05em;
-    line-height: 1.7;
-    transition: background-color 0.3s ease;
-}
-
-.om-avsnitt:hover {
-    background-color: #d1eee4;
-}
-
-.fade-in {
+  .fade-in {
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.6s ease-in-out;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.ny-layout {
-    padding: 3rem 2rem;
-    display: flex;
-    justify-content: center;
-}
-  
-.om-meg-innhold {
-    max-width: 1000px;
-    width: 100%;
-}
-  
-.om-meg-flex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    align-items: flex-start;
-}
-  
-.om-meg-bilde {
-    max-width: 300px;
-    flex-shrink: 0;
-    border-radius: 10px;
-    box-shadow: 0 0 12px rgba(0,0,0,0.1);
-}
-  
-.om-meg-tekst {
-    flex: 1;
-}
-  
-.om-avsnitt {
-    background-color: #fff8f8;
-    border-left: 5px solid #ff99cc;
-    padding: 1em 1.5em;
-    margin-bottom: 1.5em;
-    border-radius: 10px;
-    line-height: 1.7;
-    transition: background-color 0.3s ease;
-}
-  
-.om-avsnitt:hover {
-    background-color: #ffe9f1;
-}
-  
-.tidslinje {
-    margin-top: 3rem;
-    position: relative;
-    border-left: 4px solid #379683;
-    padding-left: 2rem;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease-in-out;
-}
-  
-.tidslinje.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-  
-.tidslinje-punkt {
-    position: relative;
-    margin-bottom: 2rem;
-    padding-left: 1rem;
-}
-  
-.tidslinje-punkt .sirkel {
-    position: absolute;
-    left: -26px;
-    top: 0.3rem;
-    width: 12px;
-    height: 12px;
-    background-color: #379683;
-    border-radius: 50%;
-}
-  
-.tidslinje-punkt p {
-    background-color: #edf7f5;
-    padding: 0.8em 1.2em;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}  
+  }  
