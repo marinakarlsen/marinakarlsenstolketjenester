@@ -397,17 +397,17 @@ body {
   }
   
   .tidslinje-kort {
-    background-color: #fff8f8; /* Samme lys rosa som på forsiden */
-    border-left: 6px solid #ff99cc; /* Rosa stripe */
-    padding: 1rem 1.5rem;
+    background-color: #fff8f8; /* Lys rosa */
+    border: 2px solid #ff99cc; /* Rosa ramme hele veien */
+    padding: 1.2rem 1.5rem;
     border-radius: 12px;
-    box-shadow: 0px 2px 10px rgba(255, 153, 204, 0.15);
+    box-shadow: 0px 3px 12px rgba(255, 153, 204, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
   .tidslinje-kort:hover {
-    transform: translateY(-3px);
-    box-shadow: 0px 6px 15px rgba(255, 153, 204, 0.25);
+    transform: translateY(-4px);
+    box-shadow: 0px 6px 18px rgba(255, 153, 204, 0.2);
   }
   
   .tidslinje-kort p {
@@ -416,14 +416,16 @@ body {
     color: #333;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    letter-spacing: 0.3px;
-    line-height: 1.6;
+    line-height: 1.7;
   }
   
   .tidslinje-kort strong {
-    color: #5e3b76; /* Dyp lilla – samme som overskrifter */
+    display: inline-block;
+    margin-bottom: 0.3rem;
+    color: #5e3b76;
     font-size: 1.05rem;
-  }  
+  }
+  
   
   /* ================================
      ANIMASJONER
