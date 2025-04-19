@@ -259,7 +259,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Språk-oppdatering for gjeldende side
     if (document.querySelector(".betingelser-container")) {
         updateBetingelserLanguage(savedLang);
-    } else if (document.querySelector(".om-meg-container")) {
+    } else if (document.querySelector("#om-meg")) {
         updateOmMegLanguage(savedLang);
     } else {
         updateLanguage(savedLang);
@@ -281,7 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (document.querySelector(".betingelser-container")) {
                 updateBetingelserLanguage(selectedLang);
-            } else if (document.querySelector(".om-meg-container")) {
+            } else if (document.querySelector("#om-meg")) {
                 updateOmMegLanguage(selectedLang);
             } else {
                 updateLanguage(selectedLang);
