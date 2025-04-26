@@ -238,7 +238,7 @@ body {
   .feedback-carousel {
     display: flex;
     gap: 20px;
-    overflow-x: auto;
+    overflow-x: scroll;
     padding: 20px 10px;
     scroll-snap-type: x mandatory;
     scroll-padding-left: 2rem;
