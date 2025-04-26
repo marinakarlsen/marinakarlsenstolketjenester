@@ -259,8 +259,17 @@ body {
   }
 
   .feedback-carousel::-webkit-scrollbar {
-    display: none; /* Skjul scrollbar i Chrome/Safari */
+    height: 6px;
   }
+  
+  .feedback-carousel::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .feedback-carousel::-webkit-scrollbar-thumb {
+    background-color: #ff99cc;
+    border-radius: 10px;
+  }  
   
   .feedback-card:hover {
     transform: translateY(-5px);
