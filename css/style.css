@@ -235,17 +235,6 @@ body {
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   }
   
-  .feedback-carousel {
-    display: flex;
-    gap: 20px;
-    overflow-x: scroll;
-    padding: 20px 10px;
-    scroll-snap-type: x mandatory;
-    scroll-padding-left: 2rem;
-    -webkit-overflow-scrolling: touch; /* Glatt scrolling på mobil */
-    scrollbar-width: none; /* Skjul scrollbar i Firefox */
-  }
-  
   .feedback-card {
     background-color: #ffffff;
     border-radius: 15px;
@@ -259,34 +248,40 @@ body {
     flex-shrink: 0;
   }
 
-  /* Skjul scrollbar på mobil (touch-enheter) */
-.feedback-carousel::-webkit-scrollbar {
-    display: none;
-  }
   .feedback-carousel {
-    scrollbar-width: none; /* Firefox */
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px 10px;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 2rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin; /* Firefox desktop */
   }
   
-  /* Vis scrollbar på ikke-touch enheter (PC) */
-  @media (hover: hover) and (pointer: fine) {
-    .feedback-carousel::-webkit-scrollbar {
-      display: block;
-      height: 6px;
-    }
+  /* Standard scrollbar (rosa) */
+  .feedback-carousel::-webkit-scrollbar {
+    height: 6px;
+  }
   
-    .feedback-carousel::-webkit-scrollbar-track {
-      background: transparent;
-    }
+  .feedback-carousel::-webkit-scrollbar-track {
+    background: transparent;
+  }
   
-    .feedback-carousel::-webkit-scrollbar-thumb {
-      background-color: #ff99cc;
-      border-radius: 10px;
-    }
+  .feedback-carousel::-webkit-scrollbar-thumb {
+    background-color: #ff99cc;
+    border-radius: 10px;
+  }
   
+  /* Skjul scrollbar på touch-enheter */
+  @media (hover: none) and (pointer: coarse) {
     .feedback-carousel {
-      scrollbar-width: thin; /* Firefox */
+      scrollbar-width: none; /* Firefox */
     }
-}
+    .feedback-carousel::-webkit-scrollbar {
+      display: none; /* Webkit */
+    }
+  }  
   
   .feedback-card:hover {
     transform: translateY(-5px);
