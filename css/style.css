@@ -256,20 +256,37 @@ body {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: left;
+    flex-shrink: 0;
   }
 
-  .feedback-carousel::-webkit-scrollbar {
-    height: 6px;
+  /* Skjul scrollbar på mobil (touch-enheter) */
+.feedback-carousel::-webkit-scrollbar {
+    display: none;
+  }
+  .feedback-carousel {
+    scrollbar-width: none; /* Firefox */
   }
   
-  .feedback-carousel::-webkit-scrollbar-track {
-    background: transparent;
-  }
+  /* Vis scrollbar på ikke-touch enheter (PC) */
+  @media (hover: hover) and (pointer: fine) {
+    .feedback-carousel::-webkit-scrollbar {
+      display: block;
+      height: 6px;
+    }
   
-  .feedback-carousel::-webkit-scrollbar-thumb {
-    background-color: #ff99cc;
-    border-radius: 10px;
-  }  
+    .feedback-carousel::-webkit-scrollbar-track {
+      background: transparent;
+    }
+  
+    .feedback-carousel::-webkit-scrollbar-thumb {
+      background-color: #ff99cc;
+      border-radius: 10px;
+    }
+  
+    .feedback-carousel {
+      scrollbar-width: thin; /* Firefox */
+    }
+}
   
   .feedback-card:hover {
     transform: translateY(-5px);
