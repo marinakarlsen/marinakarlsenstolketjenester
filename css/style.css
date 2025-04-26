@@ -239,8 +239,11 @@ body {
     display: flex;
     gap: 20px;
     overflow-x: auto;
-    padding: 10px;
+    padding: 20px 10px;
     scroll-snap-type: x mandatory;
+    scroll-padding-left: 2rem;
+    -webkit-overflow-scrolling: touch; /* Glatt scrolling på mobil */
+    scrollbar-width: none; /* Skjul scrollbar i Firefox */
   }
   
   .feedback-card {
@@ -253,6 +256,10 @@ body {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: left;
+  }
+
+  .feedback-carousel::-webkit-scrollbar {
+    display: none; /* Skjul scrollbar i Chrome/Safari */
   }
   
   .feedback-card:hover {
