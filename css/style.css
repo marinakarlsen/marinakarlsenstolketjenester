@@ -257,6 +257,7 @@ body {
     scroll-padding-left: 2rem;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin; /* Firefox desktop */
+    scrollbar-color: #ff99cc transparent;
   }
   
   /* Standard scrollbar (rosa) */
