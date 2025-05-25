@@ -538,45 +538,8 @@ body {
   }  
 
   .betingelser-wrapper {
+    background-color: #fff8f8;
     max-width: 800px;
-    margin: 4rem auto;
+    margin: 0 auto;
     padding: 2rem;
   }
-  
-  .betingelse-blokk {
-    background-color: #fff8f8;
-    border-left: 5px solid #ff99cc;
-    padding: 1.2em 1.5em;
-    margin-bottom: 1.5em;
-    border-radius: 15px;
-    font-size: 1.05em;
-    line-height: 1.7;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  }
-  
-  .betingelse-blokk:hover {
-    background-color: #ffe9f1;
-  }
-  
-  .betingelser-wrapper h1 {
-    text-align: center;
-    font-size: 2rem;
-    color: #5e3b76;
-    margin-bottom: 2rem;
-    font-family: 'Playfair Display', serif;
-  }
-  
-  .betingelser-wrapper h2 {
-    font-size: 1.4rem;
-    color: #5e3b76;
-    margin-top: 1.2em;
-    margin-bottom: 0.6em;
-  }
-  
-  .betingelser-wrapper p,
-  .betingelser-wrapper li {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: #333;
-  }  
