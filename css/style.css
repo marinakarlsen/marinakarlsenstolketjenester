@@ -466,12 +466,13 @@ body {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
-    gap: 1.2rem;
-    padding: 2rem 2.5rem 2rem 2rem; /* Mer høyre-padding */
+    gap: 1.5rem;
+    padding: 2rem 2.5rem 2rem 2rem; 
     scroll-snap-type: x mandatory;
     scroll-padding-left: 2rem;
     justify-content: flex-start;
-    max-width: 100%;
+    width: 100%;
+    max-width: none;
   }  
   
   .hendelse {
