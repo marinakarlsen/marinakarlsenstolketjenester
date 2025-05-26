@@ -542,4 +542,11 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
+  }
+  
+  .betingelser-container h2 {
+    font-size: 1.2rem;       /* mindre skrift */
+    color: #5e3b76;
+    margin-bottom: 0.6rem;
+    text-align: left;        /* venstrestilt */
   }  
