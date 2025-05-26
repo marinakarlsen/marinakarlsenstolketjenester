@@ -48,7 +48,7 @@ const translations = {
 
         betingelserPriser: "2. Priser og betalingsbetingelser",
         betingelserPriserText: "Prisen på tolketjenester avhenger av flere faktorer, inkludert:",
-        betingelserPrisType: "Type tolkning (telefontolking, skjermtolking eller personlig oppmøte)",
+        betingelserPrisType: "Type tolking (telefontolking, skjermtolking eller personlig oppmøte)",
         betingelserPrisTid: "Tidspunkt for oppdraget (ordinær arbeidstid 08:00–16:00 eller kvelds-/helgetid)",
         betingelserPrisKontakt: "Ta kontakt for et pristilbud tilpasset dine behov. Betaling skjer via faktura med 14 dagers betalingsfrist.",
 

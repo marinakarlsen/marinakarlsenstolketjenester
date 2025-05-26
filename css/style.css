@@ -471,6 +471,7 @@ body {
     scroll-snap-type: x mandatory;
     scroll-padding-left: 2rem;
     justify-content: flex-start;
+    max-width: 100%;
   }  
   
   .hendelse {
