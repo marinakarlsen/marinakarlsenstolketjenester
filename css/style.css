@@ -60,14 +60,13 @@ body {
   }
   
   .logo-container img {
-    transition: transform 0.3s ease;
-    will-change: transform;
-    transform: scale(0.75); 
+    width: 180px;
+    transition: width 0.3s ease;
   }
   
   .logo-container.shrink img {
-    transform: scale(0.55); 
-  }  
+    width: 120px;
+  }   
 
   /* ================================
      NAVIGASJON
