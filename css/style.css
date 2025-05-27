@@ -23,8 +23,13 @@ body {
     border-radius: 10px;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
-    max-width: 1200px;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
+
+  section + section {
+    margin-top: 1.5rem;
+  }  
   
   /* ================================
      SEKSJONSFARGER
