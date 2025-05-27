@@ -318,8 +318,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // Logo skrinking
     const logoContainer = document.querySelector('.logo-container');
     if (logoContainer) {
+        let lastKnownScrollY = 0;
+        let ticking = false;
+
         window.addEventListener('scroll', () => {
-            logoContainer.classList.toggle('shrink', window.scrollY > 50);
+            lastKnownScrollY = window.scrollY;
+
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    logoContainer.classList.toggle('shrink', lastKnownScrollY > 50);
+                    ticking = false;
+                });
+                ticking = true;
+            }
         });
 
         const logoLink = logoContainer.querySelector('a');
