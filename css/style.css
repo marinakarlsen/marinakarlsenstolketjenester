@@ -62,11 +62,11 @@ body {
   .logo-container img {
     transition: transform 0.3s ease;
     will-change: transform;
-    transform: scale(1); 
+    transform: scale(1);
   }
   
   .logo-container.shrink img {
-    transform: scale(0.66); 
+    transform: scale(0.6); 
   }  
   
   /* ================================
