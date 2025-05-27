@@ -60,13 +60,13 @@ body {
   }
   
   .logo-container img {
-    width: 180px;
+    width: 220px;  
     transition: width 0.3s ease;
   }
   
   .logo-container.shrink img {
-    width: 120px;
-  }   
+    width: 140px;  
+  }  
 
   /* ================================
      NAVIGASJON
