@@ -48,7 +48,7 @@ body {
   }
   
   .logo-container {
-  height: 150px; 
+  height: 160px; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,7 +62,7 @@ body {
 }
 
   .logo-container.shrink {
-    height: 100px; 
+    height: 110px; 
   }
 
   .logo-container img {
