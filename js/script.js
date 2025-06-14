@@ -65,7 +65,7 @@ const translations = {
         betingelserHvorforTolkText: "Nasjonalt tolkeregister er et offentlig register over kvalifiserte tolker i Norge. En registrert tolk har dokumentert kompetanse, kjennskap til tolkeetiske retningslinjer og er underlagt kravene i Tolkeloven. Dette sikrer kvalitet, nøytralitet og profesjonell utførelse av tolkeoppdrag.",
 
         betingelserKontakt: "5. Kontakt",
-        betingelserKontaktText: "For spørsmål om betingelser, vennligst kontakt meg på:\n📧 marinakarlsen5@gmail.com",
+        betingelserKontaktText: "For spørsmål om betingelser, vennligst kontakt meg på:",
 
         omMegTitle: "Om Meg",
         omMegIntro: "Som tolk jobber jeg i skjæringspunktet mellom språk, mennesker og presisjon. Jeg har alltid hatt interesse for hvordan vi kommuniserer – både det menneskelige og det strukturelle. Det var denne kombinasjonen som førte meg inn i tolkeyrket.",
