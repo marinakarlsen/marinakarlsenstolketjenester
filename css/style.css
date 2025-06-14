@@ -48,32 +48,31 @@ body {
   }
   
   .logo-container {
-    height: 120px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px 0; 
-    transition: height 0.3s ease;
-    background-color: white;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  transition: height 0.3s ease;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-  .logo-container.shrink {
-    height: 70px;
-    padding: 10px 0;
-  }
-  
-  .logo-container img {
-    width: 220px;
-    max-width: 90vw;
-    transition: width 0.3s ease;
-  }
+.logo-container.shrink {
+  height: 80px;
+}
 
-  .logo-container.shrink img {
-    width: 150px;
-  }
+.logo-container img {
+  width: 220px;
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+.logo-container.shrink img {
+  transform: scale(0.8);
+}
 
   /* ================================
      NAVIGASJON
