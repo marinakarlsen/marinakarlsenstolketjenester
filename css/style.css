@@ -347,6 +347,12 @@ body {
   .footer-del:not(:last-child)::after {
     content: " | ";
   }
+
+  .footer-version {
+    text-align: center;
+    font-size: 0.85rem;
+    margin-top: 0.2rem;
+  }
   
   /* ================================
      "OM MEG" 
