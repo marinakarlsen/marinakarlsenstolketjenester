@@ -65,7 +65,7 @@ body {
 }
 
 .logo-container img {
-  width: 220px;
+  width: 260px;
   transition: transform 0.3s ease;
   will-change: transform;
 }
