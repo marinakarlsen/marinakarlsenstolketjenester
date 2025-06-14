@@ -657,6 +657,15 @@ body {
     padding: 0.6rem 0.8rem !important;
   }
 
+  #om-meg .hendelse strong {
+    font-size: 0.9rem !important;
+    margin-bottom: 0.2rem;
+  }
+
+  #om-meg .innhold-container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
 }
 
 @media (max-width: 480px) {
