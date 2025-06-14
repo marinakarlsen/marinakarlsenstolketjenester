@@ -571,3 +571,64 @@ body {
     margin-bottom: 0.6rem;
     text-align: left;        /* venstrestilt */
   }  
+
+/*MOBILTILPASNING*/
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  .logo-container {
+    height: 120px;
+  }
+  .logo-container.shrink {
+    height: 80px;
+  }
+
+  .logo-container img {
+    max-width: 240px;
+  }
+
+  .innhold-container,
+  section,
+  .betingelser-container {
+    padding: 1rem;
+    margin: 0 auto;
+    width: auto;
+  }
+
+  .tidslinje-horisontal {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .hendelse {
+    min-width: 140px;
+  }
+}
+@media (max-width: 480px) {
+  .logo-container {
+    height: 100px;
+  }
+  .logo-container.shrink {
+    height: 60px;
+  }
+  .logo-container img {
+    max-width: 200px;
+  }
+
+  .tekstinnhold p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .tidslinje-horisontal {
+    gap: 0.8rem;
+  }
+  .hendelse {
+    min-width: 120px;
+  }
+}
+.tidslinje-horisontal {
+  -webkit-overflow-scrolling: touch; 
+}
