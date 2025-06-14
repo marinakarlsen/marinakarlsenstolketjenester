@@ -616,16 +616,14 @@ body {
     font-size: 2.5rem !important;
   }
 
-  footer {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center;
-    gap: 0.5rem;
-    font-size: 0.85rem !important;
-    text-align: center;
-    padding: 1rem;
-    background-color: #f7f7f7;
+  footer p {
+    display: block;
+    width: 100%;
+  }
+
+  footer p:first-child::after {
+    content: "";
+    display: block;
   }
 
   /* Økt padding på innholdskonteinere */
