@@ -572,87 +572,71 @@ body {
     text-align: left;        /* venstrestilt */
   }  
 
-/* ========== MOBILTILPASNING ========== */
+/* ==========================
+   MOBILTILPASNINGER 
+   ========================== */
 @media (max-width: 768px) {
-  /* Generell tekst og luft */
+  /* Mindre tekst og bedre luft */
   body {
-    font-size: 0.95rem;
+    font-size: 0.9rem !important;
   }
 
-  h2, h3 {
-    font-size: 1.3rem;
-    line-height: 1.4;
+  h2 {
+    font-size: 1.2rem !important;
+    margin-bottom: 1rem !important;
+  }
+  h3 {
+    font-size: 1.1rem !important;
   }
 
   p {
-    line-height: 1.6;
+    font-size: 0.95rem !important;
+    line-height: 1.7 !important;
+    margin-bottom: 1.2rem !important;
   }
 
+  /* Økt padding på innholdskonteinere */
   .section,
   .innhold-container,
   .betingelser-container,
   .tekstinnhold,
   .feedback-section {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
   }
 
-  /* Hovedmeny */
-  .sticky-nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .sticky-nav li {
-    margin: 10px 0;
-  }
-
-  /* Tjenester én per rad */
+  /* Tjenester per rad */
   .services-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 0 1rem;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 2rem !important;
+    padding: 0 2rem !important;
   }
 
   .service {
-    width: 100%;
-    max-width: 90%;
-    box-sizing: border-box;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 }
 
 @media (max-width: 480px) {
-  /* Logo */
-  .logo-container {
-    height: 100px;
+  /* Ytterligere mobiltiltak • ekstra luft */
+  .section,
+  .innhold-container,
+  .betingelser-container,
+  .tekstinnhold,
+  .feedback-section {
+    padding-left: 2.5rem !important;
+    padding-right: 2.5rem !important;
   }
 
-  .logo-container.shrink {
-    height: 60px;
+  p {
+    font-size: 0.9rem !important;
   }
 
-  .logo-container img {
-    max-width: 200px;
+  h2 {
+    font-size: 1.1rem !important;
   }
-
-  /* Tekstinnhold */
-  .tekstinnhold p {
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-
-  /* Tidslinje horisontal */
-  .tidslinje-horisontal {
-    gap: 0.8rem;
-  }
-
-  .hendelse {
-    min-width: 120px;
-  }
-}
-
-/* iOS scrolling */
-.tidslinje-horisontal {
-  -webkit-overflow-scrolling: touch;
 }
