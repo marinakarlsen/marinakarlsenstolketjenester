@@ -586,7 +586,8 @@ body {
 
   /* Tjenester: én per rad */
   .services-container {
-    flex-direction: column;
+    display: flex;
+    flex-direction: column !important;
     align-items: center;
     gap: 1.5rem;
     padding: 0 1rem;
@@ -595,6 +596,7 @@ body {
   .service {
     width: 100%;
     max-width: 90%;
+    box-sizing: border-box;
   }
 
   /* Litt luft på siden */
