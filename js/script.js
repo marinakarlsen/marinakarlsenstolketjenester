@@ -366,13 +366,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // EmailJS
     const contactForm = document.querySelector(".contact-form");
     if (contactForm) {
-        if (typeof emailjs === 'undefined') {
-            console.error('EmailJS er ikke lastet inn!');
-            alert('En feil oppstod. EmailJS er ikke initialisert.');
-            return;
-        }
-
-        emailjs.init('bFcwSKHQToHSyB7aX');
         console.log('EmailJS er initialisert med den nyeste SDK-en');
 
         contactForm.addEventListener("submit", function (e) {
