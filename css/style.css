@@ -572,18 +572,11 @@ body {
     text-align: left;        /* venstrestilt */
   }  
 
-/*MOBILTILPASNING*/
+/* ========== MOBILTILPASNING ========== */
 @media (max-width: 768px) {
+  /* Generell tekst og luft */
   body {
-    font-size: 0.95rem; /* litt mindre tekst generelt */
-  }
-
-  .section,
-  .innhold-container,
-  .betingelser-container,
-  .tekstinnhold {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    font-size: 0.95rem;
   }
 
   h2, h3 {
@@ -594,8 +587,17 @@ body {
   p {
     line-height: 1.6;
   }
-  
-  /* Hovedmenyen */
+
+  .section,
+  .innhold-container,
+  .betingelser-container,
+  .tekstinnhold,
+  .feedback-section {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  /* Hovedmeny */
   .sticky-nav ul {
     flex-direction: column;
     align-items: center;
@@ -605,10 +607,9 @@ body {
     margin: 10px 0;
   }
 
-  /* Tjenester: én per rad */
+  /* Tjenester én per rad */
   .services-container {
-    display: flex;
-    flex-direction: column !important;
+    flex-direction: column;
     align-items: center;
     gap: 1.5rem;
     padding: 0 1rem;
@@ -619,40 +620,39 @@ body {
     max-width: 90%;
     box-sizing: border-box;
   }
-
-  /* Litt luft på siden */
-  .section,
-  .feedback-section,
-  .innhold-container,
-  .betingelser-container {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
 }
 
 @media (max-width: 480px) {
+  /* Logo */
   .logo-container {
     height: 100px;
   }
+
   .logo-container.shrink {
     height: 60px;
   }
+
   .logo-container img {
     max-width: 200px;
   }
 
+  /* Tekstinnhold */
   .tekstinnhold p {
     font-size: 1rem;
     line-height: 1.6;
   }
 
+  /* Tidslinje horisontal */
   .tidslinje-horisontal {
     gap: 0.8rem;
   }
+
   .hendelse {
     min-width: 120px;
   }
 }
+
+/* iOS scrolling */
 .tidslinje-horisontal {
-  -webkit-overflow-scrolling: touch; 
+  -webkit-overflow-scrolling: touch;
 }
