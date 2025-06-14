@@ -61,7 +61,8 @@ body {
   }
 
   .logo-container.shrink {
-  padding: 70px; 
+    height: 70px;
+    padding: 10px 0;
   }
   
   .logo-container img {
