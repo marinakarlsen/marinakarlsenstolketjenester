@@ -366,7 +366,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // EmailJS
     const contactForm = document.querySelector(".contact-form");
     if (contactForm) {
-        console.log('EmailJS er initialisert med den nyeste SDK-en');
 
         contactForm.addEventListener("submit", function (e) {
             e.preventDefault();
