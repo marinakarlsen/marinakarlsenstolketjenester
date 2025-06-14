@@ -66,14 +66,14 @@ body {
   }
   
   .logo-container img {
-    transition: transform 0.3s ease;
-    will-change: transform;
-    transform: scale(0.5);
+    width: 220px;
+    max-width: 90vw;
+    transition: width 0.3s ease;
   }
-  
+
   .logo-container.shrink img {
-    transform: scale(0.3); /* ved scroll */  
-  }  
+    width: 150px;
+  }
 
   /* ================================
      NAVIGASJON
