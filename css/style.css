@@ -659,13 +659,13 @@ body {
 
   .om-meg-container .hendelse strong,
   .om-meg-container .hendelse p {
-    font-size: 0.8rem !important;
+    font-size: 0.7rem !important;
   }
 
   .om-meg-container,
   .om-meg-container .tekstinnhold {
-    padding-left: 0.7rem !important;
-    padding-right: 0.7rem !important;
+    padding-left: 0.6rem !important;
+    padding-right: 0.6rem !important;
   }
 }
 
