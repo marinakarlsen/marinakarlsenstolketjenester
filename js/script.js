@@ -73,7 +73,7 @@ const translations = {
         omMegKvalifikasjon: "Min vei inn i tolkeyrket startet med tospråktesten og TAO-kurset. Deretter tok jeg statsautorisasjonsprøven i tolking – en krevende, men lærerik prosess som endte med at jeg ble registrert i Nasjonalt tolkeregister i kategori C. Det å være statsautorisert tolk er noe jeg setter stor pris på, både fordi det er en anerkjennelse av kompetanse, og fordi det forplikter til høy faglig og etisk standard.",
         omMegSprak: "Jeg har alltid hatt en interesse for språk og kommunikasjon. Gjennom kurs og utdanning har jeg fordypet meg i språk som tysk, russisk og engelsk, men det er mellom norsk og ukrainsk jeg tolker profesjonelt.",
         omMegStudier: "Ved siden av tolkeoppdragene studerer jeg til sivilingeniør innen ingeniørfag og IKT – en utdanning som gir meg en strukturert og analytisk tilnærming også i tolkerollen.",
-        omMegMotivasjon: "Motivasjonen min for å jobbe som tolk handler først og fremst om mennesker. Jeg ønsker å bidra til at alle skal få likeverdige tjenester og god oppfølging, uavhengig av hvilket språk de snakker. God tolkning handler ikke bare om språk, men også om tillit, nøyaktighet og medmenneskelighet.",
+        omMegMotivasjon: "Motivasjonen min for å jobbe som tolk handler først og fremst om mennesker. Jeg ønsker å bidra til at alle skal få likeverdige tjenester og god oppfølging, uavhengig av hvilket språk de snakker. God tolking handler ikke bare om språk, men også om tillit, nøyaktighet og medmenneskelighet.",
         },
     uk: {
         header: "Замовити перекладацькі послуги",

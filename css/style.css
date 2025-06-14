@@ -644,7 +644,19 @@ body {
   #om-meg .tekstinnhold p {
   font-size: 1.1rem;
   line-height: 1.8;
-}
+  }
+  
+  #om-meg .innhold-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  #om-meg .hendelse {
+  min-width: 100px;
+  font-size: 0.95rem;
+  padding: 0.8rem 1rem;
+  }
+
 }
 
 @media (max-width: 480px) {
