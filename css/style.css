@@ -62,11 +62,11 @@ body {
   .logo-container img {
     transition: transform 0.3s ease;
     will-change: transform;
-    transform: scale(0.8); /* startstørrelse */
+    transform: scale(0.5); /* startstørrelse */
   }
   
   .logo-container.shrink img {
-    transform: scale(0.55); /* ved scroll */  
+    transform: scale(0.3); /* ved scroll */  
   }  
 
   /* ================================
