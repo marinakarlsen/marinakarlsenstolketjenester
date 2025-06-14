@@ -603,9 +603,10 @@ body {
   }
 
   h2 {
-    font-size: 1.2rem !important;
+    font-size: 1.6rem !important;
     margin-bottom: 1rem !important;
   }
+
   h3 {
     font-size: 1.1rem !important;
   }
@@ -614,6 +615,14 @@ body {
     font-size: 0.95rem !important;
     line-height: 1.7 !important;
     margin-bottom: 1.2rem !important;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.85rem;
+    gap: 0.3rem;
   }
 
   /* Økt padding på innholdskonteinere */
