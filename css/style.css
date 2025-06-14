@@ -574,6 +574,27 @@ body {
 
 /*MOBILTILPASNING*/
 @media (max-width: 768px) {
+  body {
+    font-size: 0.95rem; /* litt mindre tekst generelt */
+  }
+
+  .section,
+  .innhold-container,
+  .betingelser-container,
+  .tekstinnhold {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  h2, h3 {
+    font-size: 1.3rem;
+    line-height: 1.4;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+  
   /* Hovedmenyen */
   .sticky-nav ul {
     flex-direction: column;
