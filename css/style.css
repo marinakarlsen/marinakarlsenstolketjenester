@@ -574,38 +574,39 @@ body {
 
 /*MOBILTILPASNING*/
 @media (max-width: 768px) {
-  body {
-    font-size: 16px;
+  /* Hovedmenyen */
+  .sticky-nav ul {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .logo-container {
-    height: 120px;
-  }
-  .logo-container.shrink {
-    height: 80px;
+  .sticky-nav li {
+    margin: 10px 0;
   }
 
-  .logo-container img {
-    max-width: 240px;
+  /* Tjenester: én per rad */
+  .services-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0 1rem;
   }
 
+  .service {
+    width: 100%;
+    max-width: 90%;
+  }
+
+  /* Litt luft på siden */
+  .section,
+  .feedback-section,
   .innhold-container,
-  section,
   .betingelser-container {
-    padding: 1rem;
-    margin: 0 auto;
-    width: auto;
-  }
-
-  .tidslinje-horisontal {
-    padding: 1rem;
-    gap: 1rem;
-  }
-
-  .hendelse {
-    min-width: 140px;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
+
 @media (max-width: 480px) {
   .logo-container {
     height: 100px;
