@@ -48,8 +48,7 @@ body {
   }
   
   .logo-container {
-  height: 120px;
-  overflow: hidden; 
+  height: 140px; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,19 +58,22 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  }
+  overflow: hidden; /* Sikrer at ingenting stikker ut */
+}
 
   .logo-container.shrink {
-    height: 80px;
+    height: 90px; 
   }
 
   .logo-container img {
+    height: 100%;
     width: auto;
     max-height: 100%;
-    max-width: 300px;
+    max-width: 320px; 
     transition: transform 0.3s ease;
     will-change: transform;
     object-fit: contain;
+    display: block;
   }
 
   .logo-container.shrink img {
