@@ -58,21 +58,23 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-}
+  }
 
-.logo-container.shrink {
-  height: 80px;
-}
+  .logo-container.shrink {
+    height: 80px;
+  }
 
-.logo-container img {
+  .logo-container img {
   width: 340px;
+  max-height: 100%;
+  object-fit: contain;
   transition: transform 0.3s ease;
   will-change: transform;
-}
+  }
 
-.logo-container.shrink img {
-  transform: scale(0.8);
-}
+  .logo-container.shrink img {
+    transform: scale(0.8);
+  }
 
   /* ================================
      NAVIGASJON
