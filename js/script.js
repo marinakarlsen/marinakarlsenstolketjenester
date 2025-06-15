@@ -210,7 +210,7 @@ function updateLanguage(lang) {
 
     const kontaktInfo = document.querySelectorAll("#kontakt li");
     if (kontaktInfo.length >= 2) {
-        kontaktInfo[0].innerHTML = `<i class="fa fa-envelope"></i> ${t.epostLabel} <a href="mailto:marinakarlsen5@gmail.com">marinakarlsen5@gmail.com</a>`;
+        kontaktInfo[0].innerHTML = `<i class="fa fa-envelope"></i> ${t.epostLabel} <a href="mailto:kontakt@marinakarlsenstolketjenester.no">kontakt@marinakarlsenstolketjenester.no</a>`;
         kontaktInfo[1].innerHTML = `<i class="fa fa-phone"></i> ${t.telefonLabel} <a href="tel:+4746930229">+47 469 30 229</a>`;
     }
 }
