@@ -38,8 +38,29 @@ const translations = {
         tilbakemeldingerHeader: "Tilbakemeldinger",
         feedbackIntro: "Se hva kundene sier om mine tjenester:",
 
+        tb1overskrift: "Tusen takk for hjelpen!",
+        tb1innhold: "Veldig profesjonell og tydelig i tolkesituasjoner. Skapte en trygg atmosfære for alle involverte.",
+        tb1avsender: "Offentlig etat",
+        tb2overskrift: "Proft, tydelig og varmt",
+        tb2innhold: "Tolket med stor nøyaktighet og respekt. Takk for at du gjorde kommunikasjonen enkel.",
+        tb2avsender: "Helseforetak",
+        tb3overskrift: "Veldig fornøyd!",
+        tb3innhold: "Effektiv og behagelig tolk, som raskt forsto både sakens alvor og brukernes behov.",
+        tb3avsender: "Privat klient",
+        tb4overskrift: "Profesjonelt og pålitelig",
+        tb4innhold: "Marina leverte eksepsjonell kvalitet og holdt seg til avtalt tid. Anbefales på det sterkeste!", 
+        tb4avsender: "Kunde, Oslo",
+        tb5overskrift: "Utmerket tolketjeneste",
+        tb5innhold: "Rask respons og god kommunikasjon gjennom hele prosessen.",
+        tb5overskrift: "God støtte i komplekse situasjoner",
+        tb5innhold: "Marina hjalp oss gjennom en sensitiv sak på en profesjonell og trygg måte.",
+        tb5avsender: "Kunde, Bergen",
+
         kontaktHeader: "Kontakt",
         kontaktText: "Ta gjerne kontakt via e-post eller telefon:",
+        kontaktEpost: "E-post",
+        kontaktTelefon: "Telefon",
+        kontaktRegister: "Du kan også finne meg i Nasjonalt tolkeregister (IMDi) med Tolk-ID: 7418",
 
         betingelserHeader: "Vilkår og betingelser",
         betingelserBestilling: "1. Bestilling og avbestilling",
@@ -112,8 +133,34 @@ const translations = {
         tilbakemeldingerHeader: "Відгуки",
         feedbackIntro: "Що клієнти кажуть про мої послуги:",
 
+        tb1overskrift: "Щиро дякуємо за допомогу!",
+        tb1innhold: "Дуже професійна та чітка під час перекладу. Створила безпечну атмосферу для всіх учасників.",
+        tb1avsender: "Державна установа",
+
+        tb2overskrift: "Професійно, чітко та тепло",
+        tb2innhold: "Перекладала з великою точністю та повагою. Дякуємо, що зробили спілкування легким.",
+        tb2avsender: "Заклад охорони здоров’я",
+
+        tb3overskrift: "Дуже задоволені!",
+        tb3innhold: "Ефективна та приємна перекладачка, яка швидко зрозуміла як важливість справи, так і потреби користувачів.",
+        tb3avsender: "Приватний клієнт",
+
+        tb4overskrift: "Професійно та надійно",
+        tb4innhold: "Марина надала виняткову якість і дотрималася узгодженого часу. Щиро рекомендуємо!",
+        tb4avsender: "Клієнт, Осло",
+
+        tb5overskrift: "Чудова перекладацька послуга",
+        tb5innhold: "Швидка відповідь і гарна комунікація протягом усього процесу.",
+
+        tb6overskrift: "Надійна підтримка у складних ситуаціях",
+        tb6innhold: "Марина професійно й впевнено допомогла нам пройти через делікатну справу.",
+        tb6avsender: "Клієнт, Берген",
+
         kontaktHeader: "Контакт",
         kontaktText: "Зв'яжіться зі мною електронною поштою або телефоном:",
+        kontaktEpost: "Електронна пошта",
+        kontaktTelefon: "Номер телефону",
+        kontaktRegister: "Мене також можна знайти в Національному реєстрі перекладачів (Директорат з питань інтеграції та різноманіття) за ідентифікатором перекладача: 7418.",
 
         betingelserHeader: "Умови та положення",
         betingelserBestilling: "1. Замовлення та скасування",
