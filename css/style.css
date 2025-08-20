@@ -721,3 +721,14 @@ body {
     font-size: 1.1rem !important;
   }
 }
+
+#kontakt ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  text-align: center;  /* sentrerer teksten */
+}
+
+#kontakt li {
+  margin-bottom: 10px;
+}
