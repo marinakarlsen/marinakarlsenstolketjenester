@@ -260,6 +260,11 @@ function updateLanguage(lang) {
         kontaktInfo[0].innerHTML = `<i class="fa fa-envelope"></i> ${t.epostLabel} <a href="mailto:kontakt@marinakarlsenstolketjenester.no">kontakt@marinakarlsenstolketjenester.no</a>`;
         kontaktInfo[1].innerHTML = `<i class="fa fa-phone"></i> ${t.telefonLabel} <a href="tel:+4746930229">+47 469 30 229</a>`;
     }
+
+    document.querySelectorAll("[data-translate]").forEach(el => {
+    const key = el.getAttribute("data-translate");
+    if (t[key]) el.textContent = t[key];
+    });
 }
 
 function updateBetingelserLanguage(lang) {
