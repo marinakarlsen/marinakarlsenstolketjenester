@@ -518,4 +518,21 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(error => {
             console.error('Feil ved lasting av versjonsinformasjon:', error);
         });
-});
+
+        const oppdragstypeSelect = document.getElementById("oppdragstype");
+        const adresseWrapper = document.getElementById("adresse-wrapper");
+
+        function toggleAdressefelt() {
+        if (oppdragstypeSelect.value === "personlig") {
+            adresseWrapper.style.display = "block";
+        } else {
+            adresseWrapper.style.display = "none";
+        }
+        }
+
+        // Skjul ved lasting hvis ikke "personlig" er valgt
+        toggleAdressefelt();
+
+        // Endre dynamisk når brukeren velger
+        oppdragstypeSelect.addEventListener("change", toggleAdressefelt);
+        });
