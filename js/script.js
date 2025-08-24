@@ -446,20 +446,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Sjekker nødvendige felter
             ["dato", "starttid", "sluttid", "tema", "kundeinfo", "epost", "telefon"].forEach(id => {
-                const field = form.querySelector(`#${id}`);
-                if (!field.value.trim()) {
-                    hasError = true;
-                    field.classList.add("input-error");
+            const field = form.querySelector(`#${id}`);
+            const value = field.value.trim();
 
-                    const errorMsg = document.createElement("div");
-                    errorMsg.className = "error-message";
-                    errorMsg.style.color = "#d22";
-                    errorMsg.style.fontSize = "0.9rem";
-                    errorMsg.style.marginBottom = "8px";
-                    errorMsg.textContent = "Dette feltet må fylles ut";
+            let error = "";
 
-                    field.insertAdjacentElement("afterend", errorMsg);
-                }
+            if (!value) {
+                error = "Dette feltet må fylles ut";
+            } else if (id === "epost" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                error = "Ugyldig e-postadresse";
+            } else if (id === "telefon" && !/^\+?\d{8,15}$/.test(value)) {
+                error = "Ugyldig telefonnummer";
+            }
+
+            if (error) {
+                hasError = true;
+                field.classList.add("input-error");
+
+                const errorMsg = document.createElement("div");
+                errorMsg.className = "error-message";
+                errorMsg.style.color = "#d22";
+                errorMsg.style.fontSize = "0.9rem";
+                errorMsg.style.marginBottom = "8px";
+                errorMsg.textContent = error;
+
+                field.insertAdjacentElement("afterend", errorMsg);
+            }
             });
 
             if (hasError) return; // Stopper innsending hvis feil
