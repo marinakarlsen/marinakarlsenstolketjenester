@@ -732,3 +732,8 @@ body {
 #kontakt li {
   margin-bottom: 10px;
 }
+
+.input-error {
+  border: 2px solid #d22 !important;
+  background-color: #fff0f0;
+}

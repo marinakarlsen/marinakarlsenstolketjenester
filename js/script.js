@@ -438,6 +438,32 @@ document.addEventListener("DOMContentLoaded", () => {
                 language: selectedLang === "no" ? "Norsk" : "Українська"
             };
 
+            // Fjerner gamle feilmeldinger og rød kant
+            form.querySelectorAll(".error-message").forEach(el => el.remove());
+            form.querySelectorAll("input, select, textarea").forEach(el => el.classList.remove("input-error"));
+
+            let hasError = false;
+
+            // Sjekker nødvendige felter
+            ["dato", "starttid", "sluttid", "tema", "kundeinfo", "epost", "telefon"].forEach(id => {
+                const field = form.querySelector(`#${id}`);
+                if (!field.value.trim()) {
+                    hasError = true;
+                    field.classList.add("input-error");
+
+                    const errorMsg = document.createElement("div");
+                    errorMsg.className = "error-message";
+                    errorMsg.style.color = "#d22";
+                    errorMsg.style.fontSize = "0.9rem";
+                    errorMsg.style.marginBottom = "8px";
+                    errorMsg.textContent = "Dette feltet må fylles ut";
+
+                    field.insertAdjacentElement("afterend", errorMsg);
+                }
+            });
+
+            if (hasError) return; // Stopper innsending hvis feil
+
             fetch("https://api.emailjs.com/api/v1.0/email/send", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
